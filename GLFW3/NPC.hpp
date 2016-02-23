@@ -15,6 +15,7 @@
 class NPC : public Creature{
 protected:
     NPC(const Math::Vector2D &position, const Math::Vector2D &scene, const Graphics::Rect &bounds, bool visible, float health);
+    virtual void talk(GameObject*) = 0;
 };
 
 #endif /* NPC_hpp */

@@ -47,7 +47,7 @@ namespace Math {
             return *this;
         }
         
-        inline Vector2D& operator*(const Vector2D& v){
+        inline Vector2D& operator* (const Vector2D& v){
             this->x *= v.x;
             this->y *= v.y;
             return *this;

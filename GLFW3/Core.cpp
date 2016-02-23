@@ -46,6 +46,7 @@ void Core::draw(){
 void Core::keyPressed(int key){
     //0 - 48
     //9 - 57
+    std::cout << true <<std::endl;
     inputHandler->keyDown(key);
 }
 

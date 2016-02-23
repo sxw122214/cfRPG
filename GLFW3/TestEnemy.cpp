@@ -13,10 +13,20 @@ TestEnemy::TestEnemy(const Math::Vector2D &position, const Math::Vector2D &scene
 }
 
 void TestEnemy::update(){
-    Math::Vector2D sv(1, 0);
+    Math::Vector2D sv(1, 1);
     WorldHandler::getInstance()->movementCheck(editPosition(), sv, editScene(), true, false);
 }
 
 void TestEnemy::render(){
     SpriteHandler::getInstance()->get(SPRITE_CODE::player)->draw(this->getPosition());
+}
+
+void TestEnemy::talk(GameObject *go){
+    Math::Vector2D thisV = this->getPosition();
+    Math::Vector2D goV = go->getPosition();
+    thisV *= this->getScene();
+    goV *= go->getScene();
+    if(Math::vectorDistance(thisV, goV) < 100){
+        std::cout << "Hellow there stranger" << std::endl;
+    }
 }

@@ -22,6 +22,7 @@ GameState::GameState(){
 
 void GameState::update(){
     worldHandler->updateWorld();
+    t.talk(&player);
 }
 
 void GameState::draw(){

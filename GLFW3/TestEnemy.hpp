@@ -17,8 +17,9 @@
 class TestEnemy : public NPC{
 public:
     TestEnemy(const Math::Vector2D &position, const Math::Vector2D &scene, const Graphics::Rect &bounds, bool visible, float health);
-    void render();
-    void update();
+    virtual void render();
+    virtual void update();
+    virtual void talk(GameObject* go);
 };
 
 #endif /* TestEnemy_hpp */
