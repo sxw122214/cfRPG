@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include "State.hpp"
 #include <vector>
+#include <thread>
 #include "Handlers.h"
 #include "Player.hpp"
 #include "TestEnemy.hpp"
