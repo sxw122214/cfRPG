@@ -23,10 +23,12 @@ void TestEnemy::render(){
 
 void TestEnemy::talk(GameObject *go){
     Math::Vector2D thisV = this->getPosition();
+    Math::Vector2D thisS = this->getScene();
     Math::Vector2D goV = go->getPosition();
-    thisV *= this->getScene();
-    goV *= go->getScene();
-    if(Math::vectorDistance(thisV, goV) < 100){
+    Math::Vector2D goS = go->getScene();
+    thisV += thisV*thisS;
+    goV += goV*goS;
+    if(Math::absolute(Math::vectorDistance(thisV, goV)) < 100){
         std::cout << "Hellow there stranger" << std::endl;
     }
 }
