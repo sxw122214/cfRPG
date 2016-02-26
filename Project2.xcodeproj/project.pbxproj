@@ -27,6 +27,7 @@
 		C283AC6F1C51AA7200527570 /* InputHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C283AC6E1C51AA7200527570 /* InputHandler.cpp */; };
 		C28CF85D1C57E99C00607332 /* Collision.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C28CF85B1C57E99C00607332 /* Collision.cpp */; };
 		C28CF8601C5A1B9500607332 /* MapCreationState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C28CF85E1C5A1B9500607332 /* MapCreationState.cpp */; };
+		C290E6581C808C940021843F /* Timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C290E6561C808C940021843F /* Timer.cpp */; };
 		C2A04FE41C4FE1BD0082FE27 /* image_DXT.c in Sources */ = {isa = PBXBuildFile; fileRef = C2A04FE01C4FE1BD0082FE27 /* image_DXT.c */; };
 		C2A04FE51C4FE1BD0082FE27 /* image_helper.c in Sources */ = {isa = PBXBuildFile; fileRef = C2A04FE11C4FE1BD0082FE27 /* image_helper.c */; };
 		C2A04FE61C4FE1BD0082FE27 /* SOIL.c in Sources */ = {isa = PBXBuildFile; fileRef = C2A04FE21C4FE1BD0082FE27 /* SOIL.c */; };
@@ -96,6 +97,8 @@
 		C28CF85B1C57E99C00607332 /* Collision.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Collision.cpp; sourceTree = "<group>"; };
 		C28CF85E1C5A1B9500607332 /* MapCreationState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapCreationState.cpp; sourceTree = "<group>"; };
 		C28CF85F1C5A1B9500607332 /* MapCreationState.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MapCreationState.hpp; sourceTree = "<group>"; };
+		C290E6561C808C940021843F /* Timer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Timer.cpp; sourceTree = "<group>"; };
+		C290E6571C808C940021843F /* Timer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Timer.hpp; sourceTree = "<group>"; };
 		C29A570A1C19EC9600A626CE /* Colour.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Colour.h; sourceTree = "<group>"; };
 		C2A04FE01C4FE1BD0082FE27 /* image_DXT.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = image_DXT.c; path = include/SOIL/image_DXT.c; sourceTree = "<group>"; };
 		C2A04FE11C4FE1BD0082FE27 /* image_helper.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = image_helper.c; path = include/SOIL/image_helper.c; sourceTree = "<group>"; };
@@ -208,6 +211,8 @@
 			children = (
 				C2071E8E1C15D2A500648169 /* Math.h */,
 				C2DE69701C61531E00875E74 /* Utils.cpp */,
+				C290E6561C808C940021843F /* Timer.cpp */,
+				C290E6571C808C940021843F /* Timer.hpp */,
 				C2DE69711C61531E00875E74 /* Utils.h */,
 				C28CF85A1C57E46900607332 /* Collision.h */,
 				C28CF85B1C57E99C00607332 /* Collision.cpp */,
@@ -423,6 +428,7 @@
 				C20671B51C184FCC0006C6B1 /* BaseCore.cpp in Sources */,
 				C20671B21C184FA70006C6B1 /* Runner.cpp in Sources */,
 				C21729601C1AEC1B00E2869A /* Font.cpp in Sources */,
+				C290E6581C808C940021843F /* Timer.cpp in Sources */,
 				C2E9BD881C5173870005A77A /* State.cpp in Sources */,
 				C2DE69721C61531E00875E74 /* Utils.cpp in Sources */,
 				C2071E941C15D67A00648169 /* Graphics.cpp in Sources */,
@@ -472,7 +478,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/lib";
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/lib";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -510,7 +516,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/lib";
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/lib";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 			};

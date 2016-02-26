@@ -20,4 +20,18 @@ namespace Math {
         }
         return i;
     }
+    
+    float& setAbsolute(float &f){
+        if(f < 0){
+            f = f*-1;
+        }
+        return f;
+    }
+    
+    int& setAbsolute(int &i){
+        if(i < 0){
+            i = i*-1;
+        }
+        return i;
+    }
 }

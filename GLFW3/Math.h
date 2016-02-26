@@ -13,4 +13,5 @@
 #include "Collision.h"
 #include "Vector3D.h"
 #include "Utils.h"
+#include "Timer.hpp"
 #endif /* Math_h */
