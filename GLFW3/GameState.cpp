@@ -9,6 +9,10 @@
 #include "GameState.hpp"
 
 GameState::GameState(){
+
+}
+
+void GameState::setup(){
     //load world and sprites at the same time
     std::thread worldT(&WorldHandler::loadWorld, WorldHandler::getInstance(), 2);
     SpriteHandler::getInstance()->loadImages();
@@ -18,6 +22,7 @@ GameState::GameState(){
     //add the player to the render and update loop
     worldHandler->addToQueues(&player);
     worldHandler->addToQueues(&t);
+
 }
 
 void GameState::update(){

@@ -33,6 +33,7 @@
 		C2A04FE61C4FE1BD0082FE27 /* SOIL.c in Sources */ = {isa = PBXBuildFile; fileRef = C2A04FE21C4FE1BD0082FE27 /* SOIL.c */; };
 		C2A04FE71C4FE1BD0082FE27 /* stb_image_aug.c in Sources */ = {isa = PBXBuildFile; fileRef = C2A04FE31C4FE1BD0082FE27 /* stb_image_aug.c */; };
 		C2DE69721C61531E00875E74 /* Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2DE69701C61531E00875E74 /* Utils.cpp */; };
+		C2E95A801C84A015006C999A /* MenuState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2E95A7E1C84A015006C999A /* MenuState.cpp */; };
 		C2E9BD881C5173870005A77A /* State.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2E9BD861C5173870005A77A /* State.cpp */; };
 		C2E9BD8B1C5174E50005A77A /* GameState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2E9BD891C5174E50005A77A /* GameState.cpp */; };
 		C2FF28211C19CFB20094E154 /* Image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2FF281F1C19CFB20094E154 /* Image.cpp */; };
@@ -107,6 +108,8 @@
 		C2B2B6F91C64DEF70079211F /* Random.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Random.h; sourceTree = "<group>"; };
 		C2DE69701C61531E00875E74 /* Utils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Utils.cpp; sourceTree = "<group>"; };
 		C2DE69711C61531E00875E74 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		C2E95A7E1C84A015006C999A /* MenuState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuState.cpp; sourceTree = "<group>"; };
+		C2E95A7F1C84A015006C999A /* MenuState.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MenuState.hpp; sourceTree = "<group>"; };
 		C2E9BD861C5173870005A77A /* State.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = State.cpp; sourceTree = "<group>"; };
 		C2E9BD871C5173870005A77A /* State.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = State.hpp; sourceTree = "<group>"; };
 		C2E9BD891C5174E50005A77A /* GameState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameState.cpp; sourceTree = "<group>"; };
@@ -333,12 +336,22 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		C2E95A811C84A04A006C999A /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				C2E95A7E1C84A015006C999A /* MenuState.cpp */,
+				C2E95A7F1C84A015006C999A /* MenuState.hpp */,
+			);
+			name = Menu;
+			sourceTree = "<group>";
+		};
 		C2E9BD8C1C5176730005A77A /* States */ = {
 			isa = PBXGroup;
 			children = (
 				C2E9BD861C5173870005A77A /* State.cpp */,
 				C2E9BD871C5173870005A77A /* State.hpp */,
 				C283AC721C52461F00527570 /* States.h */,
+				C2E95A811C84A04A006C999A /* Menu */,
 				C28CF8611C5A1C7600607332 /* MapCreation */,
 				C2E9BD8D1C51767D0005A77A /* GameState */,
 			);
@@ -414,6 +427,7 @@
 				C283AC6F1C51AA7200527570 /* InputHandler.cpp in Sources */,
 				C22E64001C51082B00386E87 /* Creature.cpp in Sources */,
 				C28CF8601C5A1B9500607332 /* MapCreationState.cpp in Sources */,
+				C2E95A801C84A015006C999A /* MenuState.cpp in Sources */,
 				C2E9BD8B1C5174E50005A77A /* GameState.cpp in Sources */,
 				C22E64021C51082B00386E87 /* GameObject.cpp in Sources */,
 				C22E64041C51082B00386E87 /* NPC.cpp in Sources */,

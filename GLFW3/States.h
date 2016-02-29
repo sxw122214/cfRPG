@@ -11,5 +11,6 @@
 
 #include "GameState.hpp"
 #include "MapCreationState.hpp"
+#include "MenuState.hpp"
 
 #endif /* States_h */

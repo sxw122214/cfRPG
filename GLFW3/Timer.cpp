@@ -16,6 +16,7 @@ namespace Math{
     }
     void Timer::start(){
         beginTime = clock();
+        started = true;
         running = true;
     }
     void Timer::stop(){
@@ -24,16 +25,22 @@ namespace Math{
     }
     void Timer::reset(){
         running = false;
+        started = false;
         beginTime = 0;
         endTime = 0;
     }
+
     unsigned long Timer::elapsedTime(){
         if(running){
             return ((unsigned long) clock() - beginTime)/100000;
-        }
-        return ((unsigned long) endTime - beginTime)/100000;
+            }
+            return ((unsigned long) endTime - beginTime)/100000;
     }
     bool Timer::isRunning(){
         return running;
+    }
+    
+    bool Timer::isStarted(){
+        return started;
     }
 }

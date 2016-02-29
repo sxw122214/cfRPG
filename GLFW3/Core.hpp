@@ -24,8 +24,7 @@ public:
     void keyReleased(int key);
     void mousePressed(int button);
     void mouseReleased(int button);
-    GameState* gameState;
-    MapCreationState* mapState;
+    MenuState* menuState;
     std::shared_ptr<InputHandler> inputHandler;
 };
 

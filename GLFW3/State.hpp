@@ -24,5 +24,6 @@ public:
     static void setState(State*);
     virtual void update() = 0;
     virtual void draw() = 0;
+    virtual void setup() = 0;
 };
 #endif /* State_hpp */

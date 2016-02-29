@@ -63,9 +63,7 @@ namespace Graphics{
         std::vector<unsigned char> data(4*w*h);
         glReadPixels(x, y, w, h, GL_RGBA, GL_UNSIGNED_BYTE, &data[0]);
         return data;
-    }
-    
-    
+    }    
     void setBackground(float r, float g, float b, float a){
         Runner::r = r/255;
         Runner::g = g/255;

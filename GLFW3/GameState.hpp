@@ -23,6 +23,7 @@ public:
     virtual ~GameState(){
         inputHandler = nullptr;
     }
+    virtual void setup();
     virtual void update();
     virtual void draw();
     std::shared_ptr<InputHandler> inputHandler;

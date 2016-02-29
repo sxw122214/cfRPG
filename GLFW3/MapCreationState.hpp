@@ -12,11 +12,13 @@
 #include <stdio.h>
 #include "State.hpp"
 #include "Handlers.h"
+#include <thread>
 
 class MapCreationState : public State{
 public:
     MapCreationState();
     virtual ~MapCreationState();
+    virtual void setup();
     virtual void update();
     virtual void draw();
     int y = 0;

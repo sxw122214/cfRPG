@@ -18,7 +18,7 @@ namespace Math {
     private:
         unsigned long beginTime = 0;
         unsigned long endTime = 0;
-        bool running;
+        bool running = false, started = false;
     public:
         Timer(bool);
         Timer();
@@ -26,6 +26,7 @@ namespace Math {
         void stop();
         void reset();
         bool isRunning();
+        bool isStarted();
         unsigned long elapsedTime();
     };
 }
