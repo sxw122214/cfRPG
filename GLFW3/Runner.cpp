@@ -13,7 +13,8 @@ float Runner::r = 1;
 float Runner::g = 1;
 float Runner::b = 1;
 float Runner::a = 1;
-
+int Runner::keysPressed =0;
+int Runner::mbsPressed = 0;
 Runner::Runner(float windowWidth, float windowHeight, int frameRate,const char* title,BaseCore* c){
     Runner::windowWidth = windowWidth;
     Runner::windowHeight = windowHeight;
@@ -127,15 +128,19 @@ void Runner::mouseCallback(GLFWwindow *window, int button, int action, int mods)
     void* data = glfwGetWindowUserPointer(window);
     Runner* r = static_cast<Runner*>(data);
     if(action == GLFW_PRESS){
+        mbsPressed++;
         r->c->mousePressed(button);
         r->c->mouseIsPressed = true;
         r->c->mouseButton = button;
         return;
     }
     if(action == GLFW_RELEASE){
+        mbsPressed--;
+        if(mbsPressed < 1){
+            r->c->mouseIsPressed = false;
+            r->c->mouseButton = -1;
+        }
         r->c->mouseReleased(button);
-        r->c->mouseIsPressed = false;
-        r->c->mouseButton = -1;
         return;
     }
 }
@@ -151,11 +156,15 @@ void Runner::keyCallback(GLFWwindow* window, int key, int scancode, int action, 
         r->c->keyIsPressed = true;
         r->c->keyCode = key;
         r->c->keyPressed(key);
+        keysPressed++;
         return;
     }
     if(action == GLFW_RELEASE){
-        r->c->keyIsPressed = false;
-        r->c->keyCode = 0;
+        keysPressed--;
+        if(keysPressed <1){
+            r->c->keyCode = 0;
+            r->c->keyIsPressed = false;
+        }
         r->c->keyReleased(key);
         return;
     }

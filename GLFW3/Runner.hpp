@@ -14,6 +14,8 @@ class Runner{
     BaseCore* c;
     double currentTime, lastTime;
     bool fps(int framerate);
+    static int keysPressed;
+    static int mbsPressed;
 public:
     static float r, g, b, a;
     static float windowWidth, windowHeight;
