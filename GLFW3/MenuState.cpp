@@ -8,10 +8,6 @@
 
 #include "MenuState.hpp"
 
-void MenuState::setup(){
-    
-}
-
 MenuState::~MenuState(){
     delete gameState;
     gameState = nullptr;
@@ -22,12 +18,16 @@ MenuState::~MenuState(){
 void MenuState::setup(){
     gameState = new GameState();
     mapCreationState = new MapCreationState();
-    
 }
 
 void MenuState::update(){
     if(InputHandler::getInstance()->getLEFT()){
-        
+        gameState->setup();
+        State::setState(gameState);
+    }
+    if(InputHandler::getInstance()->getRIGHT()){
+        mapCreationState->setup();
+        State::setState(mapCreationState);
     }
 }
 
