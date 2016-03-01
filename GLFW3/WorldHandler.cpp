@@ -21,6 +21,14 @@ std::shared_ptr<WorldHandler> WorldHandler::getInstance(){
     return instance;
 }
 
+int WorldHandler::getxMapSize(){
+    return xMapSize;
+}
+
+int WorldHandler::getyMapSize(){
+    return yMapSize;
+}
+
 int WorldHandler::getOffSetX(){
     return offSetX;
 }
@@ -66,11 +74,10 @@ void WorldHandler::movementCheck(Math::Vector2D &current, Math::Vector2D &veloci
     //UP
     if(current.y+SPRITE_SIZE > this->windowHeight){
         //check ther is a scene ontop
-        if(offSetby(0, -1, moveScene)){
+        if(offSetby(0, 1, moveScene)){
             //adjust the y to the top of the next scene
             current.y = 0;
             //change the scene so it's rendered
-            //-1 is techincally down
             scene.y += 1;
         }else{
             //if not do box collision
@@ -81,7 +88,7 @@ void WorldHandler::movementCheck(Math::Vector2D &current, Math::Vector2D &veloci
     //DOWN
     if(current.y < 0){
         //check if there is anything below
-        if(offSetby(0, 1, moveScene)){
+        if(offSetby(0, -1, moveScene)){
             //change y to the bottom of next scene
             current.y = windowHeight-SPRITE_SIZE;
             //adjust scene
@@ -123,13 +130,13 @@ void WorldHandler::movementCheck(Math::Vector2D &current, Math::Vector2D &veloci
 
 bool WorldHandler::offSetby(int x, int y, bool set){
     //if it's less than the size of the map
-    if(offSetX+x < 0 || offSetY+y > 0){
+    if(offSetX+x < 0 || offSetY+y < 0){
         return false;
     }
     //if it's bigger than the size of the map
     if(offSetX+x >= xMapSize/(windowWidth/SPRITE_CODE::SPRITE_SIZE) ||
        //minus offsetY because it's negative
-       (-offSetY)-y >= yMapSize/(windowHeight/SPRITE_CODE::SPRITE_SIZE)){
+       offSetY+y >= yMapSize/(windowHeight/SPRITE_CODE::SPRITE_SIZE)){
         return false;
     }
     if(set){
@@ -141,13 +148,13 @@ bool WorldHandler::offSetby(int x, int y, bool set){
 
 bool WorldHandler::offSetby(const Math::Vector2D &v, bool set){
     //if it's less than the size of the map
-    if(offSetX+v.x < 0 || offSetY+v.y > 0){
+    if(offSetX+v.x < 0 || offSetY+v.y < 0){
         return false;
     }
     //if it's bigger than the size of the map
     if(offSetX+v.x >= xMapSize/(windowWidth/SPRITE_CODE::SPRITE_SIZE) ||
        //negative offsetbecase its negative
-       (-offSetY)-v.y >= yMapSize/(windowHeight/SPRITE_CODE::SPRITE_SIZE)){
+       offSetY+v.y >= yMapSize/(windowHeight/SPRITE_CODE::SPRITE_SIZE)){
         return false;
     }
     if(set){
@@ -317,7 +324,6 @@ void WorldHandler::renderWorld(){
             temp->get(map[j+i*xMapSize]->textureCode)->draw(((j-minOffSetX)*SPRITE_CODE::SPRITE_SIZE), ((i-minOffSetY)*SPRITE_CODE::SPRITE_SIZE), SPRITE_CODE::SPRITE_SIZE, SPRITE_CODE::SPRITE_SIZE);
         }
     }
-    
     //after the world has been rendered, render the objects
     for(auto o : renderVector){
         //if it's visible
@@ -329,4 +335,8 @@ void WorldHandler::renderWorld(){
             }
         }
     }
+}
+
+std::vector<WorldHandler::Tile*>& WorldHandler::getMap(){
+    return map;
 }

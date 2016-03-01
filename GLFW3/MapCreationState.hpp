@@ -21,8 +21,16 @@ public:
     virtual void setup();
     virtual void update();
     virtual void draw();
+    virtual void keyPressed(int key);
     int y = 0;
     int x = 0;
+    int currentTexture = 0;
+    
+    std::shared_ptr<InputHandler> iH;
+    std::shared_ptr<WorldHandler> wH;
+
+
+    
 };
 
 #endif /* MapCreationState_hpp */

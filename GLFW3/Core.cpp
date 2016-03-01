@@ -48,6 +48,8 @@ void Core::keyPressed(int key){
     //0 - 48
     //9 - 57
     inputHandler->keyDown(key);
+    State::getCurrentState()->keyPressed(key);
+
 }
 
 void Core::keyReleased(int key){

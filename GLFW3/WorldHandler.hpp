@@ -20,6 +20,20 @@
 
 class WorldHandler{
 public:
+    //public class tile, one is loaded for each type of tile in the world
+    class Tile{
+    public:
+        Tile(int tc, bool solid){
+            this->textureCode = tc;
+            this->solid = solid;
+        }
+        Tile(int tc){
+            this->textureCode = tc;
+        }
+        int textureCode;
+        bool solid = false;
+    };
+    
     WorldHandler(){}; //no creation needed
     //returns the instance of the handler
     static std::shared_ptr<WorldHandler> getInstance();
@@ -53,6 +67,11 @@ public:
     bool isWorldLoaded();
     bool isTypesLoaded();
     
+    std::vector<Tile*>& getMap();
+    
+    int getxMapSize();
+    int getyMapSize();
+    
     int windowWidth, windowHeight;
     ~WorldHandler();
 private:
@@ -68,20 +87,6 @@ private:
     //if the world/tiles are loaded
     bool worldLoaded = false, typeLoaded = false;
     
-    //private class tile, one is loaded for each type of tile in the world
-    class Tile{
-    public:
-        Tile(int tc, bool solid){
-            this->textureCode = tc;
-            this->solid = solid;
-        }
-        Tile(int tc){
-            this->textureCode = tc;
-        }
-        int textureCode;
-        bool solid = false;
-    };
-    
     //objects
     std::vector<GameObject*> renderVector;
     std::vector<GameObject*> updateVector;
@@ -93,6 +98,7 @@ private:
     
     //this holds how big the map is in tiles
     int xMapSize = 0, yMapSize = 0;
+
 };
 
 #endif /* WorldHandler_hpp */
