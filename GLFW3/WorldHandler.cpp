@@ -340,3 +340,7 @@ void WorldHandler::renderWorld(){
 std::vector<WorldHandler::Tile*>& WorldHandler::getMap(){
     return map;
 }
+
+std::vector<WorldHandler::Tile>& WorldHandler::getTiles(){
+    return tiles;
+}

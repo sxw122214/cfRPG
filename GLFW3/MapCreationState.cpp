@@ -14,7 +14,6 @@ MapCreationState::MapCreationState(){
 }
 
 MapCreationState::~MapCreationState(){
-    
 }
 
 void MapCreationState::setup(){
@@ -28,16 +27,18 @@ void MapCreationState::update(){
     if(iH->getMOUSE0()){
         int x = iH->getMouseX();
         int y = iH->getMouseY();
-        x /= SPRITE_SIZE;
-        y /= SPRITE_SIZE;
+        x = int(x/SPRITE_SIZE);
+        y = int(y/SPRITE_SIZE);
+        std::cout << x << " " << y << std::endl;
         x += x*wH->getOffSetX();
-        y += -y*wH->getOffSetY();
-        wH->getMap()[y+x*wH->getxMapSize()];
+        y += y*wH->getOffSetY();
+        std::cout << x << " " << y << std::endl;
+        wH->getMap()[x+(y*wH->getxMapSize())] = &wH->getTiles()[currentTexture];
     }
 }
 
 void MapCreationState::draw(){
-    WorldHandler::getInstance()->renderWorld();
+    wH->renderWorld();
     SpriteHandler::getInstance()->get(currentTexture)->draw(iH->getMouseX(), iH->getMouseY(), SPRITE_SIZE, SPRITE_SIZE);
 }
 

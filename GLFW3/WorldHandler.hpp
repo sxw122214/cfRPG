@@ -68,6 +68,7 @@ public:
     bool isTypesLoaded();
     
     std::vector<Tile*>& getMap();
+    std::vector<Tile>& getTiles();
     
     int getxMapSize();
     int getyMapSize();

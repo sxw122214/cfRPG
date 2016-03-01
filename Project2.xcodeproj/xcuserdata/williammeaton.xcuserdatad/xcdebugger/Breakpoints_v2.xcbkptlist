@@ -104,29 +104,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GLFW3/WorldHandler.cpp"
-            timestampString = "478527854.914698"
+            timestampString = "478530413.476309"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "146"
-            endingLineNumber = "146"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
             landmarkName = "WorldHandler::offSetby(const Math::Vector2D &amp;v, bool set)"
             landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GLFW3/GameState.hpp"
-            timestampString = "478444729.793395"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "class GameState"
-            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
