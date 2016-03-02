@@ -21,9 +21,15 @@
 		C22E640A1C51082B00386E87 /* SpriteHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C22E63FC1C51082B00386E87 /* SpriteHandler.cpp */; };
 		C22E640C1C51082B00386E87 /* WorldHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C22E63FE1C51082B00386E87 /* WorldHandler.cpp */; };
 		C22E64241C51206700386E87 /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C22E64231C51206700386E87 /* libglfw3.a */; };
-		C22E64261C51224A00386E87 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C22E64251C51224A00386E87 /* Cocoa.framework */; };
 		C22E64281C5122C600386E87 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C22E64271C5122C600386E87 /* CoreVideo.framework */; };
 		C2604F251C67F1F100722D6C /* TestEnemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2604F231C67F1F100722D6C /* TestEnemy.cpp */; };
+		C27E3AB91C8715A300E1B900 /* drawgl.c in Sources */ = {isa = PBXBuildFile; fileRef = C27E3AB61C8715A300E1B900 /* drawgl.c */; };
+		C27E3ABB1C8715A300E1B900 /* utf8.c in Sources */ = {isa = PBXBuildFile; fileRef = C27E3AB81C8715A300E1B900 /* utf8.c */; };
+		C27E3AC01C871EF400E1B900 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C27E3ABF1C871EF400E1B900 /* CoreFoundation.framework */; };
+		C27E3AC61C871FF100E1B900 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C27E3AC51C871FF100E1B900 /* Cocoa.framework */; };
+		C27E3ACA1C87233900E1B900 /* libdrawtext-noft.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C27E3AC91C87233900E1B900 /* libdrawtext-noft.a */; };
+		C27E3ACC1C8723B200E1B900 /* libGLEW.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C27E3ACB1C8723B200E1B900 /* libGLEW.a */; };
+		C27E3ACE1C87240F00E1B900 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C27E3ACD1C87240F00E1B900 /* IOKit.framework */; };
 		C283AC6F1C51AA7200527570 /* InputHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C283AC6E1C51AA7200527570 /* InputHandler.cpp */; };
 		C28CF85D1C57E99C00607332 /* Collision.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C28CF85B1C57E99C00607332 /* Collision.cpp */; };
 		C28CF8601C5A1B9500607332 /* MapCreationState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C28CF85E1C5A1B9500607332 /* MapCreationState.cpp */; };
@@ -87,10 +93,16 @@
 		C22E63FE1C51082B00386E87 /* WorldHandler.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = WorldHandler.cpp; sourceTree = "<group>"; };
 		C22E63FF1C51082B00386E87 /* WorldHandler.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = WorldHandler.hpp; sourceTree = "<group>"; };
 		C22E64231C51206700386E87 /* libglfw3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglfw3.a; path = lib/libglfw3.a; sourceTree = "<group>"; };
-		C22E64251C51224A00386E87 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		C22E64271C5122C600386E87 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		C2604F231C67F1F100722D6C /* TestEnemy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestEnemy.cpp; sourceTree = "<group>"; };
 		C2604F241C67F1F100722D6C /* TestEnemy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TestEnemy.hpp; sourceTree = "<group>"; };
+		C27E3AB61C8715A300E1B900 /* drawgl.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = drawgl.c; path = include/drawText/drawgl.c; sourceTree = "<group>"; };
+		C27E3AB81C8715A300E1B900 /* utf8.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = utf8.c; path = include/drawText/utf8.c; sourceTree = "<group>"; };
+		C27E3ABF1C871EF400E1B900 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		C27E3AC51C871FF100E1B900 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		C27E3AC91C87233900E1B900 /* libdrawtext-noft.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libdrawtext-noft.a"; path = "lib/libdrawtext-noft.a"; sourceTree = "<group>"; };
+		C27E3ACB1C8723B200E1B900 /* libGLEW.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGLEW.a; path = lib/libGLEW.a; sourceTree = "<group>"; };
+		C27E3ACD1C87240F00E1B900 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		C283AC6E1C51AA7200527570 /* InputHandler.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = InputHandler.cpp; sourceTree = "<group>"; };
 		C283AC701C51AA8A00527570 /* InputHandler.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = InputHandler.hpp; sourceTree = "<group>"; };
 		C283AC721C52461F00527570 /* States.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = States.h; sourceTree = "<group>"; };
@@ -124,8 +136,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C27E3ACE1C87240F00E1B900 /* IOKit.framework in Frameworks */,
+				C27E3ACC1C8723B200E1B900 /* libGLEW.a in Frameworks */,
+				C27E3ACA1C87233900E1B900 /* libdrawtext-noft.a in Frameworks */,
+				C27E3AC61C871FF100E1B900 /* Cocoa.framework in Frameworks */,
+				C27E3AC01C871EF400E1B900 /* CoreFoundation.framework in Frameworks */,
 				C22E64281C5122C600386E87 /* CoreVideo.framework in Frameworks */,
-				C22E64261C51224A00386E87 /* Cocoa.framework in Frameworks */,
 				C22E64241C51206700386E87 /* libglfw3.a in Frameworks */,
 				C2071E881C15CBD700648169 /* OpenGL.framework in Frameworks */,
 			);
@@ -169,6 +185,7 @@
 		C20671B61C1855130006C6B1 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				C27E3ABC1C8715A700E1B900 /* drawText */,
 				C2A04FE81C4FE1C20082FE27 /* SOIL */,
 				C2071E921C15D67A00648169 /* Graphics.cpp */,
 				C2071E931C15D67A00648169 /* Graphics.hpp */,
@@ -179,9 +196,13 @@
 		C2071E741C15CBBE00648169 = {
 			isa = PBXGroup;
 			children = (
+				C27E3ACD1C87240F00E1B900 /* IOKit.framework */,
+				C27E3ACB1C8723B200E1B900 /* libGLEW.a */,
+				C27E3AC51C871FF100E1B900 /* Cocoa.framework */,
+				C27E3ABF1C871EF400E1B900 /* CoreFoundation.framework */,
 				C22E64271C5122C600386E87 /* CoreVideo.framework */,
-				C22E64251C51224A00386E87 /* Cocoa.framework */,
 				C22E64231C51206700386E87 /* libglfw3.a */,
+				C27E3AC91C87233900E1B900 /* libdrawtext-noft.a */,
 				C2071E871C15CBD700648169 /* OpenGL.framework */,
 				C2071E7F1C15CBBE00648169 /* src */,
 				C2071E7E1C15CBBE00648169 /* Products */,
@@ -315,6 +336,16 @@
 			name = Test;
 			sourceTree = "<group>";
 		};
+		C27E3ABC1C8715A700E1B900 /* drawText */ = {
+			isa = PBXGroup;
+			children = (
+				C27E3AB61C8715A300E1B900 /* drawgl.c */,
+				C27E3AB81C8715A300E1B900 /* utf8.c */,
+			);
+			name = drawText;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		C28CF8611C5A1C7600607332 /* MapCreation */ = {
 			isa = PBXGroup;
 			children = (
@@ -423,6 +454,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C27E3AB91C8715A300E1B900 /* drawgl.c in Sources */,
+				C27E3ABB1C8715A300E1B900 /* utf8.c in Sources */,
 				C28CF85D1C57E99C00607332 /* Collision.cpp in Sources */,
 				C283AC6F1C51AA7200527570 /* InputHandler.cpp in Sources */,
 				C22E64001C51082B00386E87 /* Creature.cpp in Sources */,
@@ -539,7 +572,7 @@
 		C2071E851C15CBBE00648169 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = NO;
 				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/bin/";
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include/,
@@ -555,7 +588,7 @@
 		C2071E861C15CBBE00648169 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = NO;
 				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/bin/";
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include/,

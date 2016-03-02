@@ -20,7 +20,6 @@ void Core::setup(){
     //set the windowHeight, windoWidth
     WorldHandler::getInstance()->windowHeight = Runner::windowHeight;
     WorldHandler::getInstance()->windowWidth = Runner::windowWidth;
-
     
     //this needs to be set here otherwise c
     inputHandler = InputHandler::getInstance();
@@ -31,8 +30,7 @@ void Core::setup(){
     State::setState(menuState);
     //call setup
     State::getCurrentState()->setup();
-
-        Graphics::setBackground(0, 0, 0, 255);
+    Graphics::setBackground(0, 0, 0, 255);
 }
 
 void Core::update(){
@@ -45,8 +43,6 @@ void Core::draw(){
 }
 
 void Core::keyPressed(int key){
-    //0 - 48
-    //9 - 57
     inputHandler->keyDown(key);
     State::getCurrentState()->keyPressed(key);
 
