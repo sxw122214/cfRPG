@@ -23,7 +23,7 @@ enum SPRITE_CODE{
     tin = 7,
     player = 8,
     END_SPRITE = 9,
-    SPRITE_SIZE = 64
+    SPRITE_SIZE = 32
 };
 
 class SpriteHandler{
