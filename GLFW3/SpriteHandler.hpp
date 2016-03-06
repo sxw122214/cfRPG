@@ -13,19 +13,16 @@
 #include "CoreMain.h"
 #include <memory>
 enum SPRITE_CODE{
-    grass1 = 0,
-    grass2 = 1,
-    waterDTop = 2,
-    waterDLeft = 3,
-    waterDRigt = 4,
-    waterDBottom = 5,
-    waterDTopRight = 6,
-    waterDTopLeft = 7,
-    waterDBotRight = 8,
-    waterDBotLeft = 9,
-    stonePath = 10,
-    player = 11,
-    END_SPRITE = 12,
+    sky = 0,
+    grass = 1,
+    dirt = 2,
+    stone = 3,
+    sand = 4,
+    coal = 5,
+    copper = 6,
+    tin = 7,
+    player = 8,
+    END_SPRITE = 9,
     SPRITE_SIZE = 64
 };
 

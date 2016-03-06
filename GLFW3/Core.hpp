@@ -12,6 +12,8 @@
 #include "Runner.hpp" //THIS IS NEEDED
 #include "States.h"
 #include "InputHandler.hpp"
+#include <dT/drawtext.h>
+
 
 class Core : public BaseCore{
 public:
@@ -26,6 +28,8 @@ public:
     void mouseReleased(int button);
     MenuState* menuState;
     std::shared_ptr<InputHandler> inputHandler;
+    struct dtx_font *font;
+
 };
 
 #endif /* Core_hpp */

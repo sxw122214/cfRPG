@@ -18,7 +18,7 @@ class InputHandler{
     static std::shared_ptr<InputHandler> instance;
     
     InputHandler(InputHandler const &s){}; // no copy constructor
-    bool UP, LEFT, RIGHT, DOWN, isKeyPressed, SPACE, MOUSE0, MOUSE1, isMousePressed;
+    bool UP = false, LEFT = false, RIGHT = false, DOWN = false, isKeyPressed = false, SPACE = false, MOUSE0 = false, MOUSE1 = false, isMousePressed = false;
     int mouseX = 0, mouseY = 0;
 public:
     InputHandler(){};

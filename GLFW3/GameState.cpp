@@ -14,7 +14,7 @@ GameState::GameState(){
 
 void GameState::setup(){
     //load world and sprites at the same time
-    std::thread worldT(&WorldHandler::loadWorld, WorldHandler::getInstance(), 2);
+    std::thread worldT(&WorldHandler::loadWorld, WorldHandler::getInstance(), 3);
     SpriteHandler::getInstance()->loadImages();
     worldT.join();
     

@@ -61,16 +61,19 @@ void WorldHandler::addToUQueue(GameObject *go){
 
 void WorldHandler::movementCheck(Math::Vector2D &current, Math::Vector2D &velocity, Math::Vector2D &scene, bool allowedOffscreen, bool moveScene){
     
+    //if there's collision with world, given the current position, scene and velocity
     if(worldCollide(current, scene, velocity)){
         return;
     }
-    //collision check
+    //add
     current = current+velocity;
     
     //if it's not allowed off screen, just stop here
+    //things will still move off screen though
     if(!allowedOffscreen){
         return;
     }
+    
     //UP
     if(current.y+SPRITE_SIZE > this->windowHeight){
         //check ther is a scene ontop
@@ -202,7 +205,6 @@ bool WorldHandler::worldCollide(Math::Vector2D &position, Math::Vector2D &scene,
     }
     return false;
 }
-
 
 void WorldHandler::loadTileTypes(int typeNum){
     const char seperator = ',';
