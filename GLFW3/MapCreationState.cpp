@@ -30,8 +30,8 @@ void MapCreationState::update(){
         x = int(x/SPRITE_SIZE);
         y = int(y/SPRITE_SIZE);
         std::cout << x << " " << y << std::endl;
-        x += x*wH->getOffSetX();
-        y += y*wH->getOffSetY();
+        x += ((wH->windowWidth/SPRITE_CODE::SPRITE_SIZE)*wH->getOffSetX());
+        y += ((wH->windowHeight/SPRITE_CODE::SPRITE_SIZE)*wH->getOffSetY());
         std::cout << x << " " << y << std::endl;
         wH->getMap()[x+(y*wH->getxMapSize())] = &wH->getTiles()[currentTexture];
     }
