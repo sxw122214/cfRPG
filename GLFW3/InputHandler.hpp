@@ -11,6 +11,8 @@
 
 #include <stdio.h>
 #include <memory>
+#include <iostream>
+#include <GLFW/glfw3.h>
 
 //this class handles keyboard input with predefined buttons
 class InputHandler{
@@ -30,6 +32,7 @@ public:
     void mouseUp(int button);
     void keyUp(int key);
     void keyDown(int key);
+    void joyStick();
     bool getUP();
     bool getLEFT();
     bool getRIGHT();

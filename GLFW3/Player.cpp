@@ -14,21 +14,55 @@ Player::Player(const Math::Vector2D &scene, const Math::Vector2D &position, cons
 }
 
 void Player::update(){
+    bool movement = false;
     Math::Vector2D sv(0, 0);
     //on player movement
     if(inputHandler->getDOWN()){
         sv.y += speed;
+        movement = true;
     }
     if(inputHandler->getUP()){
         sv.y += -speed;
+        movement = true;
     }
     if(inputHandler->getRIGHT()){
         sv.x += speed;
+        movement = true;
     }
     if(inputHandler->getLEFT()){
         sv.x += -speed;
+        movement = true;
     }
     worldHandler->movementCheck(editPosition(), sv, editScene(), true, true);
+    //you can't mind whilst moving
+    if(!movement){
+        //to start mining
+        if(inputHandler->getMOUSE0() && !mining){
+            std::cout << worldHandler->getTile(inputHandler->getMouseX(), inputHandler->getMouseY()).textureCode;
+            mining = true;
+            timer.start();
+        }
+        //if you're currently minign then check
+        if(mining){
+            //if the mouse is still being pressed
+            if(!inputHandler->getMOUSE0()){
+                mining = false;
+                std::cout << "unclicked" << std::endl;
+                timer.reset();
+            }else{
+                //and if the timer is up
+                if(timer.elapsedTime() >= 2.5){
+                    std::cout << "timer done" << std::endl;
+                    timer.reset();
+                    mining = false;
+                }
+            }
+        }
+    }else{
+        std::cout << "you moved" << std::endl;
+        mining = false;
+        timer.reset();
+    }
 }
 
 void Player::render(){

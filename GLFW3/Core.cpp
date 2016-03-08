@@ -42,6 +42,7 @@ void Core::setup(){
 void Core::update(){
     State::getCurrentState()->update();
     inputHandler->mouseInput(mouseX, mouseY);
+    inputHandler->joyStick();
 }
 
 void Core::draw(){
@@ -50,6 +51,8 @@ void Core::draw(){
 
 void Core::keyPressed(int key){
     inputHandler->keyDown(key);
+
+//    std::cout << count << std::endl;
     State::getCurrentState()->keyPressed(key);
 
 }

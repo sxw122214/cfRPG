@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include "Creature.hpp"
 #include "Handlers.h"
+#include "Timer.hpp"
 
 class Player : public GameObject{
 public:
@@ -21,6 +22,8 @@ public:
     int speed = 10;
     std::shared_ptr<WorldHandler>  worldHandler;
     std::shared_ptr<InputHandler> inputHandler;
+    bool mining = false;
+    Math::Timer timer;
 };
 
 #endif /* Player_hpp */

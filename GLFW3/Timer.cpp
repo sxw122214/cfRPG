@@ -32,9 +32,9 @@ namespace Math{
 
     unsigned long Timer::elapsedTime(){
         if(running){
-            return ((unsigned long) clock() - beginTime);
+            return ((unsigned long) clock() - beginTime)/100000;
         }
-            return ((unsigned long) endTime - beginTime);
+            return ((unsigned long) endTime - beginTime)/100000;
     }
     bool Timer::isRunning(){
         return running;

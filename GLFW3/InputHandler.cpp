@@ -30,6 +30,28 @@ int InputHandler::getMouseY(){
     return mouseY;
 }
 
+void InputHandler::joyStick(){
+    int count;
+    const unsigned char* axes = glfwGetJoystickButtons(GLFW_JOYSTICK_1, &count);
+    //FOR DS4
+    if(axes[14] == GLFW_PRESS){
+        UP = true;
+    }
+    
+    if(axes[15] == GLFW_PRESS){
+        RIGHT = true;
+    }
+    
+    if(axes[16] == GLFW_PRESS){
+        DOWN = true;
+    }
+    
+    if(axes[17] == GLFW_PRESS){
+        LEFT = true;
+    }
+    
+}
+
 void InputHandler::keyDown(int key){
     isKeyPressed = true;
     switch(key){

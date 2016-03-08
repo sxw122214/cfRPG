@@ -70,6 +70,9 @@ public:
     std::vector<Tile*>& getMap();
     std::vector<Tile>& getTiles();
     
+    //gets the tile at the x and y
+    Tile& getTile(int x, int y);
+    
     int getxMapSize();
     int getyMapSize();
     
