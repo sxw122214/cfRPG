@@ -78,7 +78,7 @@ public:
 private:
     //creation and singleton method blocks
     WorldHandler(WorldHandler const &s){}; // no copy constructor
-    //WorldHandler& operator=(WorldHandler const &s){}; //no assignment
+    WorldHandler& operator=(WorldHandler const &s){ return *this; }; //no assignment
     //the only instance allowed
     static std::shared_ptr<WorldHandler> instance;
     

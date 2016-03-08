@@ -16,7 +16,7 @@ protected:
     //don't allow creation of this class
     State(){};
     State(State const&){};
-    //State& operator=(State const&){};
+    State& operator=(State const&){ return *this; };
     virtual ~State(){};
 public:
     static State* currentState;

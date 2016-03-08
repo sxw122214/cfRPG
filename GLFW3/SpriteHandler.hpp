@@ -37,7 +37,7 @@ public:
 private:
     //creation and singleton method blocks
     SpriteHandler(SpriteHandler const &s){}; // no copy constructor
-    //SpriteHandler& operator=(SpriteHandler const &s){}; //no assignment
+    SpriteHandler& operator=(SpriteHandler const &s){ return *this; }; //no assignment
     //the only instance allowed
     static std::shared_ptr<SpriteHandler> instance;
     
