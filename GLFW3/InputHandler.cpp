@@ -49,7 +49,6 @@ void InputHandler::joyStick(){
 //    if(axes[17] == GLFW_PRESS){
 //        LEFT = true;
 //    }
-    
 }
 
 void InputHandler::keyDown(int key){

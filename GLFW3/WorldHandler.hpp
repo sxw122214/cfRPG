@@ -70,9 +70,6 @@ public:
     std::vector<Tile*>& getMap();
     std::vector<Tile>& getTiles();
     
-    //gets the tile at the x and y
-    Tile& getTile(int x, int y);
-    
     int getxMapSize();
     int getyMapSize();
     
@@ -102,7 +99,6 @@ private:
     
     //this holds how big the map is in tiles
     int xMapSize = 0, yMapSize = 0;
-
 };
 
 #endif /* WorldHandler_hpp */

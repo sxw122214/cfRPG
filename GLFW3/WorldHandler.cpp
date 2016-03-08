@@ -347,13 +347,3 @@ std::vector<WorldHandler::Tile>& WorldHandler::getTiles(){
     return tiles;
 }
 
-WorldHandler::Tile& WorldHandler::getTile(int x, int y){
-    x = int(x/SPRITE_SIZE);
-    y = int(y/SPRITE_SIZE);
-    x = x+x*getOffSetX();
-    y = y+y*getOffSetY();
-    std::cout << getOffSetX() << " " << getOffSetY() << std::endl;
-    return *map[x+(y*getxMapSize())];
-}
-
-

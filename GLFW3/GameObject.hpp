@@ -16,6 +16,7 @@ class GameObject{
     Math::Vector2D position, scene;
     Graphics::Rect bounds;
     bool visible = false;
+    float gravityStrength = 10;
 protected:
     GameObject(const Math::Vector2D &position, const Math::Vector2D &scene, const Graphics::Rect &bounds, bool visible = false);
 public:
@@ -26,6 +27,7 @@ public:
     Math::Vector2D& editScene();
     virtual void update() = 0;
     virtual void render() = 0;
+    void gravity(bool collision);
     void setPosition(const Math::Vector2D &v);
     void setPosition(const float &x, const float &y);
     void setScene(const Math::Vector2D &v);

@@ -14,6 +14,7 @@ Player::Player(const Math::Vector2D &scene, const Math::Vector2D &position, cons
 }
 
 void Player::update(){
+    this->gravity(true);
     bool movement = false;
     Math::Vector2D sv(0, 0);
     //on player movement
@@ -38,11 +39,10 @@ void Player::update(){
     if(!movement){
         //to start mining
         if(inputHandler->getMOUSE0() && !mining){
-            std::cout << worldHandler->getTile(inputHandler->getMouseX(), inputHandler->getMouseY()).textureCode;
             mining = true;
             timer.start();
         }
-        //if you're currently minign then check
+        //if you're currently mining then check
         if(mining){
             //if the mouse is still being pressed
             if(!inputHandler->getMOUSE0()){
@@ -51,8 +51,14 @@ void Player::update(){
                 timer.reset();
             }else{
                 //and if the timer is up
-                if(timer.elapsedTime() >= 2.5){
-                    std::cout << "timer done" << std::endl;
+                if(timer.elapsedTime() >= 1){
+                    int x = inputHandler->getMouseX();
+                    int y = inputHandler->getMouseY();
+                    x = int(x/SPRITE_SIZE);
+                    y = int(y/SPRITE_SIZE);
+                    x += ((worldHandler->windowWidth/SPRITE_CODE::SPRITE_SIZE)*worldHandler->getOffSetX());
+                    y += ((worldHandler->windowHeight/SPRITE_CODE::SPRITE_SIZE)*worldHandler->getOffSetY());
+                    worldHandler->getMap()[x+(y*worldHandler->getxMapSize())] = &worldHandler->getTiles()[sky];
                     timer.reset();
                     mining = false;
                 }
