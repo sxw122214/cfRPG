@@ -21,43 +21,6 @@ std::shared_ptr<WorldHandler> WorldHandler::getInstance(){
     return instance;
 }
 
-int WorldHandler::getxMapSize(){
-    return xMapSize;
-}
-
-int WorldHandler::getyMapSize(){
-    return yMapSize;
-}
-
-int WorldHandler::getOffSetX(){
-    return offSetX;
-}
-
-int WorldHandler::getOffSetY(){
-    return offSetY;
-}
-
-bool WorldHandler::isWorldLoaded(){
-    return worldLoaded;
-}
-
-bool WorldHandler::isTypesLoaded(){
-    return typeLoaded;
-}
-
-void WorldHandler::addToQueues(GameObject *go){
-    renderVector.push_back(go);
-    updateVector.push_back(go);
-}
-
-void WorldHandler::addToRQueue(GameObject *go){
-    renderVector.push_back(go);
-}
-
-void WorldHandler::addToUQueue(GameObject *go){
-    updateVector.push_back(go);
-}
-
 
 void WorldHandler::movementCheck(Math::Vector2D &current, Math::Vector2D &velocity, Math::Vector2D &scene, bool allowedOffscreen, bool moveScene){
     
@@ -138,7 +101,6 @@ bool WorldHandler::offSetby(int x, int y, bool set){
     }
     //if it's bigger than the size of the map
     if(offSetX+x >= xMapSize/(windowWidth/SPRITE_CODE::SPRITE_SIZE) ||
-       //minus offsetY because it's negative
        offSetY+y >= yMapSize/(windowHeight/SPRITE_CODE::SPRITE_SIZE)){
         return false;
     }
@@ -150,59 +112,47 @@ bool WorldHandler::offSetby(int x, int y, bool set){
 }
 
 bool WorldHandler::offSetby(const Math::Vector2D &v, bool set){
-    //if it's less than the size of the map
-    if(offSetX+v.x < 0 || offSetY+v.y < 0){
-        return false;
-    }
-    //if it's bigger than the size of the map
-    if(offSetX+v.x >= xMapSize/(windowWidth/SPRITE_CODE::SPRITE_SIZE) ||
-       //negative offsetbecase its negative
-       offSetY+v.y >= yMapSize/(windowHeight/SPRITE_CODE::SPRITE_SIZE)){
-        return false;
-    }
-    if(set){
-        this->offSetX += v.x;
-        this->offSetY += v.y;
-    }
-    return true;
+    return this->offSetby(v.x, v.y, set);
 }
 
 bool WorldHandler::worldCollide(Math::Vector2D &position, Math::Vector2D &scene, Math::Vector2D &v){
-    float xBound, yBound;
+    //the point that will be checked
+    float xCheck, yCheck;
+    
     if(v.x> 0){
         //if it's going right
-        xBound = position.x + v.x + SPRITE_SIZE;
+        xCheck = position.x + v.x + SPRITE_SIZE;
     }else if(v.x < 0){
         //if it's going left
-        xBound = position.x - v.x;
+        xCheck = position.x - v.x;
     }else if (v.x == 0){
         //if x is 0, thus no x movement
-        xBound = position.x + SPRITE_SIZE/2;
+        xCheck = position.x + SPRITE_SIZE/2;
     }
     
     if(v.y > 0){
         //if it's going down
-        yBound = position.y + v.y + SPRITE_SIZE/2;
+        yCheck = position.y + v.y + SPRITE_SIZE;
     }else if (v.y < 0){
         //if it's going up
-        yBound = position.y - v.y;
+        yCheck = position.y - v.y;
     } else if (v.y == 0){
         //if y is 0, thus no y movement
-        yBound = position.y + SPRITE_SIZE/2;
+        yCheck = position.y + SPRITE_SIZE/2;
     }
     
-    Math::Vector2D gridPos = Math::Vector2D((int)xBound/SPRITE_SIZE, (int)yBound/SPRITE_SIZE);
+    Math::Vector2D gridPosition = Math::Vector2D((int)xCheck/SPRITE_SIZE, (int)yCheck/SPRITE_SIZE);
+    Math::Vector2D mapPosition(gridPosition.x + scene.x*(windowWidth/SPRITE_SIZE), gridPosition.y + scene.y*(windowHeight/SPRITE_SIZE));
     
-    gridPos.x += scene.x*(windowWidth/SPRITE_SIZE);
-    gridPos.y += scene.y*(windowHeight/SPRITE_SIZE);
-    
-    if(gridPos.x < 0 || gridPos.y < 0 || gridPos.x > xMapSize || gridPos.y > xMapSize){
-        return false;
-    }
-    
-    if(map[gridPos.x + gridPos.y*xMapSize]->solid){
+    //if it's going off the map
+    if(mapPosition.x < 0 || mapPosition.y < 0 || mapPosition.x > xMapSize || mapPosition.y > xMapSize){
         return true;
     }
+    
+    if(map[mapPosition.x + mapPosition.y*xMapSize]->solid){
+        return true;
+    }
+    
     return false;
 }
 
@@ -347,3 +297,48 @@ std::vector<WorldHandler::Tile>& WorldHandler::getTiles(){
     return tiles;
 }
 
+WorldHandler::Tile* WorldHandler::getTile(int x, int y){
+    x = int(x/SPRITE_SIZE);
+    y = int(y/SPRITE_SIZE);
+    x += (windowWidth/SPRITE_SIZE)*getOffSetX();
+    y += (windowHeight/SPRITE_SIZE)*getOffSetY();
+    return map[x+(y*getxMapSize())];
+}
+
+
+int WorldHandler::getxMapSize(){
+    return xMapSize;
+}
+
+int WorldHandler::getyMapSize(){
+    return yMapSize;
+}
+
+int WorldHandler::getOffSetX(){
+    return offSetX;
+}
+
+int WorldHandler::getOffSetY(){
+    return offSetY;
+}
+
+bool WorldHandler::isWorldLoaded(){
+    return worldLoaded;
+}
+
+bool WorldHandler::isTypesLoaded(){
+    return typeLoaded;
+}
+
+void WorldHandler::addToQueues(GameObject *go){
+    renderVector.push_back(go);
+    updateVector.push_back(go);
+}
+
+void WorldHandler::addToRQueue(GameObject *go){
+    renderVector.push_back(go);
+}
+
+void WorldHandler::addToUQueue(GameObject *go){
+    updateVector.push_back(go);
+}

@@ -88,7 +88,7 @@ namespace Math {
             v1 = v1/v2;
             return;
         }
-        
+            
         //normalise
         inline Vector2D& normalise(){
             float length = (float)sqrt(this->x*this->x + this->y*this->y);

@@ -34,7 +34,11 @@ void Player::update(){
         sv.x += -speed;
         movement = true;
     }
+    //do the movement given from the player
     worldHandler->movementCheck(editPosition(), sv, editScene(), true, true);
+    
+    
+    
     //you can't mind whilst moving
     if(!movement){
         //to start mining
@@ -52,13 +56,7 @@ void Player::update(){
             }else{
                 //and if the timer is up
                 if(timer.elapsedTime() >= 1){
-                    int x = inputHandler->getMouseX();
-                    int y = inputHandler->getMouseY();
-                    x = int(x/SPRITE_SIZE);
-                    y = int(y/SPRITE_SIZE);
-                    x += ((worldHandler->windowWidth/SPRITE_CODE::SPRITE_SIZE)*worldHandler->getOffSetX());
-                    y += ((worldHandler->windowHeight/SPRITE_CODE::SPRITE_SIZE)*worldHandler->getOffSetY());
-                    worldHandler->getMap()[x+(y*worldHandler->getxMapSize())] = &worldHandler->getTiles()[sky];
+//                    wordsldHandler->getTile(inputHandler->getMouseX(), inputHandler->getMouseY()) = &worldHandler->getTiles()[0];
                     timer.reset();
                     mining = false;
                 }
