@@ -20,6 +20,7 @@ class GameObject{
     float gravityStrength = 2;
 protected:
     GameObject(const Math::Vector2D &position, const Math::Vector2D &scene, const Graphics::Rect &bounds, bool visible = false);
+    virtual ~GameObject(){};
 public:
     const bool& isVisible();
     const Math::Vector2D& getPosition();

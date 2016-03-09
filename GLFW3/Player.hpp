@@ -30,7 +30,8 @@ public:
     //collection and mining stuff
     bool mining = false;
     float miningTime = 0;
-    int miningType = 0;
+    int miningX = 0, miningY = 0;
+    int miningType = 0, miningLevel = 0;
     Math::Timer timer;
     Inventory inventory;
 };

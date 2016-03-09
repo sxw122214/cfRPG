@@ -27,7 +27,7 @@ namespace Math {
         void reset();
         bool isRunning();
         bool isStarted();
-        unsigned long elapsedTime();
+        float elapsedTime();
     };
 }
 

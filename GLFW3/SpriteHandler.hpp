@@ -21,8 +21,10 @@ enum SPRITE_CODE{
     coal = 5,
     copper = 6,
     tin = 7,
-    player = 8,
-    END_SPRITE = 9,
+    destruction1 = 8,
+    destruction2 = 9,
+    player = 10,
+    END_SPRITE = 11,
     SPRITE_SIZE = 32
 };
 

@@ -30,11 +30,11 @@ namespace Math{
         endTime = 0;
     }
 
-    unsigned long Timer::elapsedTime(){
+    float Timer::elapsedTime(){
         if(running){
-            return ((unsigned long) clock() - beginTime)/100000;
+            return ((float) clock() - beginTime)/100000;
         }
-            return ((unsigned long) endTime - beginTime)/100000;
+            return ((float) endTime - beginTime)/100000;
     }
     bool Timer::isRunning(){
         return running;

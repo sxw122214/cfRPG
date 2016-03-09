@@ -34,7 +34,7 @@ void Player::update(){
         sv.x += -speed;
         movement = true;
     }
-    std::cout << sv.x << " " << sv.y << std::endl;
+//    std::cout << sv.x << " " << sv.y << std::endl;
     worldHandler->movementCheck(editPosition(), sv, editScene(), true, true);
     
 //    if(inputHandler->getSPACE() && getVelocity().y == 0){
@@ -60,6 +60,11 @@ void Player::update(){
             if(distance < SPRITE_SIZE*3){
                 miningTime = worldHandler->getTile(inputHandler->getMouseX(), inputHandler->getMouseY())->strength;
                 miningType = worldHandler->getTile(inputHandler->getMouseX(), inputHandler->getMouseY())->textureCode;
+                miningX = inputHandler->getMouseX()/SPRITE_SIZE;
+                miningY = inputHandler->getMouseY()/SPRITE_SIZE;
+                miningX*=SPRITE_SIZE;
+                miningY*=SPRITE_SIZE;
+
                 mining = true;
                 timer.start();
             }
@@ -71,12 +76,20 @@ void Player::update(){
                 mining = false;
                 timer.reset();
             }else{
-                
-                //if you've been mining for the right amount of time... this will be changed per block
+                //if the mining is still happening
                 if(timer.elapsedTime() >= miningTime){
                     worldHandler->getTile(inputHandler->getMouseX(), inputHandler->getMouseY()) = &worldHandler->getTiles()[0];
                     timer.reset();
                     mining = false;
+                    miningLevel = 0;
+                }
+                else if(timer.elapsedTime() >= miningTime-(miningTime/4)){
+                    miningLevel = 3;
+                }
+                else if(timer.elapsedTime() >= miningTime/2){
+                    miningLevel = 2;
+                } else if(timer.elapsedTime() >= miningTime/4){
+                    miningLevel = 1;
                 }
             }
         }
@@ -88,8 +101,21 @@ void Player::update(){
 }
 
 void Player::render(){
-    if(mining){
-        Graphics::drawRect(50, 50, (timer.elapsedTime())*70, 50);
-    }
     SpriteHandler::getInstance()->get(SPRITE_CODE::player)->draw(this->getPosition());
+    if(mining){
+        switch(miningLevel){
+        case 1:
+            SpriteHandler::getInstance()->get(destruction1)->draw(miningX, miningY, SPRITE_SIZE, SPRITE_SIZE);
+            break;
+        case 2:
+            SpriteHandler::getInstance()->get(destruction2)->draw(miningX, miningY, SPRITE_SIZE, SPRITE_SIZE);
+            break;
+            case 3:
+                SpriteHandler::getInstance()->get(destruction3)->draw(miningX, miningY, SPRITE_SIZE, SPRITE_SIZE);
+
+                break;
+                
+            
+        }
+    }
 }
