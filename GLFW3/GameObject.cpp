@@ -51,10 +51,10 @@ void GameObject::setScene(const float &x, const float &y){
 }
 
 void GameObject::gravity(bool collision){
-//    if(collision){
-//        Math::Vector2D v(0, gravityStrength);
-//        WorldHandler::getInstance()->movementCheck(position, v, scene, true, true);
-//    }else{
-//        this->position.y += gravityStrength;
-//    }
+    if(collision){
+        Math::Vector2D v(0, gravityStrength);
+        WorldHandler::getInstance()->movementCheck(position, v, scene, true, true);
+    }else{
+        this->position.y += gravityStrength;
+    }
 }

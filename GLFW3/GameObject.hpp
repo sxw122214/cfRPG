@@ -11,12 +11,13 @@
 
 #include <stdio.h>
 #include "CoreMain.h"
+#include "WorldHandler.hpp"
 
 class GameObject{
     Math::Vector2D position, scene;
     Graphics::Rect bounds;
     bool visible = false;
-    float gravityStrength = 10;
+    float gravityStrength = 5;
 protected:
     GameObject(const Math::Vector2D &position, const Math::Vector2D &scene, const Graphics::Rect &bounds, bool visible = false);
 public:

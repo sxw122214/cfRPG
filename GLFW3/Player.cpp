@@ -34,28 +34,35 @@ void Player::update(){
         sv.x += -speed;
         movement = true;
     }
+    if(inputHandler->getSPACE()){
+        sv.y += -speed*2;
+        movement = true;
+    }
     //do the movement given from the player
     worldHandler->movementCheck(editPosition(), sv, editScene(), true, true);
     
     //you can't mine whilst moving
     if(!movement){
-        
-        float distance = Math::vectorDistance(getPosition().x+SPRITE_SIZE/2, getPosition().y+SPRITE_SIZE/2, inputHandler->getMouseX(), inputHandler->getMouseY());
-        
-        //to start mining
-        if(inputHandler->getMOUSE0() && !mining && distance < SPRITE_SIZE*3){
-            mining = true;
-            timer.start();
+        //if the LMB is pressed and you're not already mining, start the checks to start mining
+        if(inputHandler->getMOUSE0() && !mining){
+            
+            //get the distance between the mouse and the player
+            float distance = Math::vectorDistance(getPosition().x+SPRITE_SIZE/2, getPosition().y+SPRITE_SIZE/2, inputHandler->getMouseX(), inputHandler->getMouseY());
+            
+            //only if the distance is less than the spritesize*3 then we should start mining
+            if(distance < SPRITE_SIZE*3){
+                mining = true;
+                timer.start();
+            }
         }
-        //if you're currently mining then check
+        //if you're currently mining then check you're still holding that LMB
         if(mining){
-            //if the mouse is still being pressed
+            //if the mouse isn't being pressed
             if(!inputHandler->getMOUSE0()){
                 mining = false;
-                std::cout << "unclicked" << std::endl;
                 timer.reset();
             }else{
-                //and if the timer is up
+                //if you've been mining for the right amount of time... this will be changed per block soon
                 if(timer.elapsedTime() >= 1){
                     worldHandler->getTile(inputHandler->getMouseX(), inputHandler->getMouseY()) = &worldHandler->getTiles()[0];
                     timer.reset();
