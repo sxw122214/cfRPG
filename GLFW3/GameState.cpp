@@ -20,16 +20,25 @@ void GameState::setup(){
     
     worldHandler = WorldHandler::getInstance();
     //add the player to the render and update loop
-    worldHandler->addToQueues(&player);
-    worldHandler->addToQueues(&t);
-
+    pushBothRU(&player);
+    pushBothRU(&t);
 }
 
 void GameState::update(){
-    worldHandler->updateWorld();
     t.talk(&player);
+    for(auto go : updateVector){
+        go->update();
+    }
 }
 
 void GameState::draw(){
     worldHandler->renderWorld();
+    for(auto go : renderVector){
+        go->render();
+    }
+}
+
+void GameState::pushBothRU(GameObject *go){
+    renderVector.push_back(go);
+    updateVector.push_back(go);
 }

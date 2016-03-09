@@ -16,7 +16,6 @@
 #include <fstream>
 #include "SpriteHandler.hpp"
 #include "InputHandler.hpp"
-#include "GameObject.hpp"
 
 class WorldHandler{
 public:

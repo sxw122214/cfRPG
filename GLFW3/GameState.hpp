@@ -28,7 +28,13 @@ public:
     virtual void draw();
     std::shared_ptr<InputHandler> inputHandler;
     std::shared_ptr<WorldHandler> worldHandler;
+    
+    std::vector<GameObject*> renderVector;
+    std::vector<GameObject*> updateVector;
+    
+    void pushBothRU(GameObject*);
+    
     Player player = Player(Math::Vector2D(50, 50), Math::Vector2D(0, 0), Graphics::Rect(0, 0, 50, 250), true);
-    TestEnemy t = TestEnemy(Math::Vector2D(50, 50), Math::Vector2D(1, 1), Graphics::Rect(0, 0, 50, 250), true, 50);
+    TestEnemy t = TestEnemy(Math::Vector2D(50, 50), Math::Vector2D(0, 0), Graphics::Rect(0, 0, 50, 250), true, 50);
 };
 #endif /* GameState_hpp */
