@@ -22,8 +22,17 @@ public:
     float speed = 8;
     std::shared_ptr<WorldHandler>  worldHandler;
     std::shared_ptr<InputHandler> inputHandler;
+    
+    class Inventory{
+        std::vector<WorldHandler::Tile*> tiles;
+    };
+
+    //collection and mining stuff
     bool mining = false;
+    float miningTime = 0;
+    int miningType = 0;
     Math::Timer timer;
+    Inventory inventory;
 };
 
 #endif /* Player_hpp */

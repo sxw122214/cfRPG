@@ -31,15 +31,23 @@ namespace Graphics{
 
     void drawRect(const Math::Vector2D &v, float w, float h){
         glBegin(GL_QUADS);
+        glColor3d(0,0,0);
         glVertex3f(v.x, v.y, 0.0f);
         //top left
+        
+        glColor3d(0,0,0);
         glVertex3f(v.x, v.y+h, 0.0f );
         //bottom left
+        
+        glColor3d(0,0,0);
         glVertex3f(v.x+w, v.y+h, 0.0f );
         //bottom right
+        
+        glColor3d(0,0,0);
         glVertex3f(v.x+w, v.y, 0.0f );
         //top right
         glEnd();
+        glColor3d(1,1,1);
     }
     
     void drawPoly(Polygon &p){

@@ -23,22 +23,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "GLFW3/Graphics.cpp"
-            timestampString = "476210227.282992"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "16"
-            endingLineNumber = "16"
-            landmarkName = "drawTriangle(const Math::Vector2D &amp;v1, const Math::Vector2D &amp;v2, const Math::Vector2D &amp;v3)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "GLFW3/Runner.cpp"
             timestampString = "478440643.610913"
             startingColumnNumber = "9223372036854775807"
@@ -125,6 +109,22 @@
             endingLineNumber = "25"
             landmarkName = "WorldHandler::movementCheck(Math::Vector2D &amp;current, Math::Vector2D &amp;velocity, Math::Vector2D &amp;scene, bool allowedOffscreen, bool moveScene)"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GLFW3/Graphics.cpp"
+            timestampString = "479226784.44616"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "drawTriangle(const Math::Vector2D &amp;v1, const Math::Vector2D &amp;v2, const Math::Vector2D &amp;v3)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

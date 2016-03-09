@@ -36,7 +36,7 @@ void Core::setup(){
     State::setState(menuState);
     //call setup
     State::getCurrentState()->setup();
-    Graphics::setBackground(0, 0, 0, 255);
+    Graphics::setBackground(255, 255, 255, 255);
 }
 
 void Core::update(){
@@ -51,10 +51,7 @@ void Core::draw(){
 
 void Core::keyPressed(int key){
     inputHandler->keyDown(key);
-
-//    std::cout << count << std::endl;
     State::getCurrentState()->keyPressed(key);
-
 }
 
 void Core::keyReleased(int key){
