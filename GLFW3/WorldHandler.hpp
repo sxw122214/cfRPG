@@ -52,6 +52,8 @@ public:
     
     bool worldCollide(Math::Vector2D &position, Math::Vector2D &scene, Math::Vector2D &v);
     
+    bool belowWorldCollide(Math::Vector2D &position, Math::Vector2D &scene);
+    
     //all objects that move must go through this method, it contains collisions and scene changing
     void movementCheck(Math::Vector2D &current, Math::Vector2D &velocity, Math::Vector2D &scene, bool allowedOffscreen, bool moveScene);
     

@@ -25,7 +25,6 @@ void GameState::setup(){
 }
 
 void GameState::update(){
-    t.talk(&player);
     for(auto go : updateVector){
         go->update();
     }

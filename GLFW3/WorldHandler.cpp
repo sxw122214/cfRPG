@@ -115,6 +115,11 @@ bool WorldHandler::offSetby(const Math::Vector2D &v, bool set){
     return this->offSetby(v.x, v.y, set);
 }
 
+bool WorldHandler::belowWorldCollide(Math::Vector2D &position, Math::Vector2D &scene){
+    Math::Vector2D temp(0, +SPRITE_SIZE/2);
+    return worldCollide(position, scene, temp);
+}
+
 bool WorldHandler::worldCollide(Math::Vector2D &position, Math::Vector2D &scene, Math::Vector2D &v){
     //the point that will be checked
     float xCheck, yCheck;

@@ -43,6 +43,12 @@ namespace Math {
             return *this;
         }
         
+        inline Vector2D& operator+ (const float& f){
+            this->x += f;
+            this->y += f;
+            return *this;
+        }
+        
         inline Vector2D& operator= (const Vector2D& v){
             this->x = v.x;
             this->y = v.y;
@@ -55,7 +61,7 @@ namespace Math {
             return *this;
         }
         
-        inline Vector2D& operator*(float n){
+        inline Vector2D& operator*(const float& n){
             this->x *= n;
             this->y *= n;
             return *this;
@@ -69,6 +75,12 @@ namespace Math {
         inline Vector2D& operator- (const Vector2D& v) {
             this->x -= v.x;
             this->y -= v.y;
+            return *this;
+        }
+        
+        inline Vector2D& operator- (const float& f){
+            this->x -= f;
+            this->y -= f;
             return *this;
         }
         

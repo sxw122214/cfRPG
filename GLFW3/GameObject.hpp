@@ -14,10 +14,10 @@
 #include "WorldHandler.hpp"
 
 class GameObject{
-    Math::Vector2D position, scene;
+    Math::Vector2D position, scene, velocity;
     Graphics::Rect bounds;
     bool visible = false;
-    float gravityStrength = 5;
+    float gravityStrength = 2;
 protected:
     GameObject(const Math::Vector2D &position, const Math::Vector2D &scene, const Graphics::Rect &bounds, bool visible = false);
 public:
@@ -26,9 +26,11 @@ public:
     Math::Vector2D& editPosition();
     const Math::Vector2D& getScene();
     Math::Vector2D& editScene();
+    const Math::Vector2D& getVelocity();
+    Math::Vector2D& editVelocity();
     virtual void update() = 0;
     virtual void render() = 0;
-    void gravity(bool collision);
+    void gravity();
     void setPosition(const Math::Vector2D &v);
     void setPosition(const float &x, const float &y);
     void setScene(const Math::Vector2D &v);
