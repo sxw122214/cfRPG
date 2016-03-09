@@ -56,10 +56,6 @@ public:
     //all objects that move must go through this method, it contains collisions and scene changing
     void movementCheck(Math::Vector2D &current, Math::Vector2D &velocity, Math::Vector2D &scene, bool allowedOffscreen, bool moveScene);
     
-    void addToRQueue(GameObject*);
-    void addToUQueue(GameObject*);
-    void addToQueues(GameObject*);
-    
     //loads the tile types, will be called if not called before loadWorld is called
     void loadTileTypes(int typeNum);
     
@@ -90,10 +86,6 @@ private:
     
     //if the world/tiles are loaded
     bool worldLoaded = false, typeLoaded = false;
-    
-    //objects
-    std::vector<GameObject*> renderVector;
-    std::vector<GameObject*> updateVector;
     
     //map holds pointers to tiles in the tiles vector
     std::vector<Tile*> map;

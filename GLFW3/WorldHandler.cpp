@@ -238,9 +238,6 @@ void WorldHandler::loadWorld(int worldNum){
 }
 
 void WorldHandler::updateWorld(){
-    for(auto o : updateVector){
-        o->update();
-    }
 }
 
 
@@ -274,17 +271,6 @@ void WorldHandler::renderWorld(){
         for(int j = minOffSetX; j < maxOffSetX; j++){
             //draw the sprites
             temp->get(map[j+i*xMapSize]->textureCode)->draw(((j-minOffSetX)*SPRITE_CODE::SPRITE_SIZE), ((i-minOffSetY)*SPRITE_CODE::SPRITE_SIZE), SPRITE_CODE::SPRITE_SIZE, SPRITE_CODE::SPRITE_SIZE);
-        }
-    }
-    //after the world has been rendered, render the objects
-    for(auto o : renderVector){
-        //if it's visible
-        if(o->isVisible()){
-            //if it's in the right scene
-            if(tempOffSetX == o->getScene().x && tempOffSetY == o->getScene().y){
-                //call render
-                o->render();
-            }
         }
     }
 }
@@ -328,17 +314,4 @@ bool WorldHandler::isWorldLoaded(){
 
 bool WorldHandler::isTypesLoaded(){
     return typeLoaded;
-}
-
-void WorldHandler::addToQueues(GameObject *go){
-    renderVector.push_back(go);
-    updateVector.push_back(go);
-}
-
-void WorldHandler::addToRQueue(GameObject *go){
-    renderVector.push_back(go);
-}
-
-void WorldHandler::addToUQueue(GameObject *go){
-    updateVector.push_back(go);
 }
