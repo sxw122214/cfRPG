@@ -95,13 +95,19 @@ void Player::update(){
             }
         }
     }else if(mining){
-        std::cout << "you moved" << std::endl;
+//        std::cout << "you moved" << std::endl;
         this->stopMining();
     }
 }
 
 
 void Player::pickup(WorldHandler::Tile *tile){
+    for(auto &i : inventory){
+        if(i.type==tile){
+            i.num++;
+            return;
+        }
+    }
     inventory.push_back(inventoryItem(tile, 1));
 }
 

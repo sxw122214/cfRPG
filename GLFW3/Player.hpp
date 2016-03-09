@@ -10,6 +10,7 @@
 #define Player_hpp
 
 #include <stdio.h>
+#include <algorithm>
 #include "Creature.hpp"
 #include "Handlers.h"
 #include "Timer.hpp"
