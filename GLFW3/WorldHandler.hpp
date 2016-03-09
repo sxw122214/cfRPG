@@ -16,6 +16,7 @@
 #include <fstream>
 #include "SpriteHandler.hpp"
 #include "Tile.hpp"
+#include "Item.hpp"
 #include "InputHandler.hpp"
 
 class WorldHandler{
@@ -46,10 +47,12 @@ public:
     
     //loads the tile types, will be called if not called before loadWorld is called
     void loadTileTypes(int typeNum);
+    void loadItemTypes(int typeNum);
     
     //returns if things are loaded
     bool isWorldLoaded();
     bool isTypesLoaded();
+    bool isItemsLoaded();
     
     std::vector<Tile*>& getMap();
     std::vector<Tile>& getTiles();
@@ -73,12 +76,13 @@ private:
     int offSetX = 0, offSetY = 0;
     
     //if the world/tiles are loaded
-    bool worldLoaded = false, typeLoaded = false;
+    bool worldLoaded = false, typeLoaded = false, itemLoaded = false;
     
     //map holds pointers to tiles in the tiles vector
     std::vector<Tile*> map;
     //tiles holds the initial information of each tile
     std::vector<Tile> tiles;
+    std::vector<Item> items;
     
     //this holds how big the map is in tiles
     int xMapSize = 0, yMapSize = 0;

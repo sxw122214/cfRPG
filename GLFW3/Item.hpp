@@ -12,6 +12,7 @@
 #include <stdio.h>
 
 class Item{
+public:
     Item(int id, int textureCode, bool placeable, int tileID);
     //id is this Item's id
     //textureCode is the texture that will represent this

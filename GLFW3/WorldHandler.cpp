@@ -198,11 +198,51 @@ void WorldHandler::loadTileTypes(int typeNum){
     }
 }
 
+void WorldHandler::loadItemTypes(int typeNum){
+    const char seperator = ',';
+    std::ifstream worldFile("data/items"+std::to_string(typeNum)+".csv", std::ios::in); //declare a file stream
+    if (worldFile.is_open()) //checks if the file is open??
+    {
+        std::string str;
+        while (getline(worldFile, str)){
+            //if it's a / just ignore the entire line
+            if(str[0] == '/'){
+                continue;
+            }
+            
+            //loop through and push all the tiles into a vector
+            std::vector<int> readIntegers; // this will hold the data
+            std::string read;
+            for(int i = 0; i <= str.length(); i++){
+                //find seperators and split the integers
+                //this allows for >1 digit ints
+                // i >= str.length finds the end of the line
+                if(str[i] == seperator || i >= str.length()){
+                    int tempInt = atoi(read.c_str());
+                    read.clear();
+                    readIntegers.push_back(tempInt);
+                }else{
+                    read += str[i];
+                }
+            }
+            //now push the integers in
+            items.push_back(Item(readIntegers[0], readIntegers[1], readIntegers[2], readIntegers[3]));
+        }
+        typeLoaded = true;
+    }else{
+        typeLoaded = false;
+        std::cout << "Tile file failed to load" << std::endl;
+    }
+}
+
+
 void WorldHandler::loadWorld(int worldNum){
     if(!typeLoaded){
         this->loadTileTypes(worldNum);
     }
-    
+    if(!itemLoaded){
+        this->loadItemTypes(worldNum);
+    }
     const char seperator = ',';
     std::ifstream worldFile("data/world"+std::to_string(worldNum)+".csv", std::ios::in); //declare a file stream
     if (worldFile.is_open()) //checks if the file is open??
@@ -319,4 +359,8 @@ bool WorldHandler::isWorldLoaded(){
 
 bool WorldHandler::isTypesLoaded(){
     return typeLoaded;
+}
+
+bool WorldHandler::isItemsLoaded(){
+    return itemLoaded;
 }
