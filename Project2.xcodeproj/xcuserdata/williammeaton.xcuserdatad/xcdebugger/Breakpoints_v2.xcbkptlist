@@ -159,53 +159,5 @@
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GLFW3/Player.cpp"
-            timestampString = "479245309.210939"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
-            landmarkName = "Player::pickup(WorldHandler::Tile *tile)"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Player::pickup(WorldHandler::Tile*)"
-                  moduleName = "Project2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/williammeaton/Desktop/cfRPG/GLFW3/Player.cpp"
-                  timestampString = "479245353.061139"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "105"
-                  endingLineNumber = "105"
-                  offsetFromSymbolStart = "43">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Player::pickup(WorldHandler::Tile*)"
-                  moduleName = "Project2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/williammeaton/Desktop/cfRPG/GLFW3/Player.cpp"
-                  timestampString = "479245353.061387"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "105"
-                  endingLineNumber = "105"
-                  offsetFromSymbolStart = "385">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

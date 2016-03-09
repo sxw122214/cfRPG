@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C203C00D1C90C58A00CE1C43 /* Tile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C203C00B1C90C58A00CE1C43 /* Tile.cpp */; };
+		C203C0111C90C6EC00CE1C43 /* Item.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C203C00F1C90C6EC00CE1C43 /* Item.cpp */; };
 		C20671AD1C1792770006C6B1 /* Core.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C20671AB1C1792770006C6B1 /* Core.cpp */; };
 		C20671B21C184FA70006C6B1 /* Runner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C20671B01C184FA70006C6B1 /* Runner.cpp */; };
 		C20671B51C184FCC0006C6B1 /* BaseCore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C20671B31C184FCC0006C6B1 /* BaseCore.cpp */; };
@@ -61,6 +62,8 @@
 /* Begin PBXFileReference section */
 		C203C00B1C90C58A00CE1C43 /* Tile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tile.cpp; sourceTree = "<group>"; };
 		C203C00C1C90C58A00CE1C43 /* Tile.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Tile.hpp; sourceTree = "<group>"; };
+		C203C00F1C90C6EC00CE1C43 /* Item.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Item.cpp; sourceTree = "<group>"; };
+		C203C0101C90C6EC00CE1C43 /* Item.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Item.hpp; sourceTree = "<group>"; };
 		C20671AA1C176EF50006C6B1 /* Poly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Poly.h; sourceTree = "<group>"; };
 		C20671AB1C1792770006C6B1 /* Core.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Core.cpp; sourceTree = "<group>"; tabWidth = 4; usesTabs = 0; };
 		C20671AC1C1792770006C6B1 /* Core.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Core.hpp; sourceTree = "<group>"; };
@@ -158,6 +161,8 @@
 			children = (
 				C203C00B1C90C58A00CE1C43 /* Tile.cpp */,
 				C203C00C1C90C58A00CE1C43 /* Tile.hpp */,
+				C203C00F1C90C6EC00CE1C43 /* Item.cpp */,
+				C203C0101C90C6EC00CE1C43 /* Item.hpp */,
 			);
 			name = Datums;
 			sourceTree = "<group>";
@@ -491,6 +496,7 @@
 				C21729601C1AEC1B00E2869A /* Font.cpp in Sources */,
 				C290E6581C808C940021843F /* Timer.cpp in Sources */,
 				C2E9BD881C5173870005A77A /* State.cpp in Sources */,
+				C203C0111C90C6EC00CE1C43 /* Item.cpp in Sources */,
 				C2DE69721C61531E00875E74 /* Utils.cpp in Sources */,
 				C2071E941C15D67A00648169 /* Graphics.cpp in Sources */,
 				C20671AD1C1792770006C6B1 /* Core.cpp in Sources */,

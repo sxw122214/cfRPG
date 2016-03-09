@@ -122,15 +122,15 @@ void Player::render(){
     if(mining){
         switch(miningLevel){
         case 1:
-            SpriteHandler::getInstance()->get(destruction1)->draw(miningX, miningY, SPRITE_SIZE, SPRITE_SIZE);
+            SpriteHandler::getInstance()->get(T_destruction1)->draw(miningX, miningY, SPRITE_SIZE, SPRITE_SIZE);
             break;
         case 2:
-            SpriteHandler::getInstance()->get(destruction2)->draw(miningX, miningY, SPRITE_SIZE, SPRITE_SIZE);
+            SpriteHandler::getInstance()->get(T_destruction2)->draw(miningX, miningY, SPRITE_SIZE, SPRITE_SIZE);
             break;
         case 3:
-            SpriteHandler::getInstance()->get(destruction3)->draw(miningX, miningY, SPRITE_SIZE, SPRITE_SIZE);
+            SpriteHandler::getInstance()->get(T_destruction3)->draw(miningX, miningY, SPRITE_SIZE, SPRITE_SIZE);
             break;
         }
     }
-    SpriteHandler::getInstance()->get(SPRITE_CODE::player)->draw(this->getPosition());
+    SpriteHandler::getInstance()->get(SPRITE_CODE::S_player)->draw(this->getPosition());
 }

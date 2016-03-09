@@ -9,6 +9,6 @@
 #include "Tile.hpp"
 
 
-Tile::Tile(int tc, bool solid, float strength, int itemDrop): textureCode(tc), solid(solid), strength(strength), itemDrop(itemDrop)
+Tile::Tile(int id, int textureCode, bool solid, float strength, int itemDrop): id(id), textureCode(textureCode), solid(solid), strength(strength), itemDrop(itemDrop)
 {
 }

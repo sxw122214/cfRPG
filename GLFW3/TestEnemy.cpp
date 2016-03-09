@@ -18,7 +18,7 @@ void TestEnemy::update(){
 }
 
 void TestEnemy::render(){
-    SpriteHandler::getInstance()->get(SPRITE_CODE::player)->draw(this->getPosition());
+    SpriteHandler::getInstance()->get(SPRITE_CODE::S_player)->draw(this->getPosition());
 }
 
 void TestEnemy::talk(GameObject *go){

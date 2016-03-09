@@ -11,10 +11,27 @@
 
 #include <stdio.h>
 
+enum TILES{
+    T_sky = 0,
+    T_grass = 1,
+    T_dirt = 2,
+    T_stone = 3,
+    T_sand = 4,
+    T_coal = 5,
+    T_copper = 6,
+    T_tin = 7,
+    T_destruction1 = 8,
+    T_destruction2 = 9,
+    T_destruction3= 10
+};
+
 class Tile{
 public:
-    Tile(int tc, bool solid, float strength, int itemDrop);
-    int textureCode = 0, itemDrop = 0;
+    Tile(int id, int textureCode, bool solid, float strength, int itemDrop);
+    //id is this tiles Id
+    //textureCode is the texture code that it draws
+    //itemDrop is the itemID that this tile will drop when destroyed
+    int id = -1, textureCode = -1, itemDrop = -1;
     float strength = 0;
     bool solid = false;
 

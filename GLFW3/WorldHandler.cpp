@@ -189,7 +189,7 @@ void WorldHandler::loadTileTypes(int typeNum){
                 }
             }
             //now push the integers in
-            tiles.push_back(Tile(readIntegers[0], readIntegers[1], readIntegers[2], readIntegers[3]));
+            tiles.push_back(Tile(readIntegers[0], readIntegers[1], readIntegers[2], readIntegers[3], readIntegers[4]));
         }
         typeLoaded = true;
     }else{
