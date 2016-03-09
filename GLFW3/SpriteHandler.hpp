@@ -23,8 +23,9 @@ enum SPRITE_CODE{
     tin = 7,
     destruction1 = 8,
     destruction2 = 9,
-    player = 10,
-    END_SPRITE = 11,
+    destruction3= 10,
+    player = 11,
+    END_SPRITE = 12,
     SPRITE_SIZE = 32
 };
 

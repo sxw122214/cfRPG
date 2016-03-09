@@ -28,6 +28,7 @@ public:
     };
 
     //collection and mining stuff
+    void stopMining();
     bool mining = false;
     float miningTime = 0;
     int miningX = 0, miningY = 0;

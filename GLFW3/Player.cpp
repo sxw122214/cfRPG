@@ -71,17 +71,22 @@ void Player::update(){
         }
         //if you're currently mining then check you're still holding that LMB
         if(mining){
-            //if the mouse isn't being pressed
-            if(!inputHandler->getMOUSE0()){
-                mining = false;
-                timer.reset();
+            
+            int x = inputHandler->getMouseX()/SPRITE_SIZE;
+            int y = inputHandler->getMouseY()/SPRITE_SIZE;
+            x*=SPRITE_SIZE;
+            y*=SPRITE_SIZE;
+            
+            //check if you're still on the original tile
+            if(x != miningX || y!= miningY){
+                this->stopMining();
+            }else if(!inputHandler->getMOUSE0()){
+                this->stopMining();
             }else{
                 //if the mining is still happening
                 if(timer.elapsedTime() >= miningTime){
                     worldHandler->getTile(inputHandler->getMouseX(), inputHandler->getMouseY()) = &worldHandler->getTiles()[0];
-                    timer.reset();
-                    mining = false;
-                    miningLevel = 0;
+                    this->stopMining();
                 }
                 else if(timer.elapsedTime() >= miningTime-(miningTime/4)){
                     miningLevel = 3;
@@ -95,9 +100,14 @@ void Player::update(){
         }
     }else if(mining){
         std::cout << "you moved" << std::endl;
-        mining = false;
-        timer.reset();
+        this->stopMining();
     }
+}
+
+void Player::stopMining(){
+    mining = false;
+    miningLevel = 0;
+    timer.reset();
 }
 
 void Player::render(){
