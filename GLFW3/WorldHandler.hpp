@@ -70,7 +70,8 @@ public:
     std::vector<Tile*>& getMap();
     std::vector<Tile>& getTiles();
     
-    Tile* getTile(int x, int y);
+    //returns a pointer reference
+    Tile*& getTile(int x, int y);
     
     int getxMapSize();
     int getyMapSize();

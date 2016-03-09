@@ -25,8 +25,6 @@ namespace Math {
     //returns if v3 is inside of v1-v2
     bool isInsideQuad(const Vector2D &v1, const Vector2D &v2, const Vector2D &v3);
     
-    bool isInsideQuad(const Vector2D &point, const Graphics::Dorito &t);
-    
     bool isInsideQuad(const Vector2D &point, const Vector2D &v, float w, float h);
     
     bool isInsideQuad(float x1, float y1, float x2, float y2, float x3, float y3);

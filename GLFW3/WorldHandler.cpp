@@ -297,7 +297,7 @@ std::vector<WorldHandler::Tile>& WorldHandler::getTiles(){
     return tiles;
 }
 
-WorldHandler::Tile* WorldHandler::getTile(int x, int y){
+WorldHandler::Tile*& WorldHandler::getTile(int x, int y){
     x = int(x/SPRITE_SIZE);
     y = int(y/SPRITE_SIZE);
     x += (windowWidth/SPRITE_SIZE)*getOffSetX();
