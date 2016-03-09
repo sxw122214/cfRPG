@@ -33,7 +33,11 @@ void GameState::update(){
 void GameState::draw(){
     worldHandler->renderWorld();
     for(auto go : renderVector){
-        go->render();
+        if(go->isVisible()){
+            if(worldHandler->getOffSetX() == go->getScene().x && worldHandler->getOffSetY() == go->getScene().y){
+                go->render();
+            }
+        }
     }
 }
 

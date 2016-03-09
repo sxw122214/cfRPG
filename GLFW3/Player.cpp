@@ -86,8 +86,7 @@ void Player::update(){
                 }
                 else if(timer.elapsedTime() >= miningTime-(miningTime/4)){
                     miningLevel = 3;
-                }
-                else if(timer.elapsedTime() >= miningTime/2){
+                } else if(timer.elapsedTime() >= miningTime/2){
                     miningLevel = 2;
                 } else if(timer.elapsedTime() >= miningTime/4){
                     miningLevel = 1;
