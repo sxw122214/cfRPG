@@ -23,18 +23,25 @@ public:
     std::shared_ptr<WorldHandler>  worldHandler;
     std::shared_ptr<InputHandler> inputHandler;
     
-    class Inventory{
-        std::vector<WorldHandler::Tile*> tiles;
+    class inventoryItem{
+    public:
+        inventoryItem(WorldHandler::Tile* type, int num){
+            this->type = type;
+            this->num = num;
+        }
+        WorldHandler::Tile* type;
+        int num;
     };
 
     //collection and mining stuff
     void stopMining();
+    void pickup(WorldHandler::Tile*);
     bool mining = false;
     float miningTime = 0;
     int miningX = 0, miningY = 0;
     int miningType = 0, miningLevel = 0;
     Math::Timer timer;
-    Inventory inventory;
+    std::vector<inventoryItem> inventory;
 };
 
 #endif /* Player_hpp */

@@ -81,6 +81,7 @@ void Player::update(){
             }else{
                 //if the mining is still happening
                 if(timer.elapsedTime() >= miningTime){
+                    this->pickup(worldHandler->getTile(thisMouseX, thisMouseY));
                     worldHandler->getTile(thisMouseX, thisMouseY) = &worldHandler->getTiles()[0];
                     this->stopMining();
                 }
@@ -97,6 +98,11 @@ void Player::update(){
         std::cout << "you moved" << std::endl;
         this->stopMining();
     }
+}
+
+
+void Player::pickup(WorldHandler::Tile *tile){
+    inventory.push_back(inventoryItem(tile, 1));
 }
 
 void Player::stopMining(){

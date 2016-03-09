@@ -22,15 +22,16 @@ public:
     //public class tile, one is loaded for each type of tile in the world
     class Tile{
     public:
-        Tile(int tc, bool solid, float strength){
+        Tile(int tc, bool solid, float strength, int drops){
             this->textureCode = tc;
             this->solid = solid;
             this->strength = strength;
+            this->drops = drops;
         }
         Tile(int tc){
             this->textureCode = tc;
         }
-        int textureCode;
+        int textureCode, drops;
         float strength;
         bool solid = false;
     };
