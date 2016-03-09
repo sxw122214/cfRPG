@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C203C00D1C90C58A00CE1C43 /* Tile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C203C00B1C90C58A00CE1C43 /* Tile.cpp */; };
 		C20671AD1C1792770006C6B1 /* Core.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C20671AB1C1792770006C6B1 /* Core.cpp */; };
 		C20671B21C184FA70006C6B1 /* Runner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C20671B01C184FA70006C6B1 /* Runner.cpp */; };
 		C20671B51C184FCC0006C6B1 /* BaseCore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C20671B31C184FCC0006C6B1 /* BaseCore.cpp */; };
@@ -58,6 +59,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C203C00B1C90C58A00CE1C43 /* Tile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tile.cpp; sourceTree = "<group>"; };
+		C203C00C1C90C58A00CE1C43 /* Tile.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Tile.hpp; sourceTree = "<group>"; };
 		C20671AA1C176EF50006C6B1 /* Poly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Poly.h; sourceTree = "<group>"; };
 		C20671AB1C1792770006C6B1 /* Core.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Core.cpp; sourceTree = "<group>"; tabWidth = 4; usesTabs = 0; };
 		C20671AC1C1792770006C6B1 /* Core.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Core.hpp; sourceTree = "<group>"; };
@@ -150,6 +153,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C203C00E1C90C59600CE1C43 /* Datums */ = {
+			isa = PBXGroup;
+			children = (
+				C203C00B1C90C58A00CE1C43 /* Tile.cpp */,
+				C203C00C1C90C58A00CE1C43 /* Tile.hpp */,
+			);
+			name = Datums;
+			sourceTree = "<group>";
+		};
 		C20671A91C1736630006C6B1 /* Types */ = {
 			isa = PBXGroup;
 			children = (
@@ -279,6 +291,7 @@
 		C22E640F1C51086200386E87 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				C203C00E1C90C59600CE1C43 /* Datums */,
 				C21493CE1C63852D00C25A1A /* GameObjects */,
 			);
 			name = Objects;
@@ -456,6 +469,7 @@
 			files = (
 				C27E3AD11C8728BB00E1B900 /* drawgl.c in Sources */,
 				C27E3AD21C8728BB00E1B900 /* utf8.c in Sources */,
+				C203C00D1C90C58A00CE1C43 /* Tile.cpp in Sources */,
 				C28CF85D1C57E99C00607332 /* Collision.cpp in Sources */,
 				C283AC6F1C51AA7200527570 /* InputHandler.cpp in Sources */,
 				C22E64001C51082B00386E87 /* Creature.cpp in Sources */,

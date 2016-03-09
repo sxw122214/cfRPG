@@ -13,6 +13,7 @@
 #include <algorithm>
 #include "Creature.hpp"
 #include "Handlers.h"
+#include "Tile.hpp"
 #include "Timer.hpp"
 
 class Player : public GameObject{
@@ -26,17 +27,17 @@ public:
     
     class inventoryItem{
     public:
-        inventoryItem(WorldHandler::Tile* type, int num){
+        inventoryItem(Tile* type, int num){
             this->type = type;
             this->num = num;
         }
-        WorldHandler::Tile* type;
+        Tile* type;
         int num;
     };
 
     //collection and mining stuff
     void stopMining();
-    void pickup(WorldHandler::Tile*);
+    void pickup(Tile*);
     bool mining = false;
     float miningTime = 0;
     int miningX = 0, miningY = 0;

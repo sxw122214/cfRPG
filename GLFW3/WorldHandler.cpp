@@ -280,15 +280,15 @@ void WorldHandler::renderWorld(){
     }
 }
 
-std::vector<WorldHandler::Tile*>& WorldHandler::getMap(){
+std::vector<Tile*>& WorldHandler::getMap(){
     return map;
 }
 
-std::vector<WorldHandler::Tile>& WorldHandler::getTiles(){
+std::vector<Tile>& WorldHandler::getTiles(){
     return tiles;
 }
 
-WorldHandler::Tile*& WorldHandler::getTile(int x, int y){
+Tile*& WorldHandler::getTile(int x, int y){
     x = int(x/SPRITE_SIZE);
     y = int(y/SPRITE_SIZE);
     x += (windowWidth/SPRITE_SIZE)*getOffSetX();

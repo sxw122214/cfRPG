@@ -57,7 +57,7 @@ void Player::update(){
             
             //only if the distance is less than the spritesize*3 then we should start mining
             if(distance < SPRITE_SIZE*3){
-                WorldHandler::Tile tile = *worldHandler->getTile(thisMouseX, thisMouseY);
+                Tile tile = *worldHandler->getTile(thisMouseX, thisMouseY);
                 if(tile.solid){
                     miningTime = tile.strength;
                     miningType = tile.textureCode;
@@ -101,7 +101,7 @@ void Player::update(){
 }
 
 
-void Player::pickup(WorldHandler::Tile *tile){
+void Player::pickup(Tile *tile){
     for(auto &i : inventory){
         if(i.type==tile){
             i.num++;
