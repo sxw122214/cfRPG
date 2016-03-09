@@ -17,30 +17,37 @@ void Player::update(){
     bool movement = false;
 //    this->gravity();
     editVelocity() = editVelocity() - 2;
+    Math::Vector2D sv;
     //on player movement
     if(inputHandler->getDOWN()){
-        editVelocity().y += speed;
+        sv.y += speed;
+        movement = true;
     }
     if(inputHandler->getUP()){
-        editVelocity().y += -speed;
+        sv.y += -speed;
+        movement = true;
     }
     if(inputHandler->getRIGHT()){
-        editVelocity().x += speed;
+        sv.x += speed;
+        movement = true;
     }
     if(inputHandler->getLEFT()){
-        editVelocity().x += -speed;
-    }
-    if(inputHandler->getSPACE() && getVelocity().y == 0){
-        editVelocity().y += -speed*2;
-    }
-    if(getVelocity().x != 0 && getVelocity().y != 0){
-        //do the movement given from the player
-        std::cout << getVelocity().x << " " << getVelocity().y << std::endl;
-        worldHandler->movementCheck(editPosition(), editVelocity(), editScene(), true, true);
+        sv.x += -speed;
         movement = true;
-    }else{
-        movement = false;
     }
+    
+    worldHandler->movementCheck(editPosition(), sv, editScene(), true, true);
+    
+//    if(inputHandler->getSPACE() && getVelocity().y == 0){
+//        sv.y += -speed*2;
+//    }
+//    if(getVelocity().x != 0 && getVelocity().y != 0){
+//        //do the movement given from the player
+//        std::cout << getVelocity().x << " " << getVelocity().y << std::endl;
+//        movement = true;
+//    }else{
+//        movement = false;
+//    }
     
     //you can't mine whilst moving
     if(!movement){
