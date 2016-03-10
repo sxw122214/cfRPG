@@ -15,6 +15,7 @@
 #include "Handlers.h"
 #include "Tile.hpp"
 #include "Timer.hpp"
+#include "Item.hpp"
 
 class Player : public GameObject{
 public:
@@ -27,21 +28,23 @@ public:
     
     class inventoryItem{
     public:
-        inventoryItem(Tile* type, int num){
+        inventoryItem(Item* type, int num){
             this->type = type;
             this->num = num;
         }
-        Tile* type;
+        Item* type;
         int num;
     };
 
     //collection and mining stuff
     void stopMining();
-    void pickup(Tile*);
+    void pickup(Item*);
+    void placeItem();
     bool mining = false;
     float miningTime = 0;
     int miningX = 0, miningY = 0;
     int miningType = 0, miningLevel = 0;
+    int inventorySelected = 0;
     Math::Timer timer;
     std::vector<inventoryItem> inventory;
 };

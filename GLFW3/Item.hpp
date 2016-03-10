@@ -11,6 +11,16 @@
 
 #include <stdio.h>
 
+enum ITEMS{
+    I_sky = 0,
+    I_dirt = 1,
+    I_cobble = 2,
+    I_sand = 3,
+    I_coal = 4,
+    I_copper = 5,
+    I_tin = 6
+};
+
 class Item{
 public:
     Item(int id, int textureCode, bool placeable, int tileID);

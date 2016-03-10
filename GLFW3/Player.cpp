@@ -35,6 +35,7 @@ void Player::update(){
         sv.x += -speed;
         movement = true;
     }
+//    std::cout << sv.x << " " << sv.y << std::endl;
     worldHandler->movementCheck(editPosition(), sv, editScene(), true, true);
     
 //    if(inputHandler->getSPACE() && getVelocity().y == 0){
@@ -47,6 +48,57 @@ void Player::update(){
 //    }else{
 //        movement = false;
 //    }
+    
+    
+    if(inputHandler->getE()){
+        if(inventorySelected+1 >= inventory.size()){
+            inventorySelected = 0;
+        }else{
+            inventorySelected++;
+        }
+        std::cout << inventorySelected << std::endl;
+    }
+    
+    
+    //Item placement check
+    if(inputHandler->getMOUSE1()){
+//        std::cout << "loalsd";
+        if(inventorySelected > inventory.size() || inventory.size() == 0){
+            return;
+        }
+        //check if the item is even placeable
+        if(inventory[inventorySelected].type->placeable){
+            //get a pointer to the item you're placing
+            Item* item = inventory[inventorySelected].type;
+            //get the distance between your character and your mouse
+            float distance = Math::vectorDistance(getPosition().x+SPRITE_SIZE/2, getPosition().y+SPRITE_SIZE/2, thisMouseX, thisMouseY);
+            if(distance < SPRITE_SIZE*3){
+                //get an instance of the tile you're hovering over
+                Tile tile = *worldHandler->getTile(thisMouseX, thisMouseY);
+                //make sure the tile is empty
+                if(tile.id == T_sky){
+                    //swap the air tile for the tileID that is dropped
+                    worldHandler->getTile(thisMouseX, thisMouseY) = &worldHandler->getTiles()[item->tileID];
+                    //reduce the amount held
+                    inventory[inventorySelected].num--;
+                    //if there's none there
+                    if(inventory[inventorySelected].num <= 0){
+                        inventory.erase(inventory.begin()+inventorySelected);
+                        //set the inventorySelected to the next one, or the one before or just 0
+                        if(inventorySelected+1 >= inventory.size()){
+                            if(inventorySelected-1 < 0){
+                                inventorySelected = 0;
+                            }else{
+                                inventorySelected--;
+                            }
+                        }else{
+                            inventorySelected++;
+                        }
+                    }
+                }
+            }
+        }
+    }
     
     //you can't mine whilst moving
     if(!movement){
@@ -72,7 +124,6 @@ void Player::update(){
         if(mining){
             int x = thisMouseX-(thisMouseX%SPRITE_SIZE);
             int y = thisMouseY-(thisMouseY%SPRITE_SIZE);
-            
             //check if you're still on the original tile
             if(x != miningX || y!= miningY){
                 this->stopMining();
@@ -81,7 +132,7 @@ void Player::update(){
             }else{
                 //if the mining is still happening
                 if(timer.elapsedTime() >= miningTime){
-                    this->pickup(worldHandler->getTile(thisMouseX, thisMouseY));
+                    this->pickup(&worldHandler->getItems()[worldHandler->getTile(thisMouseX, thisMouseY)->itemDrop]);
                     worldHandler->getTile(thisMouseX, thisMouseY) = &worldHandler->getTiles()[0];
                     this->stopMining();
                 }
@@ -100,15 +151,18 @@ void Player::update(){
     }
 }
 
-
-void Player::pickup(Tile *tile){
+void Player::pickup(Item *item){
     for(auto &i : inventory){
-        if(i.type==tile){
+        if(i.type==item){
             i.num++;
             return;
         }
     }
-    inventory.push_back(inventoryItem(tile, 1));
+    inventory.push_back(inventoryItem(item, 1));
+}
+
+void Player::placeItem(){
+    
 }
 
 void Player::stopMining(){
@@ -132,5 +186,5 @@ void Player::render(){
             break;
         }
     }
-    SpriteHandler::getInstance()->get(SPRITE_CODE::S_player)->draw(this->getPosition());
+    SpriteHandler::getInstance()->get(SPRITE_CODE::S_player)->draw(this->getPosition(), SPRITE_SIZE, SPRITE_SIZE);
 }

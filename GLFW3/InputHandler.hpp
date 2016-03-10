@@ -20,7 +20,7 @@ class InputHandler{
     static std::shared_ptr<InputHandler> instance;
     
     InputHandler(InputHandler const &s){}; // no copy constructor
-    bool UP = false, LEFT = false, RIGHT = false, DOWN = false, isKeyPressed = false, SPACE = false, MOUSE0 = false, MOUSE1 = false, isMousePressed = false;
+    bool Q = false, E = false, UP = false, LEFT = false, RIGHT = false, DOWN = false, isKeyPressed = false, SPACE = false, MOUSE0 = false, MOUSE1 = false, isMousePressed = false;
     int mouseX = 0, mouseY = 0;
 public:
     InputHandler(){};
@@ -42,6 +42,8 @@ public:
     bool getSPACE();
     bool getMOUSE0();
     bool getMOUSE1();
+    bool getQ();
+    bool getE();
     
 };
 

@@ -328,6 +328,10 @@ std::vector<Tile>& WorldHandler::getTiles(){
     return tiles;
 }
 
+std::vector<Item>& WorldHandler::getItems(){
+    return items;
+}
+
 Tile*& WorldHandler::getTile(int x, int y){
     x = int(x/SPRITE_SIZE);
     y = int(y/SPRITE_SIZE);

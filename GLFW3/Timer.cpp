@@ -34,7 +34,7 @@ namespace Math{
         if(running){
             return ((float) clock() - beginTime)/100000;
         }
-            return ((float) endTime - beginTime)/100000;
+        return ((float) endTime - beginTime)/100000;
     }
     bool Timer::isRunning(){
         return running;

@@ -52,8 +52,15 @@ void InputHandler::joyStick(){
 }
 
 void InputHandler::keyDown(int key){
+    std::cout << key << std::endl;
     isKeyPressed = true;
     switch(key){
+        case 81:
+            Q = true;
+            break;
+        case 69:
+            E = true;
+            break;
             //LEFT ARROW
         case 263:
             LEFT = true;
@@ -96,6 +103,12 @@ void InputHandler::keyDown(int key){
 void InputHandler::keyUp(int key){
     isKeyPressed = false;
     switch(key){
+        case 81:
+            Q = false;
+            break;
+        case 69:
+            E = false;
+            break;
         case 263:
             LEFT = false;
             break;
@@ -186,6 +199,15 @@ bool InputHandler::getLEFT(){
 bool InputHandler::getRIGHT(){
     return RIGHT;
 }
+
+bool InputHandler::getQ(){
+    return Q;
+}
+
+bool InputHandler::getE(){
+    return E;
+}
+
 bool InputHandler::getisKeyPressed(){
     return isKeyPressed;
 }
