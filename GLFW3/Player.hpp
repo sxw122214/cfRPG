@@ -16,6 +16,7 @@
 #include "Tile.hpp"
 #include "Timer.hpp"
 #include "Item.hpp"
+#include <dT/drawtext.h>
 
 class Player : public GameObject{
 public:
@@ -35,14 +36,17 @@ public:
         Item* type;
         int num;
     };
-
+    struct dtx_font *font;
+    
     //collection and mining stuff
     void stopMining();
     void pickup(Item*);
     void placeItem();
     bool mining = false;
+    float inventoryItemDisplayAlpha = 0;
     float miningTime = 0;
-    int miningX = 0, miningY = 0;
+    //the current interacted tile
+    int selectedX = 0, selectedY = 0;
     int miningType = 0, miningLevel = 0;
     int inventorySelected = 0;
     Math::Timer timer;

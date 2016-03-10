@@ -21,7 +21,6 @@ void GameState::setup(){
     worldHandler = WorldHandler::getInstance();
     //add the player to the render and update loop
     pushBothRU(&player);
-    pushBothRU(&t);
 }
 
 void GameState::update(){

@@ -11,6 +11,12 @@
 Player::Player(const Math::Vector2D &scene, const Math::Vector2D &position, const Graphics::Rect &bounds, bool visible): GameObject(scene, position, bounds, visible){
     worldHandler = WorldHandler::getInstance();
     inputHandler = InputHandler::getInstance();
+        if(!(font = dtx_open_font_glyphmap("data/serif_s24.glyphmap"))) {
+            fprintf(stderr, "failed to open font\n");
+        }
+        dtx_use_font(font, 24);
+        
+
 }
 
 void Player::update(){
@@ -50,11 +56,14 @@ void Player::update(){
 //    }
     
     
-    if(inputHandler->getE()){
+    if(inputHandler->getE() && inventoryItemDisplayAlpha < 0.5){
         if(inventorySelected+1 >= inventory.size()){
             inventorySelected = 0;
         }else{
             inventorySelected++;
+        }
+        if(inventory.size() != 0){
+            inventoryItemDisplayAlpha = 1;
         }
         std::cout << inventorySelected << std::endl;
     }
@@ -89,9 +98,11 @@ void Player::update(){
                             if(inventorySelected-1 < 0){
                                 inventorySelected = 0;
                             }else{
+                                inventoryItemDisplayAlpha = 1;
                                 inventorySelected--;
                             }
                         }else{
+                            inventoryItemDisplayAlpha = 1;
                             inventorySelected++;
                         }
                     }
@@ -113,8 +124,8 @@ void Player::update(){
                 if(tile.solid){
                     miningTime = tile.strength;
                     miningType = tile.textureCode;
-                    miningX = thisMouseX-(thisMouseX%SPRITE_SIZE);
-                    miningY = thisMouseY-(thisMouseY%SPRITE_SIZE);
+                    selectedX = thisMouseX-(thisMouseX%SPRITE_SIZE);
+                    selectedY = thisMouseY-(thisMouseY%SPRITE_SIZE);
                     mining = true;
                     timer.start();
                 }
@@ -125,7 +136,7 @@ void Player::update(){
             int x = thisMouseX-(thisMouseX%SPRITE_SIZE);
             int y = thisMouseY-(thisMouseY%SPRITE_SIZE);
             //check if you're still on the original tile
-            if(x != miningX || y!= miningY){
+            if(x != selectedX || y!= selectedY){
                 this->stopMining();
             }else if(!inputHandler->getMOUSE0()){
                 this->stopMining();
@@ -176,15 +187,26 @@ void Player::render(){
     if(mining){
         switch(miningLevel){
         case 1:
-            SpriteHandler::getInstance()->get(T_destruction1)->draw(miningX, miningY, SPRITE_SIZE, SPRITE_SIZE);
+            SpriteHandler::getInstance()->get(T_destruction1)->draw(selectedX, selectedY, SPRITE_SIZE, SPRITE_SIZE);
             break;
         case 2:
-            SpriteHandler::getInstance()->get(T_destruction2)->draw(miningX, miningY, SPRITE_SIZE, SPRITE_SIZE);
+            SpriteHandler::getInstance()->get(T_destruction2)->draw(selectedX, selectedY, SPRITE_SIZE, SPRITE_SIZE);
             break;
         case 3:
-            SpriteHandler::getInstance()->get(T_destruction3)->draw(miningX, miningY, SPRITE_SIZE, SPRITE_SIZE);
+            SpriteHandler::getInstance()->get(T_destruction3)->draw(selectedX, selectedY, SPRITE_SIZE, SPRITE_SIZE);
             break;
         }
     }
+    
+    if(inventoryItemDisplayAlpha != 0){
+        glColor4d(1,1,1,inventoryItemDisplayAlpha);
+        for(int i = 0; i < inventory.size(); i++){
+            SpriteHandler::getInstance()->get(inventory[i].type->textureCode)->draw(this->getPosition().x+(i+1)*SPRITE_SIZE, this->getPosition().y-SPRITE_SIZE, SPRITE_SIZE, SPRITE_SIZE);
+        }
+        glColor4d(1,1,1,1);
+        inventoryItemDisplayAlpha -= 0.005;
+    }
+    
     SpriteHandler::getInstance()->get(SPRITE_CODE::S_player)->draw(this->getPosition(), SPRITE_SIZE, SPRITE_SIZE);
+
 }

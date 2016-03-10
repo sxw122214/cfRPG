@@ -75,24 +75,19 @@ namespace Graphics{
             std::cout << "No image has been loaded" << std::endl;
             return;
         }
-        glColor3d(1,1,1);
         glBindTexture(GL_TEXTURE_2D, textureID);
         glEnable(GL_TEXTURE_2D);
         glBegin(GL_QUADS);
         
-        glColor3d(1,1,1);
         glTexCoord2d(0, 1); glVertex2f(x, y+height);
         
         //bottom left
-        glColor3d(1,1,1);
         glTexCoord2d(0, 0); glVertex2f(x,y);
         
         //top left
-        glColor3d(1,1,1);
         glTexCoord2d(1, 0); glVertex2f(x+width, y);
         
         //top right
-        glColor3d(1,1,1);
         glTexCoord2d(1, 1); glVertex2f(x+width, y+height);
         //bottom right
         glEnd();

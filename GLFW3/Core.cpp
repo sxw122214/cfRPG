@@ -18,11 +18,6 @@ Core::~Core(){
 
 void Core::setup(){
     
-//    if(!(font = dtx_open_font_glyphmap("data/serif_s24.glyphmap"))) {
-//        fprintf(stderr, "failed to open font\n");
-//    }
-//    dtx_use_font(font, 24);
-//    
     //set the windowHeight, windoWidth
     WorldHandler::getInstance()->windowHeight = Runner::windowHeight;
     WorldHandler::getInstance()->windowWidth = Runner::windowWidth;
