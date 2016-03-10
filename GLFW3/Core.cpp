@@ -17,7 +17,6 @@ Core::~Core(){
 }
 
 void Core::setup(){
-    
     //set the windowHeight, windoWidth
     WorldHandler::getInstance()->windowHeight = Runner::windowHeight;
     WorldHandler::getInstance()->windowWidth = Runner::windowWidth;

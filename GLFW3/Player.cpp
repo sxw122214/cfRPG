@@ -11,12 +11,6 @@
 Player::Player(const Math::Vector2D &scene, const Math::Vector2D &position, const Graphics::Rect &bounds, bool visible): GameObject(scene, position, bounds, visible){
     worldHandler = WorldHandler::getInstance();
     inputHandler = InputHandler::getInstance();
-        if(!(font = dtx_open_font_glyphmap("data/serif_s24.glyphmap"))) {
-            fprintf(stderr, "failed to open font\n");
-        }
-        dtx_use_font(font, 24);
-        
-
 }
 
 void Player::update(){
@@ -55,6 +49,12 @@ void Player::update(){
 //        movement = false;
 //    }
     
+    if(inputHandler->getQ()){
+        pickup(&worldHandler->getItems()[I_coal]);
+        pickup(&worldHandler->getItems()[I_coal]);
+        pickup(&worldHandler->getItems()[I_coal]);
+        pickup(&worldHandler->getItems()[I_coal]);
+    }
     
     if(inputHandler->getE() && inventoryItemDisplayAlpha < 0.5){
         if(inventorySelected+1 >= inventory.size()){
