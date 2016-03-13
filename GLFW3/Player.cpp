@@ -35,50 +35,32 @@ void Player::update(){
         sv.x += -speed;
         movement = true;
     }
-//    std::cout << sv.x << " " << sv.y << std::endl;
+    std::cout << sv.x << " " << sv.y << std::endl;
     worldHandler->movementCheck(editPosition(), sv, editScene(), true, true);
     
-//    if(inputHandler->getSPACE() && getVelocity().y == 0){
-//        sv.y += -speed*2;
-//    }
-//    if(getVelocity().x != 0 && getVelocity().y != 0){
-//        //do the movement given from the player
-//        std::cout << getVelocity().x << " " << getVelocity().y << std::endl;
-//        movement = true;
-//    }else{
-//        movement = false;
-//    }
-    
     if(inputHandler->getQ()){
-        pickup(&worldHandler->getItems()[I_coal]);
-        pickup(&worldHandler->getItems()[I_coal]);
-        pickup(&worldHandler->getItems()[I_coal]);
-        pickup(&worldHandler->getItems()[I_coal]);
+        inv.pickup(&worldHandler->getItems()[I_coal]);
+        inv.pickup(&worldHandler->getItems()[I_coal]);
+        inv.pickup(&worldHandler->getItems()[I_coal]);
+        inv.pickup(&worldHandler->getItems()[I_coal]);
     }
     
     if(inputHandler->getE() && inventoryItemDisplayAlpha < 0.5){
-        if(inventorySelected+1 >= inventory.size()){
-            inventorySelected = 0;
-        }else{
-            inventorySelected++;
-        }
-        if(inventory.size() != 0){
+        if(inv.forwards()){
             inventoryItemDisplayAlpha = 1;
         }
-        std::cout << inventorySelected << std::endl;
     }
     
     
     //Item placement check
     if(inputHandler->getMOUSE1()){
-//        std::cout << "loalsd";
-        if(inventorySelected > inventory.size() || inventory.size() == 0){
+        if(inv.getSelectedPos() > inv.size() || inv.isEmpty()){
             return;
         }
         //check if the item is even placeable
-        if(inventory[inventorySelected].type->placeable){
+        if(inv.getSelected()->type->placeable){
             //get a pointer to the item you're placing
-            Item* item = inventory[inventorySelected].type;
+            Item* item = inv.getSelected()->type;
             //get the distance between your character and your mouse
             float distance = Math::vectorDistance(getPosition().x+SPRITE_SIZE/2, getPosition().y+SPRITE_SIZE/2, thisMouseX, thisMouseY);
             if(distance < SPRITE_SIZE*3){
@@ -89,22 +71,9 @@ void Player::update(){
                     //swap the air tile for the tileID that is dropped
                     worldHandler->getTile(thisMouseX, thisMouseY) = &worldHandler->getTiles()[item->tileID];
                     //reduce the amount held
-                    inventory[inventorySelected].num--;
-                    //if there's none there
-                    if(inventory[inventorySelected].num <= 0){
-                        inventory.erase(inventory.begin()+inventorySelected);
-                        //set the inventorySelected to the next one, or the one before or just 0
-                        if(inventorySelected+1 >= inventory.size()){
-                            if(inventorySelected-1 < 0){
-                                inventorySelected = 0;
-                            }else{
-                                inventoryItemDisplayAlpha = 1;
-                                inventorySelected--;
-                            }
-                        }else{
-                            inventoryItemDisplayAlpha = 1;
-                            inventorySelected++;
-                        }
+                    //this method also handles deletion
+                    if(inv.reduceSelected()){
+                        inventoryItemDisplayAlpha = 1;
                     }
                 }
             }
@@ -143,7 +112,7 @@ void Player::update(){
             }else{
                 //if the mining is still happening
                 if(timer.elapsedTime() >= miningTime){
-                    this->pickup(&worldHandler->getItems()[worldHandler->getTile(thisMouseX, thisMouseY)->itemDrop]);
+                    inv.pickup(&worldHandler->getItems()[worldHandler->getTile(thisMouseX, thisMouseY)->itemDrop]);
                     worldHandler->getTile(thisMouseX, thisMouseY) = &worldHandler->getTiles()[0];
                     this->stopMining();
                 }
@@ -157,23 +126,8 @@ void Player::update(){
             }
         }
     }else if(mining){
-//        std::cout << "you moved" << std::endl;
         this->stopMining();
     }
-}
-
-void Player::pickup(Item *item){
-    for(auto &i : inventory){
-        if(i.type==item){
-            i.num++;
-            return;
-        }
-    }
-    inventory.push_back(inventoryItem(item, 1));
-}
-
-void Player::placeItem(){
-    
 }
 
 void Player::stopMining(){
@@ -200,8 +154,8 @@ void Player::render(){
     
     if(inventoryItemDisplayAlpha != 0){
         glColor4d(1,1,1,inventoryItemDisplayAlpha);
-        for(int i = 0; i < inventory.size(); i++){
-            SpriteHandler::getInstance()->get(inventory[i].type->textureCode)->draw(this->getPosition().x+(i+1)*SPRITE_SIZE, this->getPosition().y-SPRITE_SIZE, SPRITE_SIZE, SPRITE_SIZE);
+        for(int i = 0; i < inv.size(); i++){
+            SpriteHandler::getInstance()->get(inv.getSlot(i)->type->textureCode)->draw(this->getPosition().x+(i+1)*SPRITE_SIZE, this->getPosition().y-SPRITE_SIZE, SPRITE_SIZE, SPRITE_SIZE);
         }
         glColor4d(1,1,1,1);
         inventoryItemDisplayAlpha -= 0.005;

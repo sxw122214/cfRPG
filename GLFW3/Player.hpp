@@ -16,6 +16,7 @@
 #include "Tile.hpp"
 #include "Timer.hpp"
 #include "Item.hpp"
+#include "Inventory.hpp"
 #include <dT/drawtext.h>
 
 class Player : public GameObject{
@@ -26,22 +27,11 @@ public:
     float speed = 8;
     std::shared_ptr<WorldHandler>  worldHandler;
     std::shared_ptr<InputHandler> inputHandler;
-    
-    class inventoryItem{
-    public:
-        inventoryItem(Item* type, int num){
-            this->type = type;
-            this->num = num;
-        }
-        Item* type;
-        int num;
-    };
+
     struct dtx_font *font;
     
     //collection and mining stuff
     void stopMining();
-    void pickup(Item*);
-    void placeItem();
     bool mining = false;
     float inventoryItemDisplayAlpha = 0;
     float miningTime = 0;
@@ -50,7 +40,7 @@ public:
     int miningType = 0, miningLevel = 0;
     int inventorySelected = 0;
     Math::Timer timer;
-    std::vector<inventoryItem> inventory;
+    Inventory inv;
 };
 
 #endif /* Player_hpp */

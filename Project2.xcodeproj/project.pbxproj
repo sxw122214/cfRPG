@@ -24,6 +24,7 @@
 		C22E640C1C51082B00386E87 /* WorldHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C22E63FE1C51082B00386E87 /* WorldHandler.cpp */; };
 		C22E64241C51206700386E87 /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C22E64231C51206700386E87 /* libglfw3.a */; };
 		C22E64281C5122C600386E87 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C22E64271C5122C600386E87 /* CoreVideo.framework */; };
+		C24831AB1C94C2F000D312A4 /* Inventory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C24831A91C94C2F000D312A4 /* Inventory.cpp */; };
 		C2604F251C67F1F100722D6C /* TestEnemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2604F231C67F1F100722D6C /* TestEnemy.cpp */; };
 		C27E3AC01C871EF400E1B900 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C27E3ABF1C871EF400E1B900 /* CoreFoundation.framework */; };
 		C27E3AC61C871FF100E1B900 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C27E3AC51C871FF100E1B900 /* Cocoa.framework */; };
@@ -100,6 +101,8 @@
 		C22E63FF1C51082B00386E87 /* WorldHandler.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = WorldHandler.hpp; sourceTree = "<group>"; };
 		C22E64231C51206700386E87 /* libglfw3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglfw3.a; path = lib/libglfw3.a; sourceTree = "<group>"; };
 		C22E64271C5122C600386E87 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		C24831A91C94C2F000D312A4 /* Inventory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Inventory.cpp; sourceTree = "<group>"; };
+		C24831AA1C94C2F000D312A4 /* Inventory.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Inventory.hpp; sourceTree = "<group>"; };
 		C2604F231C67F1F100722D6C /* TestEnemy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestEnemy.cpp; sourceTree = "<group>"; };
 		C2604F241C67F1F100722D6C /* TestEnemy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TestEnemy.hpp; sourceTree = "<group>"; };
 		C27E3ABF1C871EF400E1B900 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
@@ -341,6 +344,8 @@
 			children = (
 				C22E63FA1C51082B00386E87 /* Player.cpp */,
 				C22E63FB1C51082B00386E87 /* Player.hpp */,
+				C24831A91C94C2F000D312A4 /* Inventory.cpp */,
+				C24831AA1C94C2F000D312A4 /* Inventory.hpp */,
 			);
 			name = Player;
 			sourceTree = "<group>";
@@ -500,6 +505,7 @@
 				C2DE69721C61531E00875E74 /* Utils.cpp in Sources */,
 				C2071E941C15D67A00648169 /* Graphics.cpp in Sources */,
 				C20671AD1C1792770006C6B1 /* Core.cpp in Sources */,
+				C24831AB1C94C2F000D312A4 /* Inventory.cpp in Sources */,
 				C2071E811C15CBBE00648169 /* main.cpp in Sources */,
 				C2FF28211C19CFB20094E154 /* Image.cpp in Sources */,
 			);
