@@ -33,18 +33,21 @@ class SpriteHandler{
 public:
     //returns the instance of the handler
     static std::shared_ptr<SpriteHandler> getInstance();
+    //loads all the images in the SPRIT_CODE enum using "S_i.png" syntax
     void loadImages();
+    //returns the unique pointers to the loaded sprite
     std::unique_ptr<Graphics::Image>& get(int i);
-    SpriteHandler(){}; //no creation needed
+    SpriteHandler(){};
 
 private:
     //creation and singleton method blocks
     SpriteHandler(SpriteHandler const &s){}; // no copy constructor
     SpriteHandler& operator=(SpriteHandler const &s){ return *this; }; //no assignment
+    
     //the only instance allowed
     static std::shared_ptr<SpriteHandler> instance;
     
-    //actual sprite things
+    //the array of images
     std::unique_ptr<Graphics::Image> images[SPRITE_CODE::END_SPRITE];
 };
 #endif /* SpriteHandler_hpp */

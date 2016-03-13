@@ -75,7 +75,7 @@
 		C2071E7D1C15CBBE00648169 /* Project2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Project2; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2071E801C15CBBE00648169 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		C2071E871C15CBD700648169 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
-		C2071E8B1C15CE9300648169 /* Dorito.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Dorito.h; sourceTree = "<group>"; };
+		C2071E8B1C15CE9300648169 /* Triangle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Triangle.h; sourceTree = "<group>"; };
 		C2071E8D1C15D29100648169 /* Vector2D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vector2D.h; sourceTree = "<group>"; };
 		C2071E8E1C15D2A500648169 /* Math.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Math.h; sourceTree = "<group>"; };
 		C2071E8F1C15D2BB00648169 /* Vector3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vector3D.h; sourceTree = "<group>"; };
@@ -176,7 +176,7 @@
 				C2071E911C15D2F300648169 /* Types.h */,
 				C29A570A1C19EC9600A626CE /* Colour.h */,
 				C20671AA1C176EF50006C6B1 /* Poly.h */,
-				C2071E8B1C15CE9300648169 /* Dorito.h */,
+				C2071E8B1C15CE9300648169 /* Triangle.h */,
 				C2071E961C15E18600648169 /* Rect.h */,
 				C2FF281F1C19CFB20094E154 /* Image.cpp */,
 				C2FF28201C19CFB20094E154 /* Image.hpp */,

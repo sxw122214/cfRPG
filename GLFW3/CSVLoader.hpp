@@ -21,7 +21,10 @@
 class CSVLoader{
     std::string name;
     char seperator = ',', ignore = '/';
+    //where the last load will be saved
     std::vector<vector<int> > fileVector;
+public:
+    //create the object
     CSVLoader(const std::string &name, const char &seperator, const char &ignore){
         this->name = name;
         this->seperator = seperator;
@@ -30,6 +33,8 @@ class CSVLoader{
     CSVLoader(const std::string &name){
         this->name = name;
     }
+
+    //load the CSV and return a 2D vector of ints
     std::vector<vector<int> >& loadfile(){
         std::ifstream file(name, std::ios::in); //declare a file stream
         if (worldFile.is_open()) //checks if the file is open??
@@ -63,6 +68,12 @@ class CSVLoader{
         }
         return fileVector;
     }
+    
+    //returns the fileVector
+    std::vector<vector<int> >& getFileVector(){
+        return fileVector;
+    }
+
 };
 
 #endif /* CSVLoader_hpp */

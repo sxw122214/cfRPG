@@ -58,7 +58,7 @@ namespace Math {
         return (det / 2.0f);
     }
     
-    float signVector(const Graphics::Dorito &t){
+    float signVector(const Graphics::Triangle &t){
         return signVector(t.v1, t.v2, t.v3);
     }
     
@@ -70,7 +70,7 @@ namespace Math {
         return ((b1 == b2) && (b2 == b3));
     }
     
-    bool isInsideTriangle(const Vector2D &point, const Graphics::Dorito &t){
+    bool isInsideTriangle(const Vector2D &point, const Graphics::Triangle &t){
         return isInsideTriangle(point, t.v1, t.v2, t.v3);
     }
     

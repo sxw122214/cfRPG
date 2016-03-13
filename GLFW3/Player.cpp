@@ -92,7 +92,6 @@ void Player::update(){
                 Tile tile = *worldHandler->getTile(thisMouseX, thisMouseY);
                 if(tile.solid){
                     miningTime = tile.strength;
-                    miningType = tile.textureCode;
                     selectedX = thisMouseX-(thisMouseX%SPRITE_SIZE);
                     selectedY = thisMouseY-(thisMouseY%SPRITE_SIZE);
                     mining = true;
@@ -137,21 +136,30 @@ void Player::stopMining(){
 }
 
 void Player::render(){
+    miningAnimation();
+    renderInventory();
+    SpriteHandler::getInstance()->get(SPRITE_CODE::S_player)->draw(this->getPosition(), SPRITE_SIZE, SPRITE_SIZE);
+
+}
+
+void Player::miningAnimation(){
     //if mining draw the level of destruction over the current tile
     if(mining){
         switch(miningLevel){
-        case 1:
-            SpriteHandler::getInstance()->get(T_destruction1)->draw(selectedX, selectedY, SPRITE_SIZE, SPRITE_SIZE);
-            break;
-        case 2:
-            SpriteHandler::getInstance()->get(T_destruction2)->draw(selectedX, selectedY, SPRITE_SIZE, SPRITE_SIZE);
-            break;
-        case 3:
-            SpriteHandler::getInstance()->get(T_destruction3)->draw(selectedX, selectedY, SPRITE_SIZE, SPRITE_SIZE);
-            break;
+            case 1:
+                SpriteHandler::getInstance()->get(T_destruction1)->draw(selectedX, selectedY, SPRITE_SIZE, SPRITE_SIZE);
+                break;
+            case 2:
+                SpriteHandler::getInstance()->get(T_destruction2)->draw(selectedX, selectedY, SPRITE_SIZE, SPRITE_SIZE);
+                break;
+            case 3:
+                SpriteHandler::getInstance()->get(T_destruction3)->draw(selectedX, selectedY, SPRITE_SIZE, SPRITE_SIZE);
+                break;
         }
     }
-    
+}
+
+void Player::renderInventory(){
     if(inventoryItemDisplayAlpha != 0){
         glColor4d(1,1,1,inventoryItemDisplayAlpha);
         for(int i = 0; i < inv.size(); i++){
@@ -160,7 +168,4 @@ void Player::render(){
         glColor4d(1,1,1,1);
         inventoryItemDisplayAlpha -= 0.005;
     }
-    
-    SpriteHandler::getInstance()->get(SPRITE_CODE::S_player)->draw(this->getPosition(), SPRITE_SIZE, SPRITE_SIZE);
-
 }

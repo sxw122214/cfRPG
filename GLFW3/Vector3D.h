@@ -7,6 +7,7 @@
 #ifndef Vector3D_h
 #define Vector3D_h
 
+//A 3D vector, missing some operators but not really used in my program.
 namespace Math {
     class Vector3D{
     public:

@@ -9,7 +9,7 @@
 #ifndef Types_h
 #define Types_h
 
-#include "Dorito.h"
+#include "Triangle.h"
 #include "Rect.h"
 #include "Poly.h"
 #include "Image.hpp"

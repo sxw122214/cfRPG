@@ -25,14 +25,22 @@ public:
     Image(){};
     ~Image();
     Image(std::string nameInput);
+    //load the image
     bool loadImage(std::string nameInput);
+    
+    //various different draw methods
     void draw(const Math::Vector2D &v, float w, float h);
     void draw(float x, float y, float w, float h);
     void draw(const Math::Vector2D &v);
     void draw(float x, float y);
+    
+    //gets the width and height of the image
     int getWidth();
     int getHeight();
+    
+    //attempts to grab the screen, not really working
     bool grabScreen(float x, float y, float w, float h);
+    //returns if the image is loaded
     bool isLoaded();
 };
 }

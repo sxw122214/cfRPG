@@ -16,6 +16,8 @@
 #include <stdlib.h>
 #include "Graphics.hpp"
 
+//this class is a virtual instance of the core
+//it allows for the users to not implement methods but stil make use of GLFW method call backs on events
 class BaseCore{
 protected:
     GLFWwindow* window;

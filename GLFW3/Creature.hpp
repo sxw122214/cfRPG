@@ -14,6 +14,7 @@
 
 class Creature: public GameObject{
 protected:
+    //the health of the creature
     float health;
     Creature(const Math::Vector2D &position, const Math::Vector2D &scene, const Graphics::Rect &bounds, bool visible, float health);
 };

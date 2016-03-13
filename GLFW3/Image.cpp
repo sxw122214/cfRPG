@@ -39,6 +39,7 @@ namespace Graphics{
         }
         return false;
     }
+    
     void Image::openGlLoad(const char* name){
         glEnable(GL_TEXTURE_2D);
         GLuint texture_id;

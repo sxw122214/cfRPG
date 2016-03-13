@@ -9,6 +9,8 @@
 #ifndef Vector2D_h
 #define Vector2D_h
 #include <cmath>
+
+//A much more fleshed out 2D vector
 namespace Math {
     class Vector2D{
     public:

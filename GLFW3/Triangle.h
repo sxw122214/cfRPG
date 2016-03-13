@@ -12,15 +12,15 @@
 #include "Vector2D.h"
 
 namespace Graphics{
-class Dorito{
+class Triangle{
 public:
     Math::Vector2D v1, v2, v3;
-    Dorito(const Math::Vector2D &v1, const Math::Vector2D &v2, const Math::Vector2D &v3){
+    Triangle(const Math::Vector2D &v1, const Math::Vector2D &v2, const Math::Vector2D &v3){
         this->v1=v1;
         this->v2=v2;
         this->v3=v3;
     }
-    Dorito(float x1, float y1, float x2, float y2, float x3, float y3){
+    Triangle(float x1, float y1, float x2, float y2, float x3, float y3){
         this->v1 = Math::Vector2D(x1, y1);
         this->v2 = Math::Vector2D(x2, y2);
         this->v3 = Math::Vector2D(x3, y3);

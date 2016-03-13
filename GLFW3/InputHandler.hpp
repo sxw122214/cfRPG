@@ -17,22 +17,36 @@
 //this class handles keyboard input with predefined buttons
 class InputHandler{
     
+    //the one static instance of this class
     static std::shared_ptr<InputHandler> instance;
     
     InputHandler(InputHandler const &s){}; // no copy constructor
+    //booleans for keys being used
     bool Q = false, E = false, UP = false, LEFT = false, RIGHT = false, DOWN = false, isKeyPressed = false, SPACE = false, MOUSE0 = false, MOUSE1 = false, isMousePressed = false;
+    
+    //holds the mouseX and mouseY
     int mouseX = 0, mouseY = 0;
 public:
     InputHandler(){};
+    //returns the singleton instance
     static std::shared_ptr<InputHandler> getInstance();
+    
+    //Setters for all the booleans and stored info
+    
+    //takes mouse input and sets mouseX and mouseY
     void mouseInput(int x, int y);
-    int getMouseX();
-    int getMouseY();
+    //takes mouseDown and sets buttons
     void mouseDown(int button);
+    //takes MouseUp and sets buttons
     void mouseUp(int button);
+    //takes keyup and sets keys
     void keyUp(int key);
+    //takes keydown and sets keys
     void keyDown(int key);
+    //takes and sets the joystick input, not really used
     void joyStick();
+    
+    //Getters for all the booleans and stored info
     bool getUP();
     bool getLEFT();
     bool getRIGHT();
@@ -44,6 +58,10 @@ public:
     bool getMOUSE1();
     bool getQ();
     bool getE();
+    //returns the mouseX
+    int getMouseX();
+    //returns the mouseY
+    int getMouseY();
     
 };
 

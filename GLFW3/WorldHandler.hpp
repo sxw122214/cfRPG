@@ -28,7 +28,7 @@ public:
     //loads a specific world from a csv file
     void loadWorld(int i);
     
-    //renders and updates objects in the world
+    //renders and updates the world
     void renderWorld();
     void updateWorld();
     
@@ -54,6 +54,7 @@ public:
     bool isTypesLoaded();
     bool isItemsLoaded();
     
+    //returns the map, tiles and items
     std::vector<Tile*>& getMap();
     std::vector<Tile>& getTiles();
     std::vector<Item>& getItems();
@@ -61,6 +62,7 @@ public:
     //returns a pointer reference
     Tile*& getTile(int x, int y);
     
+    //returns the X and Y size of the map in tiles
     int getxMapSize();
     int getyMapSize();
     
@@ -83,6 +85,7 @@ private:
     std::vector<Tile*> map;
     //tiles holds the initial information of each tile
     std::vector<Tile> tiles;
+    //Items holds the information all the items
     std::vector<Item> items;
     
     //this holds how big the map is in tiles
