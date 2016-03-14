@@ -66,5 +66,7 @@ Math::Vector2D& GameObject::editVelocity(){
 void GameObject::gravity(){
     if(!isTouchingBelow){
         velocity.y += gravityStrength;
+    }else{
+        velocity.y = 0;
     }
 }

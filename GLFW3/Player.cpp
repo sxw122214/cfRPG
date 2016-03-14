@@ -20,14 +20,15 @@ void Player::update(){
     this->isTouchingBelow = WorldHandler::getInstance()->belowWorldCollide(editPosition(), editScene());
     this->gravity();
     
-    //velocity X calmers
+    //velocity X calmers, world friction
     if(getVelocity().x > 0){
         editVelocity().x -= 0.5;
     }else if(getVelocity().x < 0){
         editVelocity().x += 0.5;
     }
+    //get actual user input
     if((inputHandler->getSPACE() || inputHandler->getUP()) && isTouchingBelow){
-        editVelocity().y += -7;
+        editVelocity().y -= 15;
         movement = true;
     }
     if(inputHandler->getRIGHT()){
@@ -38,6 +39,12 @@ void Player::update(){
         editVelocity().x += -speed;
         movement = true;
     }
+    
+    //clamp the jump speed
+    if(getVelocity().y < -15){
+        editVelocity().y = -15;
+    }
+    //clamp the running speed
     if(getVelocity().x > getMaxSpeedX()){
         editVelocity().x = getMaxSpeedX();
     }
@@ -46,7 +53,7 @@ void Player::update(){
     }
     
     
-//    std::cout << getVelocity().x << " " << getVelocity().y << std::endl;
+    std::cout << getVelocity().x << " " << getVelocity().y << std::endl;
     worldHandler->movementCheck(editPosition(), editVelocity(), editScene(), true, true);
     
     if(inputHandler->getQ()){

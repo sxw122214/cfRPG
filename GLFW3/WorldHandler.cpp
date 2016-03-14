@@ -124,13 +124,12 @@ bool WorldHandler::offSetby(const Math::Vector2D &v, bool set){
 }
 
 bool WorldHandler::belowWorldCollide(Math::Vector2D &position, Math::Vector2D &scene){
-    Math::Vector2D temp(0, +SPRITE_SIZE/2);
+    Math::Vector2D temp(0, 2);
     return worldCollideY(position, scene, temp);
 }
 
 bool WorldHandler::worldCollideX(Math::Vector2D &position, Math::Vector2D &scene, Math::Vector2D &v){
     float xCheck;
-    
     if(v.x > 0){
         //if it's going right
         xCheck = position.x + v.x + SPRITE_SIZE;
@@ -149,12 +148,12 @@ bool WorldHandler::worldCollideX(Math::Vector2D &position, Math::Vector2D &scene
     }
     
     if(map[mapPosition.x + mapPosition.y*xMapSize]->solid){
-        if(v.x > 0){
-            mapPosition.x += 1;
-        }else{
-            mapPosition.x -= 1;
-        }
-        position.y = (mapPosition.y)*SPRITE_SIZE;
+//        if(v.x > 0){
+//            mapPosition.x += 1;
+//        }else{
+//            mapPosition.x -= 1;
+//        }
+//        position.y = (mapPosition.y)*SPRITE_SIZE;
         return true;
     }
     return false;
