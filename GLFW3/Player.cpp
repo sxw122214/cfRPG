@@ -17,26 +17,38 @@ void Player::update(){
     int thisMouseX = inputHandler->getMouseX();
     int thisMouseY = inputHandler->getMouseY();
     bool movement = false;
-    Math::Vector2D sv;
-    //on player movement
-    if(inputHandler->getDOWN()){
-        sv.y += speed;
-        movement = true;
+    this->isTouchingBelow = WorldHandler::getInstance()->belowWorldCollide(editPosition(), editScene());
+    this->gravity();
+    
+    //velocity X calmers
+    if(getVelocity().x > 0){
+        editVelocity().x -= 0.5;
+    }else if(getVelocity().x < 0){
+        editVelocity().x += 0.5;
     }
-    if(inputHandler->getUP()){
-        sv.y += -speed;
+    if(inputHandler->getUP() && isTouchingBelow){
+        editVelocity().y += -7;
+        std::cout << "jump" << std::endl;
         movement = true;
     }
     if(inputHandler->getRIGHT()){
-        sv.x += speed;
+        editVelocity().x += speed;
         movement = true;
     }
     if(inputHandler->getLEFT()){
-        sv.x += -speed;
+        editVelocity().x += -speed;
         movement = true;
     }
-//    std::cout << sv.x << " " << sv.y << std::endl;
-    worldHandler->movementCheck(editPosition(), sv, editScene(), true, true);
+    if(getVelocity().x > getMaxSpeedX()){
+        editVelocity().x = getMaxSpeedX();
+    }
+    if(getVelocity().x < -getMaxSpeedX()){
+        editVelocity().x = -getMaxSpeedX();
+    }
+    
+    
+//    std::cout << getVelocity().x << " " << getVelocity().y << std::endl;
+    worldHandler->movementCheck(editPosition(), editVelocity(), editScene(), true, true);
     
     if(inputHandler->getQ()){
         inv.pickup(&worldHandler->getItems()[I_coal]);
@@ -113,7 +125,7 @@ void Player::update(){
                 this->stopMining();
             }else{
                 //if the mining is still happening
-                if(timer.elapsedTime() >= miningTime){
+                if(timer.elapsedTime() >= 0.1){
                     inv.pickup(&worldHandler->getItems()[worldHandler->getTile(thisMouseX, thisMouseY)->itemDrop]);
                     worldHandler->getTile(thisMouseX, thisMouseY) = &worldHandler->getTiles()[0];
                     this->stopMining();

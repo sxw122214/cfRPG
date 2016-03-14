@@ -38,7 +38,9 @@ public:
     int getOffSetX();
     int getOffSetY();
     
-    bool worldCollide(Math::Vector2D &position, Math::Vector2D &scene, Math::Vector2D &v);
+    bool worldCollideY(Math::Vector2D &position, Math::Vector2D &scene, Math::Vector2D &v);
+    bool worldCollideX(Math::Vector2D &position, Math::Vector2D &scene, Math::Vector2D &v);
+
     
     bool belowWorldCollide(Math::Vector2D &position, Math::Vector2D &scene);
     

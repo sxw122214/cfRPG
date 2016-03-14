@@ -52,7 +52,6 @@ void InputHandler::joyStick(){
 }
 
 void InputHandler::keyDown(int key){
-    std::cout << key << std::endl;
     isKeyPressed = true;
     switch(key){
         case 81:

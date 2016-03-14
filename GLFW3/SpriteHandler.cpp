@@ -21,7 +21,6 @@ void SpriteHandler::loadImages(){
     //load the images and confirm if they are or not
     for(int i = 0; i < SPRITE_CODE::END_SPRITE; i++){
         Graphics::Image* temp = new Graphics::Image;
-        
         if(temp->loadImage("S_"+std::to_string(i)+".png")){
             images[i].reset(temp);
             std::cout << "Image Loaded " << i << std::endl;

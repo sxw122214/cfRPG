@@ -17,18 +17,20 @@ class GameObject{
     //holds the GO's position, scene and velocity
     Math::Vector2D position, scene, velocity;
     
+    float maxSpeedX = 6;
+    
     //the bounds used in collision, not really used now
     Graphics::Rect bounds;
     //the visibility of the GO
     bool visible = false;
-    float gravityStrength = 2;
+    float gravityStrength = 1;
 protected:
     GameObject(const Math::Vector2D &position, const Math::Vector2D &scene, const Graphics::Rect &bounds, bool visible = false);
     virtual ~GameObject(){};
 public:
     //returns if the GO is visible
     const bool& isVisible();
-    
+    bool isTouchingBelow = false;
     //returns the position for looking and editing
     const Math::Vector2D& getPosition();
     Math::Vector2D& editPosition();
@@ -47,6 +49,7 @@ public:
     void setScene(const Math::Vector2D &v);
     void setScene(const float &x, const float &y);
 
+    float getMaxSpeedX();
     
     //the virtual methods used to call down the chain
     virtual void update() = 0;

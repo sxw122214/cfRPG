@@ -50,6 +50,10 @@ void GameObject::setScene(const float &x, const float &y){
     this->scene.y = y;
 }
 
+float GameObject::getMaxSpeedX(){
+    return maxSpeedX;
+}
+
 const Math::Vector2D& GameObject::getVelocity(){
     return velocity;
 }
@@ -60,8 +64,7 @@ Math::Vector2D& GameObject::editVelocity(){
 
 
 void GameObject::gravity(){
-    if(velocity.y < 0){
-        std::cout << "gravity";
+    if(!isTouchingBelow){
         velocity.y += gravityStrength;
     }
 }
