@@ -26,9 +26,8 @@ void Player::update(){
     }else if(getVelocity().x < 0){
         editVelocity().x += 0.5;
     }
-    if(inputHandler->getUP() && isTouchingBelow){
+    if((inputHandler->getSPACE() || inputHandler->getUP()) && isTouchingBelow){
         editVelocity().y += -7;
-        std::cout << "jump" << std::endl;
         movement = true;
     }
     if(inputHandler->getRIGHT()){
@@ -125,7 +124,7 @@ void Player::update(){
                 this->stopMining();
             }else{
                 //if the mining is still happening
-                if(timer.elapsedTime() >= 0.1){
+                if(timer.elapsedTime() >= miningTime){
                     inv.pickup(&worldHandler->getItems()[worldHandler->getTile(thisMouseX, thisMouseY)->itemDrop]);
                     worldHandler->getTile(thisMouseX, thisMouseY) = &worldHandler->getTiles()[0];
                     this->stopMining();
@@ -175,7 +174,7 @@ void Player::miningAnimation(){
 }
 
 void Player::renderInventory(){
-    if(inventoryItemDisplayAlpha != 0){
+    if(inventoryItemDisplayAlpha != 0 && !inv.isEmpty()){
         glColor4d(1,1,1,inventoryItemDisplayAlpha);
 //        for(int i = 0; i < inv.size(); i++){
             SpriteHandler::getInstance()->get(inv.getSlot(inv.getSelectedPos())->type->textureCode)->draw(this->getPosition().x, this->getPosition().y-SPRITE_SIZE, SPRITE_SIZE, SPRITE_SIZE);

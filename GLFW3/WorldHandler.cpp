@@ -149,6 +149,12 @@ bool WorldHandler::worldCollideX(Math::Vector2D &position, Math::Vector2D &scene
     }
     
     if(map[mapPosition.x + mapPosition.y*xMapSize]->solid){
+        if(v.x > 0){
+            mapPosition.x += 1;
+        }else{
+            mapPosition.x -= 1;
+        }
+        position.y = (mapPosition.y)*SPRITE_SIZE;
         return true;
     }
     return false;
@@ -173,8 +179,8 @@ bool WorldHandler::worldCollideY(Math::Vector2D &position, Math::Vector2D &scene
     if(mapPosition.x < 0 || mapPosition.y < 0 || mapPosition.x > xMapSize || mapPosition.y > xMapSize){
         return true;
     }
-    
     if(map[mapPosition.x + mapPosition.y*xMapSize]->solid){
+        position.y = (mapPosition.y-1)*SPRITE_SIZE;
         return true;
     }
     return false;

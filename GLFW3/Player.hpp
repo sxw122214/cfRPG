@@ -32,7 +32,7 @@ public:
     //update that's called every frame
     virtual void update();
     //the players speed
-    float speed = 8;
+    float speed = 5;
     //pointers to handlers
     std::shared_ptr<WorldHandler>  worldHandler;
     std::shared_ptr<InputHandler> inputHandler;
