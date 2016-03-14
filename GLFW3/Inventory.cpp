@@ -20,6 +20,19 @@ void Inventory::pickup(Item* item){
     held.push_back(inventoryItem(item, 1));
 }
 
+bool Inventory::backwards(){
+    if(selected-1 < 0){
+        selected = 0;
+    }else{
+        selected--;
+    }
+    if(!isEmpty()){
+        //if it's not empty it means it moved the selected poiinter
+        return true;
+    }
+    return false;
+}
+
 bool Inventory::forwards(){
     if(selected+1 >= size()){
         selected = 0;

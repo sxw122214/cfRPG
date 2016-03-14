@@ -35,7 +35,7 @@ void Player::update(){
         sv.x += -speed;
         movement = true;
     }
-    std::cout << sv.x << " " << sv.y << std::endl;
+//    std::cout << sv.x << " " << sv.y << std::endl;
     worldHandler->movementCheck(editPosition(), sv, editScene(), true, true);
     
     if(inputHandler->getQ()){
@@ -43,9 +43,12 @@ void Player::update(){
         inv.pickup(&worldHandler->getItems()[I_coal]);
         inv.pickup(&worldHandler->getItems()[I_coal]);
         inv.pickup(&worldHandler->getItems()[I_coal]);
+        if(inv.backwards()){
+            inventoryItemDisplayAlpha = 1;
+        }
     }
     
-    if(inputHandler->getE() && inventoryItemDisplayAlpha < 0.5){
+    if(inputHandler->getE() && inventoryItemDisplayAlpha < 0.9){
         if(inv.forwards()){
             inventoryItemDisplayAlpha = 1;
         }
@@ -162,9 +165,9 @@ void Player::miningAnimation(){
 void Player::renderInventory(){
     if(inventoryItemDisplayAlpha != 0){
         glColor4d(1,1,1,inventoryItemDisplayAlpha);
-        for(int i = 0; i < inv.size(); i++){
-            SpriteHandler::getInstance()->get(inv.getSlot(i)->type->textureCode)->draw(this->getPosition().x+(i+1)*SPRITE_SIZE, this->getPosition().y-SPRITE_SIZE, SPRITE_SIZE, SPRITE_SIZE);
-        }
+//        for(int i = 0; i < inv.size(); i++){
+            SpriteHandler::getInstance()->get(inv.getSlot(inv.getSelectedPos())->type->textureCode)->draw(this->getPosition().x, this->getPosition().y-SPRITE_SIZE, SPRITE_SIZE, SPRITE_SIZE);
+//        }
         glColor4d(1,1,1,1);
         inventoryItemDisplayAlpha -= 0.005;
     }

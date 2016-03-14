@@ -42,6 +42,7 @@ public:
     
     //returns true if selected item is changed
     bool forwards();
+    bool backwards();
     
     //returns true if the item reduced is removed
     bool reduceSelected();
