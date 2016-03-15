@@ -23,16 +23,16 @@ std::shared_ptr<WorldHandler> WorldHandler::getInstance(){
 
 
 void WorldHandler::movementCheck(Math::Vector2D &current, Math::Vector2D &velocity, Math::Vector2D &scene, bool allowedOffscreen, bool moveScene){
-    bool yCollide = false, xCollide = false;
+    bool yCollide = true, xCollide = true;
     //if there's collision with world, given the current position, scene and velocity
-    if(!worldCollideY(current, scene, velocity)){
+    if(!worldCollideY(current, scene, velocity.y)){
         current.y += velocity.y;
-        yCollide = true;
+        yCollide = false;
     }
     
-    if(!worldCollideX(current, scene, velocity)){
+    if(!worldCollideX(current, scene, velocity.x)){
         current.x += velocity.x;
-        xCollide = true;
+        xCollide = false;
     }
     
     if(yCollide && xCollide){
@@ -125,18 +125,20 @@ bool WorldHandler::offSetby(const Math::Vector2D &v, bool set){
 
 bool WorldHandler::belowWorldCollide(Math::Vector2D &position, Math::Vector2D &scene){
     Math::Vector2D temp(0, 2);
-    return worldCollideY(position, scene, temp);
+    return worldCollideY(position, scene, temp.y);
 }
 
-bool WorldHandler::worldCollideX(Math::Vector2D &position, Math::Vector2D &scene, Math::Vector2D &v){
+bool WorldHandler::worldCollideX(Math::Vector2D &position, Math::Vector2D &scene, float &v){
     float xCheck;
-    if(v.x > 0){
-        //if it's going right
-        xCheck = position.x + v.x + SPRITE_SIZE;
-    }else if(v.x < 0){
+    bool right = false, left = false;
+    if(v > 0){
+        right = true;
+        xCheck = position.x + v + SPRITE_SIZE;
+    }else if(v < 0){
         //if it's going left
-        xCheck = position.x - v.x;
-    }else if (v.x == 0){
+        left = true;
+        xCheck = position.x - v;
+    }else if (v == 0){
         //if x is 0, thus no x movement
         xCheck = position.x + SPRITE_SIZE/2;
     }
@@ -146,28 +148,32 @@ bool WorldHandler::worldCollideX(Math::Vector2D &position, Math::Vector2D &scene
     if(mapPosition.x < 0 || mapPosition.y < 0 || mapPosition.x > xMapSize || mapPosition.y > xMapSize){
         return true;
     }
-    
+    std::cout << gridPosition.x << std::endl;
     if(map[mapPosition.x + mapPosition.y*xMapSize]->solid){
-//        if(v.x > 0){
-//            mapPosition.x += 1;
-//        }else{
-//            mapPosition.x -= 1;
-//        }
-//        position.y = (mapPosition.y)*SPRITE_SIZE;
+        if(right){
+            //going right
+            position.x = (gridPosition.x-1)*SPRITE_SIZE;
+        }else{
+            //going left
+            position.x = (gridPosition.x+1)*SPRITE_SIZE;
+        }
         return true;
     }
     return false;
 }
 
-bool WorldHandler::worldCollideY(Math::Vector2D &position, Math::Vector2D &scene, Math::Vector2D &v){
+bool WorldHandler::worldCollideY(Math::Vector2D &position, Math::Vector2D &scene, float &v){
     float yCheck;
-    if(v.y > 0){
+    bool up = false, down = false;
+    if(v > 0){
         //if it's going down
-        yCheck = position.y + v.y + SPRITE_SIZE;
-    }else if (v.y < 0){
+        down = true;
+        yCheck = position.y + v + SPRITE_SIZE;
+    }else if (v < 0){
         //if it's going up
-        yCheck = position.y - v.y;
-    } else if (v.y == 0){
+        up = true;
+        yCheck = position.y - v;
+    } else if (v == 0){
         //if y is 0, thus no y movement
         yCheck = position.y + SPRITE_SIZE/2;
     }
@@ -179,7 +185,12 @@ bool WorldHandler::worldCollideY(Math::Vector2D &position, Math::Vector2D &scene
         return true;
     }
     if(map[mapPosition.x + mapPosition.y*xMapSize]->solid){
-        position.y = (mapPosition.y-1)*SPRITE_SIZE;
+        if(up){
+            position.y = (gridPosition.y+1)*SPRITE_SIZE;
+            v = 0;
+        }else{
+            position.y = (gridPosition.y-1)*SPRITE_SIZE;
+        }
         return true;
     }
     return false;

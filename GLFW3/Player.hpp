@@ -36,7 +36,7 @@ public:
     //pointers to handlers
     std::shared_ptr<WorldHandler>  worldHandler;
     std::shared_ptr<InputHandler> inputHandler;
-
+    
     //loaded font, not used currently
     struct dtx_font *font;
     

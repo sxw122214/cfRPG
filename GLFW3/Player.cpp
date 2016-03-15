@@ -51,16 +51,10 @@ void Player::update(){
     if(getVelocity().x < -getMaxSpeedX()){
         editVelocity().x = -getMaxSpeedX();
     }
-    
-    
-    std::cout << getVelocity().x << " " << getVelocity().y << std::endl;
+
     worldHandler->movementCheck(editPosition(), editVelocity(), editScene(), true, true);
     
     if(inputHandler->getQ()){
-        inv.pickup(&worldHandler->getItems()[I_coal]);
-        inv.pickup(&worldHandler->getItems()[I_coal]);
-        inv.pickup(&worldHandler->getItems()[I_coal]);
-        inv.pickup(&worldHandler->getItems()[I_coal]);
         if(inv.backwards()){
             inventoryItemDisplayAlpha = 1;
         }

@@ -18,14 +18,17 @@ enum SPRITE_CODE{
     S_dirt = 2,
     S_stone = 3,
     S_sand = 4,
-    S_coal = 5,
-    S_copper = 6,
-    S_tin = 7,
+    S_coalOre = 5,
+    S_copperOre = 6,
+    S_tinOre = 7,
     S_destruction1 = 8,
     S_destruction2 = 9,
     S_destruction3= 10,
     S_player = 11,
-    END_SPRITE = 12,
+    S_coal = 12,
+    S_copper = 13,
+    S_tin = 14,
+    END_SPRITE = 15,
     SPRITE_SIZE = 32
 };
 
