@@ -88,7 +88,7 @@ void WorldHandler::movementCheck(Math::Vector2D &current, Math::Vector2D &veloci
     }
     
     //RIGHT
-    if(current.x > windowWidth){
+    if(current.x+SPRITE_SIZE > windowWidth){
         //check if there is a scene to the rihgt
         if(offSetby(1, 0, moveScene)){
             //adjust values
