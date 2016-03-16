@@ -69,6 +69,9 @@ public:
     int getxMapSize();
     int getyMapSize();
     
+    //get the current world integer loaded
+    int getWorldIntLoaded();
+    
     int windowWidth, windowHeight;
     ~WorldHandler();
 private:
@@ -77,6 +80,9 @@ private:
     WorldHandler& operator=(WorldHandler const &s){ return *this;}; //no assignment
     //the only instance allowed
     static std::shared_ptr<WorldHandler> instance;
+    
+    //world loaded
+    int worldintLoaded;
     
     //initial offset
     int offSetX = 0, offSetY = 0;

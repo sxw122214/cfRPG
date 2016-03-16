@@ -26,6 +26,7 @@ public:
     virtual void setup();
     virtual void update();
     virtual void draw();
+    virtual void keyPressed(int key);
     std::shared_ptr<InputHandler> inputHandler;
     std::shared_ptr<WorldHandler> worldHandler;
     
@@ -33,6 +34,9 @@ public:
     std::vector<GameObject*> updateVector;
     
     void pushBothRU(GameObject*);
+    
+    //saves the world over the currently selected one
+    void saveWorld();
     
     Player player = Player(Math::Vector2D(50, 50), Math::Vector2D(0, 0), Graphics::Rect(0, 0, 50, 250), true);
     TestEnemy t = TestEnemy(Math::Vector2D(50, 50), Math::Vector2D(0, 0), Graphics::Rect(0, 0, 50, 250), true, 50);
