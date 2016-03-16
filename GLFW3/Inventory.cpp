@@ -40,7 +40,7 @@ bool Inventory::forwards(){
         selected++;
     }
     if(!isEmpty()){
-        //if it's not empty it means it moved the selected poiinter
+        //if it's not empty it means it moved the selected pointer
         return true;
     }
     return false;

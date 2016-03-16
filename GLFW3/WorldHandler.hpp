@@ -49,8 +49,8 @@ public:
     void movementCheck(Math::Vector2D &current, Math::Vector2D &velocity, Math::Vector2D &scene, bool allowedOffscreen, bool moveScene);
     
     //loads the tile types, will be called if not called before loadWorld is called
-    void loadTileTypes(int typeNum);
-    void loadItemTypes(int typeNum);
+    void loadTileTypes();
+    void loadItemTypes();
     
     //returns if things are loaded
     bool isWorldLoaded();

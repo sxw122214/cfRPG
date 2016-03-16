@@ -148,7 +148,7 @@ bool WorldHandler::worldCollideX(Math::Vector2D &position, Math::Vector2D &scene
     if(mapPosition.x < 0 || mapPosition.y < 0 || mapPosition.x > xMapSize || mapPosition.y > xMapSize){
         return true;
     }
-    std::cout << gridPosition.x << std::endl;
+    
     if(map[mapPosition.x + mapPosition.y*xMapSize]->solid){
         if(right){
             //going right
@@ -196,9 +196,9 @@ bool WorldHandler::worldCollideY(Math::Vector2D &position, Math::Vector2D &scene
     return false;
 }
 
-void WorldHandler::loadTileTypes(int typeNum){
+void WorldHandler::loadTileTypes(){
     const char seperator = ',';
-    std::ifstream worldFile("data/tiles"+std::to_string(typeNum)+".csv", std::ios::in); //declare a file stream
+    std::ifstream worldFile("data/tiles.csv", std::ios::in); //declare a file stream
     if (worldFile.is_open()) //checks if the file is open??
     {
         std::string str;
@@ -233,9 +233,9 @@ void WorldHandler::loadTileTypes(int typeNum){
     }
 }
 
-void WorldHandler::loadItemTypes(int typeNum){
+void WorldHandler::loadItemTypes(){
     const char seperator = ',';
-    std::ifstream worldFile("data/items"+std::to_string(typeNum)+".csv", std::ios::in); //declare a file stream
+    std::ifstream worldFile("data/items.csv", std::ios::in); //declare a file stream
     if (worldFile.is_open()) //checks if the file is open??
     {
         std::string str;
@@ -273,10 +273,10 @@ void WorldHandler::loadItemTypes(int typeNum){
 
 void WorldHandler::loadWorld(int worldNum){
     if(!typeLoaded){
-        this->loadTileTypes(worldNum);
+        this->loadTileTypes();
     }
     if(!itemLoaded){
-        this->loadItemTypes(worldNum);
+        this->loadItemTypes();
     }
     const char seperator = ',';
     std::ifstream worldFile("data/world"+std::to_string(worldNum)+".csv", std::ios::in); //declare a file stream

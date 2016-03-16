@@ -14,11 +14,12 @@ GameState::GameState(){
 
 void GameState::setup(){
     //load world and sprites at the same time
-    std::thread worldT(&WorldHandler::loadWorld, WorldHandler::getInstance(), 3);
+    std::thread worldT(&WorldHandler::loadWorld, WorldHandler::getInstance(), 0);
     SpriteHandler::getInstance()->loadImages();
     worldT.join();
     
     worldHandler = WorldHandler::getInstance();
+    
     //add the player to the render and update loop
     pushBothRU(&player);
 }

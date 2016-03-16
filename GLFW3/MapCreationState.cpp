@@ -63,4 +63,22 @@ void MapCreationState::keyPressed(int key){
     if(iH->getUP()){
         wH->offSetby(0, -1, true);
     }
+    if(iH->getSPACE()){
+        saveMap();
+    }
+}
+
+void MapCreationState::saveMap(){
+    std::ofstream myfile;
+    myfile.open ("data/world0.csv");
+    for(int i = 0; i < wH->getMap().size(); i++){
+        myfile << wH->getMap()[i]->id;
+        if(i%wH->getxMapSize() == 0 && i !=0){
+            myfile << std::endl;
+        }else{
+            myfile << ",";
+        }
+    }
+    std::cout << "file saved" << std::endl;
+    myfile.close();
 }

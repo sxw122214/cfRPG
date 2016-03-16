@@ -13,6 +13,8 @@
 #include "State.hpp"
 #include "Handlers.h"
 #include <thread>
+#include <iostream>
+#include <fstream>
 
 class MapCreationState : public State{
 public:
@@ -22,6 +24,7 @@ public:
     virtual void update();
     virtual void draw();
     virtual void keyPressed(int key);
+    void saveMap();
     int y = 0;
     int x = 0;
     int currentTexture = 0;
