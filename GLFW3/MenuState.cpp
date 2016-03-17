@@ -32,6 +32,6 @@ void MenuState::update(){
 }
 
 void MenuState::draw(){
-    
+    text.draw("Press Left to go to the game, Right to go to the map editor", WorldHandler::getInstance()->windowWidth/2, WorldHandler::getInstance()->windowHeight/2);
 }
 

@@ -240,5 +240,5 @@ void Player::renderInventory(){
         text.draw(std::to_string(inv.getSelected()->num), getPosition().x, (getPosition().y)-4);
         glColor4d(1,1,1,1);
         inventoryItemDisplayAlpha -= 0.005;
-    }
+   }
 }

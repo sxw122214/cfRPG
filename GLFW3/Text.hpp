@@ -14,7 +14,6 @@
 #include <iostream>
 #include <GLFW/glfw3.h>
 #include "Vector2D.h"
-#include "Types.H"
 namespace Graphics{
     class Text{
         struct dtx_font *font;

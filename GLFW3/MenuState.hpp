@@ -12,19 +12,22 @@
 #include <stdio.h>
 #include "State.hpp"
 #include "States.h"
+#include "Types.h"
 #include "Handlers.h"
 
 class MenuState : public State{
     
 public:
-    MenuState(){};
+    MenuState(){
+        text.loadGlyphmap(24);
+    };
     virtual ~MenuState();
     virtual void setup();
     virtual void update();
     virtual void draw();
     GameState* gameState;
     MapCreationState* mapCreationState;
-    
+    Graphics::Text text;
 };
 
 #endif /* MenuState_hpp */
