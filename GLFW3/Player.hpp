@@ -48,6 +48,8 @@ public:
     //collection and mining stuff
     //
     
+    //text to show how many
+
     //Stops mining, resets the clocks etc
     void stopMining();
     //holds whether you're mining or not

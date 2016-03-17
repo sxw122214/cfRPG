@@ -14,15 +14,18 @@
 #include <iostream>
 #include <GLFW/glfw3.h>
 #include "Vector2D.h"
-
-class Text{
-    struct dtx_font *font;
-    int size;
-public:
-    Text(int size);
-    void draw(const std::string &str, float x, float y);
-    void draw(const std::string &str, const Math::Vector2D &v);
-    void setSize(int size);
-};
-
+#include "Types.H"
+namespace Graphics{
+    class Text{
+        struct dtx_font *font;
+        int size;
+        Graphics::Colour c;
+    public:
+        Text(int size);
+        void draw(const std::string &str, float x, float y);
+        void draw(const std::string &str, const Math::Vector2D &v);
+        void setSize(int size);
+        void setColour(const Graphics::Colour &c);
+    };
+}
 #endif /* Text_hpp */
