@@ -12,13 +12,11 @@ namespace Graphics {
     Text::Text(){
         
     }
-    
     Text::Text(float size, bool load) : size(size){
         if(load){
             this->loadGlyphmap(24);
         }
     }
-
     void Text::draw(const std::string &str, float x, float y){
         glPushMatrix();
         //flipped because the library is odd

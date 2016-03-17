@@ -25,7 +25,6 @@ namespace Graphics{
         Text(float size, bool load);
         void draw(const std::string &str, float x, float y);
         void draw(const std::string &str, const Math::Vector2D &v);
-;
         void loadGlyphmap(float size);
     };
 }

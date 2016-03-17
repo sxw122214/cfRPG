@@ -86,7 +86,7 @@ private:
     
     //initial offset
     int offSetX = 0, offSetY = 0;
-    
+        
     //if the world/tiles are loaded
     bool worldLoaded = false, typeLoaded = false, itemLoaded = false;
     

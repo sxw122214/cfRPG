@@ -9,7 +9,7 @@
 #include "GameState.hpp"
 
 GameState::GameState(){
-
+    text.loadGlyphmap(20);
 }
 
 void GameState::setup(){
@@ -44,6 +44,13 @@ void GameState::draw(){
             }
         }
     }
+    //if the world has recently been saved, show an indicator
+    if(savedAlpha > 0){
+        glColor4f(0, 0, 0, savedAlpha);
+        text.draw("World saved...", 60, 60);
+        glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+        savedAlpha -= 0.005;
+    }
 }
 
 void GameState::keyPressed(int key){
@@ -72,4 +79,5 @@ void GameState::saveWorld(){
     std::cout << "file saved" << std::endl;
     myfile.close();
     playerSave.join();
+    savedAlpha = 1;
 }

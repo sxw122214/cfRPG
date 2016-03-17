@@ -35,6 +35,9 @@ public:
     
     void pushBothRU(GameObject*);
     
+    //text to draw updates
+    Graphics::Text text;
+    float savedAlpha = 0;
     //saves the world over the currently selected one
     void saveWorld();
     
