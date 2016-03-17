@@ -34,6 +34,10 @@ namespace Graphics {
     void Text::draw(const std::string &str, const Math::Vector2D &v){
         this->draw(str, v.x, v.y);
     }
+    
+    void Text::setSize(int size){
+        this->size = size;
+    }
 
     void Text::loadGlyphmap(float size){
         loaded = (font = dtx_open_font_glyphmap("data/serif_s24.glyphmap"));

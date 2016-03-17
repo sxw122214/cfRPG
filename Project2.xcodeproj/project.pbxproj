@@ -280,6 +280,7 @@
 			children = (
 				C22E63F41C51082B00386E87 /* GameObject.cpp */,
 				C22E63F51C51082B00386E87 /* GameObject.hpp */,
+				C203C00E1C90C59600CE1C43 /* Datums */,
 				C22E64111C51087600386E87 /* Creatures */,
 				C22E64131C51088900386E87 /* Player */,
 			);
@@ -299,7 +300,6 @@
 		C22E640F1C51086200386E87 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
-				C203C00E1C90C59600CE1C43 /* Datums */,
 				C21493CE1C63852D00C25A1A /* GameObjects */,
 			);
 			name = Objects;

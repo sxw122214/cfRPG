@@ -54,7 +54,7 @@ void MenuState::keyPressed(int key){
     if(key == GLFW_KEY_BACKSPACE && selection.size() > 0){
         selection = selection.substr(0, selection.size()-1);
     }
-    if(key >= 48 && key <= 57){
+    if(key >= 48 && key <= 57 && selection.size() <=10){
         selection += std::to_string(key-48);
     }
 }

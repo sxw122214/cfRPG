@@ -53,6 +53,7 @@ void GameState::draw(){
 }
 
 void GameState::keyPressed(int key){
+    //if T is pressed
     if(key == 84){
         saveWorld();
     }
@@ -64,8 +65,10 @@ void GameState::pushBothRU(GameObject *go){
 }
 
 void GameState::saveWorld(){
+    //start the playerSave thread
     std::thread playerSave(&Player::savePlayerData, player, worldLoaded);
     std::ofstream myfile;
+    //save the worldfile
     myfile.open ("data/world"+std::to_string(worldLoaded)+".csv");
     for(int i = 0; i < worldHandler->getMap().size(); i++){
         myfile << worldHandler->getMap()[i]->id;
@@ -78,5 +81,6 @@ void GameState::saveWorld(){
     std::cout << "file saved" << std::endl;
     myfile.close();
     playerSave.join();
+    //set the alpha so that the text appears
     savedAlpha = 1;
 }
