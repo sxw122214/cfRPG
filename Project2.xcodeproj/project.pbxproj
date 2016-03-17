@@ -15,7 +15,6 @@
 		C2071E811C15CBBE00648169 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2071E801C15CBBE00648169 /* main.cpp */; };
 		C2071E881C15CBD700648169 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2071E871C15CBD700648169 /* OpenGL.framework */; };
 		C2071E941C15D67A00648169 /* Graphics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2071E921C15D67A00648169 /* Graphics.cpp */; };
-		C21729601C1AEC1B00E2869A /* Font.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C217295E1C1AEC1B00E2869A /* Font.cpp */; };
 		C22E64001C51082B00386E87 /* Creature.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C22E63F21C51082B00386E87 /* Creature.cpp */; };
 		C22E64021C51082B00386E87 /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C22E63F41C51082B00386E87 /* GameObject.cpp */; };
 		C22E64041C51082B00386E87 /* NPC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C22E63F61C51082B00386E87 /* NPC.cpp */; };
@@ -24,6 +23,7 @@
 		C22E640C1C51082B00386E87 /* WorldHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C22E63FE1C51082B00386E87 /* WorldHandler.cpp */; };
 		C22E64241C51206700386E87 /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C22E64231C51206700386E87 /* libglfw3.a */; };
 		C22E64281C5122C600386E87 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C22E64271C5122C600386E87 /* CoreVideo.framework */; };
+		C236B16D1C9B4E68006B616E /* Text.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C236B16B1C9B4E68006B616E /* Text.cpp */; };
 		C24831AB1C94C2F000D312A4 /* Inventory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C24831A91C94C2F000D312A4 /* Inventory.cpp */; };
 		C2604F251C67F1F100722D6C /* TestEnemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2604F231C67F1F100722D6C /* TestEnemy.cpp */; };
 		C27E3AC01C871EF400E1B900 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C27E3ABF1C871EF400E1B900 /* CoreFoundation.framework */; };
@@ -84,8 +84,6 @@
 		C2071E931C15D67A00648169 /* Graphics.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Graphics.hpp; sourceTree = "<group>"; };
 		C2071E961C15E18600648169 /* Rect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rect.h; sourceTree = "<group>"; };
 		C20CA48F1C63E5E900F2B6D4 /* CSVLoader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CSVLoader.hpp; sourceTree = "<group>"; };
-		C217295E1C1AEC1B00E2869A /* Font.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Font.cpp; sourceTree = "<group>"; };
-		C217295F1C1AEC1B00E2869A /* Font.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Font.hpp; sourceTree = "<group>"; };
 		C22E63F01C50E07D00386E87 /* CoreMain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreMain.h; sourceTree = "<group>"; };
 		C22E63F21C51082B00386E87 /* Creature.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Creature.cpp; sourceTree = "<group>"; };
 		C22E63F31C51082B00386E87 /* Creature.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Creature.hpp; sourceTree = "<group>"; };
@@ -101,6 +99,8 @@
 		C22E63FF1C51082B00386E87 /* WorldHandler.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = WorldHandler.hpp; sourceTree = "<group>"; };
 		C22E64231C51206700386E87 /* libglfw3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglfw3.a; path = lib/libglfw3.a; sourceTree = "<group>"; };
 		C22E64271C5122C600386E87 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		C236B16B1C9B4E68006B616E /* Text.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Text.cpp; sourceTree = "<group>"; };
+		C236B16C1C9B4E68006B616E /* Text.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Text.hpp; sourceTree = "<group>"; };
 		C24831A91C94C2F000D312A4 /* Inventory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Inventory.cpp; sourceTree = "<group>"; };
 		C24831AA1C94C2F000D312A4 /* Inventory.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Inventory.hpp; sourceTree = "<group>"; };
 		C2604F231C67F1F100722D6C /* TestEnemy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestEnemy.cpp; sourceTree = "<group>"; };
@@ -180,8 +180,8 @@
 				C2071E961C15E18600648169 /* Rect.h */,
 				C2FF281F1C19CFB20094E154 /* Image.cpp */,
 				C2FF28201C19CFB20094E154 /* Image.hpp */,
-				C217295E1C1AEC1B00E2869A /* Font.cpp */,
-				C217295F1C1AEC1B00E2869A /* Font.hpp */,
+				C236B16B1C9B4E68006B616E /* Text.cpp */,
+				C236B16C1C9B4E68006B616E /* Text.hpp */,
 			);
 			name = Types;
 			sourceTree = "<group>";
@@ -498,10 +498,10 @@
 				C2604F251C67F1F100722D6C /* TestEnemy.cpp in Sources */,
 				C20671B51C184FCC0006C6B1 /* BaseCore.cpp in Sources */,
 				C20671B21C184FA70006C6B1 /* Runner.cpp in Sources */,
-				C21729601C1AEC1B00E2869A /* Font.cpp in Sources */,
 				C290E6581C808C940021843F /* Timer.cpp in Sources */,
 				C2E9BD881C5173870005A77A /* State.cpp in Sources */,
 				C203C0111C90C6EC00CE1C43 /* Item.cpp in Sources */,
+				C236B16D1C9B4E68006B616E /* Text.cpp in Sources */,
 				C2DE69721C61531E00875E74 /* Utils.cpp in Sources */,
 				C2071E941C15D67A00648169 /* Graphics.cpp in Sources */,
 				C20671AD1C1792770006C6B1 /* Core.cpp in Sources */,

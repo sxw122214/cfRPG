@@ -14,5 +14,6 @@
 #include "Poly.h"
 #include "Image.hpp"
 #include "Colour.h"
+#include "Text.hpp"
 
 #endif /* Types_h */
