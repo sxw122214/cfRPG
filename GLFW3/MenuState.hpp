@@ -25,9 +25,11 @@ public:
     virtual void setup();
     virtual void update();
     virtual void draw();
+    virtual void keyPressed(int key);
     GameState* gameState;
     MapCreationState* mapCreationState;
     Graphics::Text text;
+    std::string selection;
 };
 
 #endif /* MenuState_hpp */

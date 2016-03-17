@@ -19,7 +19,7 @@
 
 class GameState : public State{
 public:
-    GameState();
+    GameState(int world);
     virtual ~GameState(){
         inputHandler = nullptr;
     }
@@ -40,6 +40,9 @@ public:
     float savedAlpha = 0;
     //saves the world over the currently selected one
     void saveWorld();
+    
+    //the current loaded world
+    int worldLoaded;
     
     Player player = Player(Math::Vector2D(50, 50), Math::Vector2D(0, 0), Graphics::Rect(0, 0, 50, 250), true);
     TestEnemy t = TestEnemy(Math::Vector2D(50, 50), Math::Vector2D(0, 0), Graphics::Rect(0, 0, 50, 250), true, 50);

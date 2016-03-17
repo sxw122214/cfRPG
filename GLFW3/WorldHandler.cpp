@@ -274,7 +274,6 @@ void WorldHandler::loadItemTypes(){
 
 
 void WorldHandler::loadWorld(int worldNum){
-    worldintLoaded = worldNum;
     if(!typeLoaded){
         this->loadTileTypes();
     }
@@ -376,10 +375,6 @@ Tile*& WorldHandler::getTile(int x, int y){
     x += (windowWidth/SPRITE_SIZE)*getOffSetX();
     y += (windowHeight/SPRITE_SIZE)*getOffSetY();
     return map[x+(y*getxMapSize())];
-}
-
-int WorldHandler::getWorldIntLoaded(){
-    return worldintLoaded;
 }
 
 int WorldHandler::getxMapSize(){

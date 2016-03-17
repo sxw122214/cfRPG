@@ -8,20 +8,19 @@
 
 #include "GameState.hpp"
 
-GameState::GameState(){
+GameState::GameState(int world){
     text.loadGlyphmap(20);
+    worldLoaded = world;
 }
 
 void GameState::setup(){
     //load world and sprites at the same time
-    int worldSave;
-    std::cout << "What world number would you like to load?" << std::endl << "A default world will be loaded if it can't be found" << std::endl;
-    std::cin >> worldSave;
-    std::thread worldT(&WorldHandler::loadWorld, WorldHandler::getInstance(), worldSave);
+    std::thread worldT(&WorldHandler::loadWorld, WorldHandler::getInstance(), worldLoaded);
     SpriteHandler::getInstance()->loadImages();
     worldT.join();
     
-    player.loadPlayerData(worldSave);
+    //load the player inventory and position
+    player.loadPlayerData(worldLoaded);
     
     worldHandler = WorldHandler::getInstance();
     
@@ -65,9 +64,9 @@ void GameState::pushBothRU(GameObject *go){
 }
 
 void GameState::saveWorld(){
-    std::thread playerSave(&Player::savePlayerData, player, worldHandler->getWorldIntLoaded());
+    std::thread playerSave(&Player::savePlayerData, player, worldLoaded);
     std::ofstream myfile;
-    myfile.open ("data/world"+std::to_string(worldHandler->getWorldIntLoaded())+".csv");
+    myfile.open ("data/world"+std::to_string(worldLoaded)+".csv");
     for(int i = 0; i < worldHandler->getMap().size(); i++){
         myfile << worldHandler->getMap()[i]->id;
         if(i%worldHandler->getxMapSize() == 0 && i !=0){
