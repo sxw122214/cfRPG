@@ -60,7 +60,7 @@ void Player::savePlayerData(int num){
     std::ofstream myfile;
     myfile.open ("data/player"+std::to_string(num)+".csv");
     //save the position
-    myfile << getPosition().x << "," << getPosition().y << std::endl;
+    myfile << int(getPosition().x) << "," << int(getPosition().y) << std::endl;
     //save the scene
     myfile << getScene().x << "," << getScene().y << std::endl;
     //save the inventory
@@ -113,16 +113,14 @@ void Player::update(){
 
     worldHandler->movementCheck(editPosition(), editVelocity(), editScene(), true, true);
     
-    if(inputHandler->getQ()){
-        if(inv.backwards()){
-            inventoryItemDisplayAlpha = 1;
-        }
+    if(inputHandler->getQ() && inventoryItemDisplayAlpha < 0.9){
+        inv.backwards();
+        inventoryItemDisplayAlpha = 1;
     }
     
     if(inputHandler->getE() && inventoryItemDisplayAlpha < 0.9){
-        if(inv.forwards()){
-            inventoryItemDisplayAlpha = 1;
-        }
+        inv.forwards();
+        inventoryItemDisplayAlpha = 1;
     }
     
     
@@ -236,9 +234,7 @@ void Player::miningAnimation(){
 void Player::renderInventory(){
     if(inventoryItemDisplayAlpha != 0 && !inv.isEmpty()){
         glColor4d(1,1,1,inventoryItemDisplayAlpha);
-        std::cout << inv.getSelectedPos();
-        SpriteHandler::getInstance()->get(inv.getSelected()->type->textureCode);
-        //->draw(this->getPosition().x, this->getPosition().y-SPRITE_SIZE, SPRITE_SIZE, SPRITE_SIZE);
+        SpriteHandler::getInstance()->get(inv.getSelected()->type->textureCode)->draw(this->getPosition().x, this->getPosition().y-SPRITE_SIZE, SPRITE_SIZE, SPRITE_SIZE);
         glColor4d(1,1,1,1);
         inventoryItemDisplayAlpha -= 0.005;
     }
