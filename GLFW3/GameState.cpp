@@ -18,9 +18,10 @@ void GameState::setup(){
     std::cout << "What world number would you like to load?" << std::endl << "A default world will be loaded if it can't be found" << std::endl;
     std::cin >> worldSave;
     std::thread worldT(&WorldHandler::loadWorld, WorldHandler::getInstance(), worldSave);
-    player.loadPlayerData(worldSave);
     SpriteHandler::getInstance()->loadImages();
     worldT.join();
+    
+    player.loadPlayerData(worldSave);
     
     worldHandler = WorldHandler::getInstance();
     

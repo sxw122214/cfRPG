@@ -60,7 +60,7 @@ public:
     //returns the map, tiles and items
     std::vector<Tile*>& getMap();
     std::vector<Tile>& getTiles();
-    std::vector<Item>& getItems();
+    std::vector<Item*>& getItems();
     
     //returns a pointer reference
     Tile*& getTile(int x, int y);
@@ -95,7 +95,7 @@ private:
     //tiles holds the initial information of each tile
     std::vector<Tile> tiles;
     //Items holds the information all the items
-    std::vector<Item> items;
+    std::vector<Item*> items;
     
     //this holds how big the map is in tiles
     int xMapSize = 0, yMapSize = 0;

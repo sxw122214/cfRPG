@@ -262,7 +262,7 @@ void WorldHandler::loadItemTypes(){
                 }
             }
             //now push the integers in
-            items.push_back(Item(readIntegers[0], readIntegers[1], readIntegers[2], readIntegers[3]));
+            items.push_back(new Item(readIntegers[0], readIntegers[1], readIntegers[2], readIntegers[3]));
         }
         typeLoaded = true;
         std::cout << "Items loaded" << std::endl;
@@ -366,7 +366,7 @@ std::vector<Tile>& WorldHandler::getTiles(){
     return tiles;
 }
 
-std::vector<Item>& WorldHandler::getItems(){
+std::vector<Item*>& WorldHandler::getItems(){
     return items;
 }
 

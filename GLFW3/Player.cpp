@@ -45,7 +45,7 @@ void Player::loadPlayerData(int num){
                 editScene().x = readIntegers[0];
                 editScene().y = readIntegers[1];
             }else if(linenumber >2){
-                inv.pickup(&worldHandler->getItems()[readIntegers[0]], readIntegers[1]);
+                inv.pickup(worldHandler->getItems()[readIntegers[0]], readIntegers[1]);
             }
             
         }
@@ -73,7 +73,6 @@ void Player::savePlayerData(int num){
 }
 
 void Player::update(){
-    std::cout << inv.size() << std::endl;
     int thisMouseX = inputHandler->getMouseX();
     int thisMouseY = inputHandler->getMouseY();
     bool movement = false;
@@ -186,7 +185,7 @@ void Player::update(){
             }else{
                 //if the mining is still happening
                 if(timer.elapsedTime() >= miningTime){
-                    inv.pickup(&worldHandler->getItems()[worldHandler->getTile(thisMouseX, thisMouseY)->itemDrop], 1);
+                    inv.pickup(worldHandler->getItems()[worldHandler->getTile(thisMouseX, thisMouseY)->itemDrop], 1);
                     worldHandler->getTile(thisMouseX, thisMouseY) = &worldHandler->getTiles()[0];
                     this->stopMining();
                 }
