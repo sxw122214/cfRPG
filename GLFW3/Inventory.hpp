@@ -38,7 +38,7 @@ public:
     bool isEmpty();
     
     //pickups an item and pushes it back into held
-    void pickup(Item*);
+    void pickup(Item*, int amount);
     
     //returns true if selected item is changed
     bool forwards();

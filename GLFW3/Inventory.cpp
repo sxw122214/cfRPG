@@ -10,14 +10,14 @@
 #include "Inventory.hpp"
 
 
-void Inventory::pickup(Item* item){
+void Inventory::pickup(Item* item, int amount){
     for(auto &i : held){
         if(i.type==item){
-            i.num++;
+            i.num+=amount;
             return;
         }
     }
-    held.push_back(inventoryItem(item, 1));
+    held.push_back(inventoryItem(item, amount));
 }
 
 bool Inventory::backwards(){
@@ -75,7 +75,10 @@ Inventory::inventoryItem* Inventory::getSlot(int i){
 }
 
 Inventory::inventoryItem* Inventory::getSelected(){
-    return &held[selected];
+    if(selected >= 0 && selected < size()){
+        return &held[selected];
+    }
+    return nullptr;
 }
 
 int Inventory::size(){

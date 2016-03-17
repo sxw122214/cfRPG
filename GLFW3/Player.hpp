@@ -31,6 +31,10 @@ public:
     void renderInventory();
     //update that's called every frame
     virtual void update();
+    
+    void loadPlayerData(int num);
+    void savePlayerData(int num);
+    
     //the players speed
     float speed = 5;
     //pointers to handlers

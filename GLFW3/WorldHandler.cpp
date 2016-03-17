@@ -227,6 +227,7 @@ void WorldHandler::loadTileTypes(){
             tiles.push_back(Tile(readIntegers[0], readIntegers[1], readIntegers[2], readIntegers[3], readIntegers[4]));
         }
         typeLoaded = true;
+        std::cout << "Tiles loaded" << std::endl;
     }else{
         typeLoaded = false;
         std::cout << "Tile file failed to load" << std::endl;
@@ -264,9 +265,10 @@ void WorldHandler::loadItemTypes(){
             items.push_back(Item(readIntegers[0], readIntegers[1], readIntegers[2], readIntegers[3]));
         }
         typeLoaded = true;
+        std::cout << "Items loaded" << std::endl;
     }else{
         typeLoaded = false;
-        std::cout << "Tile file failed to load" << std::endl;
+        std::cout << "Item file failed to load" << std::endl;
     }
 }
 
@@ -281,8 +283,11 @@ void WorldHandler::loadWorld(int worldNum){
     }
     const char seperator = ',';
     std::ifstream worldFile("data/world"+std::to_string(worldNum)+".csv", std::ios::in); //declare a file stream
-    if (worldFile.is_open()) //checks if the file is open??
+    if (!worldFile.is_open()) //checks if the file is open, if not load a template
     {
+        std::cout << "World file not found, loading a template" << std::endl;
+        worldFile = std::ifstream("data/templateWorld.csv", std::ios::in); //declare a new file stream of the template world
+    }
         std::string str;
         while (getline(worldFile, str)){
             //loop through and push all the ints to a vector
@@ -312,10 +317,7 @@ void WorldHandler::loadWorld(int worldNum){
         //so fix that
         xMapSize = xMapSize/yMapSize;
         worldLoaded = true;
-    }else{
-        worldLoaded = false;
-        std::cout << "World file failed to load" << std::endl;
-    }
+    std::cout << "World loaded" << std::endl;
 }
 
 void WorldHandler::updateWorld(){

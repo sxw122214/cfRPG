@@ -13,7 +13,67 @@ Player::Player(const Math::Vector2D &scene, const Math::Vector2D &position, cons
     inputHandler = InputHandler::getInstance();
 }
 
+void Player::loadPlayerData(int num){
+    const char seperator = ',';
+    std::ifstream worldFile("data/player"+std::to_string(num)+".csv", std::ios::in); //declare a file stream
+    if (worldFile.is_open()) //checks if the file is open??
+    {
+        std::string str;
+        int linenumber = 0;
+        while (getline(worldFile, str)){
+            //if it's a / just ignore the entire line
+            if(str[0] == '/'){
+                continue;
+            }
+            //loop through and push all the tiles into a vector
+            std::vector<int> readIntegers; // this will hold the data
+            std::string read;
+            for(int i = 0; i <= str.length(); i++){
+                if(str[i] == seperator || i >= str.length()){
+                    int tempInt = atoi(read.c_str());
+                    read.clear();
+                    readIntegers.push_back(tempInt);
+                }else{
+                    read += str[i];
+                }
+            }
+            linenumber++;
+            if(linenumber == 1){
+                editPosition().x = readIntegers[0];
+                editPosition().y = readIntegers[1];
+            }else if(linenumber == 2){
+                editScene().x = readIntegers[0];
+                editScene().y = readIntegers[1];
+            }else if(linenumber >2){
+                inv.pickup(&worldHandler->getItems()[readIntegers[0]], readIntegers[1]);
+            }
+            
+        }
+        std::cout << "player data loaded" << std::endl;
+    }else{
+        std::cout << "No player data found, using blank" << std::endl;
+    }
+    worldHandler->offSetby(getScene().x, getScene().y, true);
+}
+
+void Player::savePlayerData(int num){
+    std::ofstream myfile;
+    myfile.open ("data/player"+std::to_string(num)+".csv");
+    //save the position
+    myfile << getPosition().x << "," << getPosition().y << std::endl;
+    //save the scene
+    myfile << getScene().x << "," << getScene().y << std::endl;
+    //save the inventory
+    for(int i = 0; i < inv.size(); i++){
+        myfile << inv.getSlot(i)->type->id << "," << inv.getSlot(i)->num << std::endl;
+    }
+    std::cout << "player saved" << std::endl;
+    myfile.close();
+
+}
+
 void Player::update(){
+    std::cout << inv.size() << std::endl;
     int thisMouseX = inputHandler->getMouseX();
     int thisMouseY = inputHandler->getMouseY();
     bool movement = false;
@@ -126,7 +186,7 @@ void Player::update(){
             }else{
                 //if the mining is still happening
                 if(timer.elapsedTime() >= miningTime){
-                    inv.pickup(&worldHandler->getItems()[worldHandler->getTile(thisMouseX, thisMouseY)->itemDrop]);
+                    inv.pickup(&worldHandler->getItems()[worldHandler->getTile(thisMouseX, thisMouseY)->itemDrop], 1);
                     worldHandler->getTile(thisMouseX, thisMouseY) = &worldHandler->getTiles()[0];
                     this->stopMining();
                 }
@@ -177,9 +237,9 @@ void Player::miningAnimation(){
 void Player::renderInventory(){
     if(inventoryItemDisplayAlpha != 0 && !inv.isEmpty()){
         glColor4d(1,1,1,inventoryItemDisplayAlpha);
-//        for(int i = 0; i < inv.size(); i++){
-            SpriteHandler::getInstance()->get(inv.getSlot(inv.getSelectedPos())->type->textureCode)->draw(this->getPosition().x, this->getPosition().y-SPRITE_SIZE, SPRITE_SIZE, SPRITE_SIZE);
-//        }
+        std::cout << inv.getSelectedPos();
+        SpriteHandler::getInstance()->get(inv.getSelected()->type->textureCode);
+        //->draw(this->getPosition().x, this->getPosition().y-SPRITE_SIZE, SPRITE_SIZE, SPRITE_SIZE);
         glColor4d(1,1,1,1);
         inventoryItemDisplayAlpha -= 0.005;
     }

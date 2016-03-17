@@ -15,9 +15,10 @@ GameState::GameState(){
 void GameState::setup(){
     //load world and sprites at the same time
     int worldSave;
-    std::cout << "What world number would you like to load?" << std::endl << "A world will be created if it doesn't exist" << std::endl;
+    std::cout << "What world number would you like to load?" << std::endl << "A default world will be loaded if it can't be found" << std::endl;
     std::cin >> worldSave;
     std::thread worldT(&WorldHandler::loadWorld, WorldHandler::getInstance(), worldSave);
+    player.loadPlayerData(worldSave);
     SpriteHandler::getInstance()->loadImages();
     worldT.join();
     
@@ -56,6 +57,7 @@ void GameState::pushBothRU(GameObject *go){
 }
 
 void GameState::saveWorld(){
+    std::thread playerSave(&Player::savePlayerData, player, worldHandler->getWorldIntLoaded());
     std::ofstream myfile;
     myfile.open ("data/world"+std::to_string(worldHandler->getWorldIntLoaded())+".csv");
     for(int i = 0; i < worldHandler->getMap().size(); i++){
@@ -68,4 +70,5 @@ void GameState::saveWorld(){
     }
     std::cout << "file saved" << std::endl;
     myfile.close();
+    playerSave.join();
 }
