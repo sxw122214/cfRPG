@@ -11,6 +11,8 @@
 Player::Player(const Math::Vector2D &scene, const Math::Vector2D &position, const Graphics::Rect &bounds, bool visible): GameObject(scene, position, bounds, visible){
     worldHandler = WorldHandler::getInstance();
     inputHandler = InputHandler::getInstance();
+    text.loadGlyphmap();
+    text.setSize(6);
 }
 
 void Player::loadPlayerData(int num){
@@ -235,6 +237,8 @@ void Player::renderInventory(){
     if(inventoryItemDisplayAlpha != 0 && !inv.isEmpty()){
         glColor4d(1,1,1,inventoryItemDisplayAlpha);
         SpriteHandler::getInstance()->get(inv.getSelected()->type->textureCode)->draw(this->getPosition().x, this->getPosition().y-SPRITE_SIZE, SPRITE_SIZE, SPRITE_SIZE);
+        glColor4d(0, 0, 0,inventoryItemDisplayAlpha);
+        text.draw(std::to_string(inv.getSelected()->num), getPosition().x, getPosition().y-4);
         glColor4d(1,1,1,1);
         inventoryItemDisplayAlpha -= 0.005;
     }

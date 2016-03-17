@@ -9,11 +9,14 @@
 #include "Text.hpp"
 
 namespace Graphics {
-    Text::Text(int size) : size(size){
-        if(!(font = dtx_open_font_glyphmap("data/serif_s24.glyphmap"))) {
-            std::cout << "failed to open font" << std::endl;
+    Text::Text(){
+        
+    }
+    
+    Text::Text(int size, bool load) : size(size){
+        if(load){
+            this->loadGlyphmap();
         }
-        dtx_use_font(font, size);
     }
 
     void Text::draw(const std::string &str, float x, float y){
@@ -23,7 +26,6 @@ namespace Graphics {
         glScalef(-1.0f,1.0f,1.0f);
         //-y because of the flip
         glTranslatef(x, -y, 0);
-        glColor4f(c.r, c.g, c.b, c.a);
         dtx_string(str.c_str());
         glPopMatrix();
     }
@@ -35,8 +37,13 @@ namespace Graphics {
     void Text::setSize(int size){
         this->size = size;
     }
-
-    void Text::setColour(const Graphics::Colour &c){
-        this->c = c;
+    
+    void Text::loadGlyphmap(){
+        loaded = (font = dtx_open_font_glyphmap("data/serif_s24.glyphmap"));
+        if(!loaded){
+            std::cout << "failed to open font" << std::endl;
+            return;
+        }
+        dtx_use_font(font, size);
     }
 }

@@ -18,14 +18,15 @@
 namespace Graphics{
     class Text{
         struct dtx_font *font;
-        int size;
-        Graphics::Colour c;
+        int size = 24;
+        bool loaded = false;
     public:
-        Text(int size);
+        Text();
+        Text(int size, bool load);
         void draw(const std::string &str, float x, float y);
         void draw(const std::string &str, const Math::Vector2D &v);
         void setSize(int size);
-        void setColour(const Graphics::Colour &c);
+        void loadGlyphmap();
     };
 }
 #endif /* Text_hpp */

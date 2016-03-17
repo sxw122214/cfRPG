@@ -41,15 +41,12 @@ public:
     std::shared_ptr<WorldHandler>  worldHandler;
     std::shared_ptr<InputHandler> inputHandler;
     
-    //loaded font, not used currently
-    struct dtx_font *font;
-    
     //
     //collection and mining stuff
     //
     
     //text to show how many
-
+    Graphics::Text text;
     //Stops mining, resets the clocks etc
     void stopMining();
     //holds whether you're mining or not
