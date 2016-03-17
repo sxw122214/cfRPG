@@ -27,11 +27,10 @@ void MenuState::update(){
     if(InputHandler::getInstance()->getLEFT()){
         gameState = new GameState(atoi(selection.c_str()));
         gameState->setup();
-        mapCreationState = new MapCreationState();
         State::setState(gameState);
     }
     if(InputHandler::getInstance()->getRIGHT()){
-        mapCreationState = new MapCreationState();
+        mapCreationState = new MapCreationState(atoi(selection.c_str()));
         mapCreationState->setup();
         State::setState(mapCreationState);
     }
@@ -40,6 +39,7 @@ void MenuState::update(){
 void MenuState::draw(){
     glColor4d(0, 0, 0, 1);
     int width = WorldHandler::getInstance()->windowWidth, height = WorldHandler::getInstance()->windowHeight;
+    //draw the menu text!
     text.draw("Press Left to go to the game, Right to go to the map editor", width*0.25, (height/2)-210);
     text.draw("But first! We require a level number to be loaded/created", width*0.25, (height/2)-140);
     text.draw("Type the world number now! - " + selection, width*0.25, (height/2)-70);

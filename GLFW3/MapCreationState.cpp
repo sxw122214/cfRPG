@@ -8,16 +8,18 @@
 
 #include "MapCreationState.hpp"
 
-MapCreationState::MapCreationState(){
+MapCreationState::MapCreationState(int world){
     iH = InputHandler::getInstance();
     wH = WorldHandler::getInstance();
+    worldLoaded = world;
+    text.loadGlyphmap(20);
 }
 
 MapCreationState::~MapCreationState(){
 }
 
 void MapCreationState::setup(){
-    std::thread worldT(&WorldHandler::loadWorld, WorldHandler::getInstance(), 3);
+    std::thread worldT(&WorldHandler::loadWorld, WorldHandler::getInstance(), worldLoaded);
     SpriteHandler::getInstance()->loadImages();
     worldT.join();
 }
@@ -40,6 +42,13 @@ void MapCreationState::update(){
 void MapCreationState::draw(){
     wH->renderWorld();
     SpriteHandler::getInstance()->get(currentTexture)->draw(iH->getMouseX(), iH->getMouseY(), SPRITE_SIZE, SPRITE_SIZE);
+    //if the world has recently been saved, show an indicator
+    if(savedAlpha > 0){
+        glColor4f(0, 0, 0, savedAlpha);
+        text.draw("World saved...", 60, 60);
+        glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+        savedAlpha -= 0.005;
+    }
 }
 
 void MapCreationState::keyPressed(int key){
@@ -63,14 +72,14 @@ void MapCreationState::keyPressed(int key){
     if(iH->getUP()){
         wH->offSetby(0, -1, true);
     }
-    if(iH->getSPACE()){
+    if(key == 84){
         saveMap();
     }
 }
 
 void MapCreationState::saveMap(){
     std::ofstream myfile;
-    myfile.open ("data/world0.csv");
+    myfile.open("data/world"+std::to_string(worldLoaded)+".csv");
     for(int i = 0; i < wH->getMap().size(); i++){
         myfile << wH->getMap()[i]->id;
         if(i%wH->getxMapSize() == 0 && i !=0){
@@ -81,4 +90,5 @@ void MapCreationState::saveMap(){
     }
     std::cout << "file saved" << std::endl;
     myfile.close();
+    savedAlpha = 1;
 }

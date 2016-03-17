@@ -13,12 +13,13 @@
 #include "State.hpp"
 #include "Handlers.h"
 #include <thread>
+#include <string>
 #include <iostream>
 #include <fstream>
 
 class MapCreationState : public State{
 public:
-    MapCreationState();
+    MapCreationState(int world);
     virtual ~MapCreationState();
     virtual void setup();
     virtual void update();
@@ -32,7 +33,14 @@ public:
     std::shared_ptr<InputHandler> iH;
     std::shared_ptr<WorldHandler> wH;
 
-
+    
+    //what world is loaded
+    int worldLoaded;
+    
+    //used to show if the world has been saved
+    float savedAlpha = 0;
+    //text to draw updates
+    Graphics::Text text;
     
 };
 
