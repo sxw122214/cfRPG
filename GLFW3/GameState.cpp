@@ -17,6 +17,23 @@ void GameState::setup(){
     
 }
 
+void GameState::exitCalled(){
+    //save the world
+    saveWorld();
+    //reset the world data
+    worldHandler->resetData();
+    //clear the vectors of update and render
+    updateVector.clear();
+    renderVector.clear();
+    //reset the player data
+    player.resetPlayerData();
+    //also reset the world saving stuff
+    savedAlpha = 0;
+    //set the new state!
+    State::setState(STATES::menu);
+
+}
+
 void GameState::loadWorld(int world){
     worldLoaded = world;
     //load world and sprites at the same time

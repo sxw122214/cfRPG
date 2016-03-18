@@ -14,6 +14,11 @@ Player::Player(const Math::Vector2D &scene, const Math::Vector2D &position, cons
     text.loadGlyphmap(18);
 }
 
+void Player::resetPlayerData(){
+    //clear the inventory
+    inv.clear();
+}
+
 void Player::loadPlayerData(int num){
     const char seperator = ',';
     std::ifstream worldFile("data/player"+std::to_string(num)+".csv", std::ios::in); //declare a file stream

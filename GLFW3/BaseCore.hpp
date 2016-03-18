@@ -38,6 +38,7 @@ public:
     virtual void keyReleased(int key){};
     virtual void mousePressed(int button){};
     virtual void mouseReleased(int button){};
+    virtual void exitCalled(){};
     GLFWwindow* getWindow();
 };
 

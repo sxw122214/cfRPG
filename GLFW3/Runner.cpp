@@ -147,7 +147,9 @@ void Runner::mouseCallback(GLFWwindow *window, int button, int action, int mods)
 
 void Runner::keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods){
     if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS){
-        glfwSetWindowShouldClose(window, GL_TRUE);
+        void* data = glfwGetWindowUserPointer(window);
+        Runner* r = static_cast<Runner*>(data);
+        r->c->exitCalled();
         return;
     }
     void* data = glfwGetWindowUserPointer(window);

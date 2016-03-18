@@ -18,6 +18,10 @@ MenuState::~MenuState(){
 void MenuState::setup(){
 }
 
+void MenuState::exitCalled(){
+    std::exit(0);
+}
+
 void MenuState::update(){
     //make sure there is an actual selection
     if(selection.size() == 0){
@@ -27,10 +31,12 @@ void MenuState::update(){
     if(InputHandler::getInstance()->getLEFT()){
         State::setState(STATES::game);
         State::getCurrentState()->loadWorld(atoi(selection.c_str()));
+        selection.clear();
     }
     if(InputHandler::getInstance()->getRIGHT()){
         State::setState(STATES::mapeditor);
         State::getCurrentState()->loadWorld(atoi(selection.c_str()));
+        selection.clear();
     }
 }
 

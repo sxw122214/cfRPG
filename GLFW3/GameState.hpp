@@ -28,6 +28,7 @@ public:
     virtual void draw();
     virtual void keyPressed(int key);
     virtual void loadWorld(int world);
+    virtual void exitCalled();
 
     std::shared_ptr<InputHandler> inputHandler;
     std::shared_ptr<WorldHandler> worldHandler;

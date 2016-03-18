@@ -24,10 +24,12 @@ public:
     void keyReleased(int key);
     void mousePressed(int button);
     void mouseReleased(int button);
+    void exitCalled();
     MenuState* menuState;
     GameState* gameState;
     MapCreationState* mapCreationState;
     std::shared_ptr<InputHandler> inputHandler;
+    
 };
 
 #endif /* Core_hpp */

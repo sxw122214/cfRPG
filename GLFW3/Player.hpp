@@ -34,6 +34,7 @@ public:
     
     void loadPlayerData(int num);
     void savePlayerData(int num);
+    void resetPlayerData();
     
     //the players speed
     float speed = 5;

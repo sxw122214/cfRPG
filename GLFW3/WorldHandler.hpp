@@ -25,6 +25,9 @@ public:
     //returns the instance of the handler
     static std::shared_ptr<WorldHandler> getInstance();
     
+    //reset the
+    void resetData();
+    
     //loads a specific world from a csv file
     void loadWorld(int i);
     

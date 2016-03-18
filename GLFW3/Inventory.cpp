@@ -46,6 +46,11 @@ bool Inventory::forwards(){
     return false;
 }
 
+void Inventory::clear(){
+    held.clear();
+    selected = 0;
+}
+
 bool Inventory::reduceSelected(){
     held[selected].num--;
     //if there's none there

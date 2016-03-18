@@ -40,5 +40,6 @@ public:
     virtual void setup() = 0;
     virtual void loadWorld(int world){};
     virtual void keyPressed(int key){};
+    virtual void exitCalled(){};
 };
 #endif /* State_hpp */

@@ -31,6 +31,9 @@ public:
     //returns the size of the inventory
     int size();
     
+    //wipes the memory
+    void clear();
+    
     //gets the current selected int
     int getSelectedPos();
     

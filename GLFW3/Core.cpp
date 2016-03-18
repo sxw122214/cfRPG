@@ -49,6 +49,10 @@ void Core::draw(){
     State::getCurrentState()->draw();
 }
 
+void Core::exitCalled(){
+    State::getCurrentState()->exitCalled();
+}
+
 void Core::keyPressed(int key){
     inputHandler->keyDown(key);
     State::getCurrentState()->keyPressed(key);

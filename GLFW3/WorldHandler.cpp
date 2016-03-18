@@ -357,6 +357,17 @@ void WorldHandler::renderWorld(){
     }
 }
 
+void WorldHandler::resetData(){
+    //clear the vector of the world, types can stay
+    map.clear();
+    worldLoaded = false;
+    //reset the map sizes and offsets
+    xMapSize = 0;
+    yMapSize = 0;
+    offSetX = 0;
+    offSetY = 0;
+}
+
 std::vector<Tile*>& WorldHandler::getMap(){
     return map;
 }
@@ -369,6 +380,8 @@ std::vector<Item*>& WorldHandler::getItems(){
     return items;
 }
 
+//returns a tile at a specific x and y
+//it takes into account the scene
 Tile*& WorldHandler::getTile(int x, int y){
     x = int(x/SPRITE_SIZE);
     y = int(y/SPRITE_SIZE);

@@ -26,6 +26,7 @@ public:
     virtual void update();
     virtual void draw();
     virtual void keyPressed(int key);
+    virtual void exitCalled();
     GameState* gameState;
     MapCreationState* mapCreationState;
     Graphics::Text text;
