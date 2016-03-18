@@ -26,6 +26,7 @@ public:
     virtual void draw();
     virtual void keyPressed(int key);
     virtual void loadWorld(int world);
+    virtual void exitCalled();
     
     void saveMap();
     int y = 0;

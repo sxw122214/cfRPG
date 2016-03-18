@@ -17,6 +17,17 @@ MapCreationState::MapCreationState(){
 MapCreationState::~MapCreationState(){
 }
 
+void MapCreationState::exitCalled(){
+    //save the world
+    saveMap();
+    //reset the world data
+    wH->resetData();
+    //also reset the world saving stuff
+    savedAlpha = 0;
+    //set the new state!
+    State::setState(STATES::menu);
+}
+
 void MapCreationState::loadWorld(int world){
     worldLoaded = world;
     std::thread worldT(&WorldHandler::loadWorld, WorldHandler::getInstance(), worldLoaded);
@@ -31,10 +42,8 @@ void MapCreationState::update(){
         int y = iH->getMouseY();
         x = int(x/SPRITE_SIZE);
         y = int(y/SPRITE_SIZE);
-        std::cout << x << " " << y << std::endl;
         x += ((wH->windowWidth/SPRITE_CODE::SPRITE_SIZE)*wH->getOffSetX());
         y += ((wH->windowHeight/SPRITE_CODE::SPRITE_SIZE)*wH->getOffSetY());
-        std::cout << x << " " << y << std::endl;
         wH->getMap()[x+(y*wH->getxMapSize())] = &wH->getTiles()[currentTexture];
     }
 }
