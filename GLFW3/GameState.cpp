@@ -88,7 +88,7 @@ void GameState::saveWorld(){
     std::thread playerSave(&Player::savePlayerData, player, worldLoaded);
     std::ofstream myfile;
     //save the worldfile
-    myfile.open ("data/world"+std::to_string(worldLoaded)+".csv");
+    myfile.open ("data/saves/world"+std::to_string(worldLoaded)+".csv");
     for(int i = 0; i < worldHandler->getMap().size(); i++){
         myfile << worldHandler->getMap()[i]->id;
         if(i%worldHandler->getxMapSize() == 0 && i !=0){

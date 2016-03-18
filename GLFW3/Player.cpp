@@ -21,7 +21,7 @@ void Player::resetPlayerData(){
 
 void Player::loadPlayerData(int num){
     const char seperator = ',';
-    std::ifstream worldFile("data/player"+std::to_string(num)+".csv", std::ios::in); //declare a file stream
+    std::ifstream worldFile("data/saves/player"+std::to_string(num)+".csv", std::ios::in); //declare a file stream
     if (worldFile.is_open()) //checks if the file is open??
     {
         std::string str;
@@ -64,7 +64,7 @@ void Player::loadPlayerData(int num){
 
 void Player::savePlayerData(int num){
     std::ofstream myfile;
-    myfile.open ("data/player"+std::to_string(num)+".csv");
+    myfile.open ("data/saves/player"+std::to_string(num)+".csv");
     //save the position
     myfile << int(getPosition().x) << "," << int(getPosition().y) << std::endl;
     //save the scene

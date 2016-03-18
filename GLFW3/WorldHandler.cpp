@@ -281,7 +281,7 @@ void WorldHandler::loadWorld(int worldNum){
         this->loadItemTypes();
     }
     const char seperator = ',';
-    std::ifstream worldFile("data/world"+std::to_string(worldNum)+".csv", std::ios::in); //declare a file stream
+    std::ifstream worldFile("data/saves/world"+std::to_string(worldNum)+".csv", std::ios::in); //declare a file stream
     if (!worldFile.is_open()) //checks if the file is open, if not load a template
     {
         std::cout << "World file not found, loading a template" << std::endl;

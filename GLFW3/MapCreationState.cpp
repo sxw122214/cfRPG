@@ -79,7 +79,7 @@ void MapCreationState::keyPressed(int key){
 
 void MapCreationState::saveMap(){
     std::ofstream myfile;
-    myfile.open("data/world"+std::to_string(worldLoaded)+".csv");
+    myfile.open("data/saves/world"+std::to_string(worldLoaded)+".csv");
     for(int i = 0; i < wH->getMap().size(); i++){
         myfile << wH->getMap()[i]->id;
         if(i%wH->getxMapSize() == 0 && i !=0){
