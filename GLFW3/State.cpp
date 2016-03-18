@@ -8,12 +8,17 @@
 
 #include "State.hpp"
 
-State* State::currentState = nullptr;
+int State::currentStateNum;
+std::vector<State*> State::states;
 
 State* State::getCurrentState(){
-    return currentState;
+    return states[currentStateNum];
 }
 
-void State::setState(State* s){
-    currentState = s;
+void State::setState(int statenum){
+    currentStateNum = statenum;
+}
+
+void State::addState(State *s){
+    states.push_back(s);
 }

@@ -25,14 +25,12 @@ void MenuState::update(){
     }
     //go to the next state with the users selection
     if(InputHandler::getInstance()->getLEFT()){
-        gameState = new GameState(atoi(selection.c_str()));
-        gameState->setup();
-        State::setState(gameState);
+        State::setState(STATES::game);
+        State::getCurrentState()->loadWorld(atoi(selection.c_str()));
     }
     if(InputHandler::getInstance()->getRIGHT()){
-        mapCreationState = new MapCreationState(atoi(selection.c_str()));
-        mapCreationState->setup();
-        State::setState(mapCreationState);
+        State::setState(STATES::mapeditor);
+        State::getCurrentState()->loadWorld(atoi(selection.c_str()));
     }
 }
 

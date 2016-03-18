@@ -19,7 +19,7 @@
 
 class GameState : public State{
 public:
-    GameState(int world);
+    GameState();
     virtual ~GameState(){
         inputHandler = nullptr;
     }
@@ -27,6 +27,8 @@ public:
     virtual void update();
     virtual void draw();
     virtual void keyPressed(int key);
+    virtual void loadWorld(int world);
+
     std::shared_ptr<InputHandler> inputHandler;
     std::shared_ptr<WorldHandler> worldHandler;
     

@@ -19,12 +19,14 @@
 
 class MapCreationState : public State{
 public:
-    MapCreationState(int world);
+    MapCreationState();
     virtual ~MapCreationState();
-    virtual void setup();
+    virtual void setup(){};
     virtual void update();
     virtual void draw();
     virtual void keyPressed(int key);
+    virtual void loadWorld(int world);
+    
     void saveMap();
     int y = 0;
     int x = 0;
@@ -33,7 +35,6 @@ public:
     std::shared_ptr<InputHandler> iH;
     std::shared_ptr<WorldHandler> wH;
 
-    
     //what world is loaded
     int worldLoaded;
     

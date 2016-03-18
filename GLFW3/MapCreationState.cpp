@@ -8,17 +8,17 @@
 
 #include "MapCreationState.hpp"
 
-MapCreationState::MapCreationState(int world){
+MapCreationState::MapCreationState(){
     iH = InputHandler::getInstance();
     wH = WorldHandler::getInstance();
-    worldLoaded = world;
     text.loadGlyphmap(20);
 }
 
 MapCreationState::~MapCreationState(){
 }
 
-void MapCreationState::setup(){
+void MapCreationState::loadWorld(int world){
+    worldLoaded = world;
     std::thread worldT(&WorldHandler::loadWorld, WorldHandler::getInstance(), worldLoaded);
     SpriteHandler::getInstance()->loadImages();
     worldT.join();

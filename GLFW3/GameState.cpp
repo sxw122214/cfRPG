@@ -8,25 +8,27 @@
 
 #include "GameState.hpp"
 
-GameState::GameState(int world){
+GameState::GameState(){
     text.loadGlyphmap(20);
-    worldLoaded = world;
+    worldHandler = WorldHandler::getInstance();
 }
 
 void GameState::setup(){
+    
+}
+
+void GameState::loadWorld(int world){
+    worldLoaded = world;
     //load world and sprites at the same time
     std::thread worldT(&WorldHandler::loadWorld, WorldHandler::getInstance(), worldLoaded);
     SpriteHandler::getInstance()->loadImages();
     worldT.join();
-    
     //load the player inventory and position
     player.loadPlayerData(worldLoaded);
-    
-    worldHandler = WorldHandler::getInstance();
-    
     //add the player to the render and update loop
     pushBothRU(&player);
 }
+
 
 void GameState::update(){
     for(auto go : updateVector){

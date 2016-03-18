@@ -24,10 +24,16 @@ void Core::setup(){
     //this needs to be set here otherwise c
     inputHandler = InputHandler::getInstance();
     
-    //initialise the state
+    gameState = new GameState();
     menuState = new MenuState();
+    mapCreationState = new MapCreationState();
+    
+    //initialise the state
     //set the current state to the game
-    State::setState(menuState);
+    State::addState(menuState);
+    State::addState(gameState);
+    State::addState(mapCreationState);
+    
     //call setup
     State::getCurrentState()->setup();
     Graphics::setBackground(255, 255, 255, 255);
