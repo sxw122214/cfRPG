@@ -23,6 +23,7 @@ class Inventory{
         Item* type;
         int num;
     };
+    int maxStackSize = 64;
     int selected = 0;
     std::vector<inventoryItem> held;
 public:

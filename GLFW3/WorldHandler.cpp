@@ -183,7 +183,6 @@ bool WorldHandler::worldCollideY(Math::Vector2D &position, Math::Vector2D &scene
     if(map[mapPosition.x + mapPosition.y*xMapSize]->solid){
         if(up){
             position.y = (gridPosition.y+1)*SPRITE_SIZE;
-            v = 0;
         }
         if(down){
             position.y = (gridPosition.y-1)*SPRITE_SIZE;
@@ -317,6 +316,7 @@ void WorldHandler::loadWorld(int worldNum){
 }
 
 void WorldHandler::updateWorld(){
+    
 }
 
 

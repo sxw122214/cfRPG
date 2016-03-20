@@ -38,6 +38,7 @@ public:
     
     //the players speed
     float speed = 5;
+    float jumpHeight = -10;
     //pointers to handlers
     std::shared_ptr<WorldHandler>  worldHandler;
     std::shared_ptr<InputHandler> inputHandler;

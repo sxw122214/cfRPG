@@ -12,7 +12,7 @@
 
 void Inventory::pickup(Item* item, int amount){
     for(auto &i : held){
-        if(i.type==item){
+        if(i.type==item && i.num+1 <= maxStackSize){
             i.num+=amount;
             return;
         }

@@ -92,8 +92,8 @@ void Player::update(){
         editVelocity().x += 0.5;
     }
     //get actual user input
-    if((inputHandler->getSPACE() || inputHandler->getUP()) && isTouchingBelow){
-        editVelocity().y -= 15;
+    if((inputHandler->getSPACE() || inputHandler->getUP()) && isTouchingBelow && getVelocity().y == 0){
+        editVelocity().y += jumpHeight;
         movement = true;
     }
     
@@ -107,8 +107,8 @@ void Player::update(){
     }
     
     //clamp the jump speed
-    if(getVelocity().y < -15){
-        editVelocity().y = -15;
+    if(getVelocity().y < jumpHeight){
+        editVelocity().y = jumpHeight;
     }
     //clamp the running speed
     if(getVelocity().x > getMaxSpeedX()){
