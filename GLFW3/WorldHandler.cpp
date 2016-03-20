@@ -34,7 +34,6 @@ void WorldHandler::movementCheck(Math::Vector2D &current, Math::Vector2D &veloci
         current.x += velocity.x;
         xCollide = false;
     }
-    std::cout << xCollide << " " << yCollide << std::endl;
     if(yCollide && xCollide){
         return;
     }
