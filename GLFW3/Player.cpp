@@ -96,12 +96,13 @@ void Player::update(){
         editVelocity().y -= 15;
         movement = true;
     }
+    
     if(inputHandler->getRIGHT()){
         editVelocity().x += speed;
         movement = true;
     }
     if(inputHandler->getLEFT()){
-        editVelocity().x += -speed;
+        editVelocity().x -= speed;
         movement = true;
     }
     
@@ -116,7 +117,6 @@ void Player::update(){
     if(getVelocity().x < -getMaxSpeedX()){
         editVelocity().x = -getMaxSpeedX();
     }
-
     worldHandler->movementCheck(editPosition(), editVelocity(), editScene(), true, true);
     
     if(inputHandler->getQ() && inventoryItemDisplayAlpha < 0.9){
@@ -217,7 +217,6 @@ void Player::render(){
     miningAnimation();
     renderInventory();
     SpriteHandler::getInstance()->get(SPRITE_CODE::S_player)->draw(this->getPosition(), SPRITE_SIZE, SPRITE_SIZE);
-
 }
 
 void Player::miningAnimation(){
