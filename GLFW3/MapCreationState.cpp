@@ -50,7 +50,7 @@ void MapCreationState::update(){
 
 void MapCreationState::draw(){
     wH->renderWorld();
-    SpriteHandler::getInstance()->get(currentTexture)->draw(iH->getMouseX(), iH->getMouseY(), SPRITE_SIZE, SPRITE_SIZE);
+    SpriteHandler::getInstance()->get(wH->getTiles()[currentTexture].textureCode)->draw(iH->getMouseX(), iH->getMouseY(), SPRITE_SIZE, SPRITE_SIZE);
     //if the world has recently been saved, show an indicator
     if(savedAlpha > 0){
         glColor4f(0, 0, 0, savedAlpha);
@@ -63,7 +63,7 @@ void MapCreationState::draw(){
 void MapCreationState::keyPressed(int key){
     if(key == 80){
         std::cout << "right" << std::endl;
-        if(currentTexture < SPRITE_CODE::END_SPRITE){
+        if(currentTexture < wH->getTiles().size()){
             currentTexture++;
         }else{
             currentTexture = 0;
