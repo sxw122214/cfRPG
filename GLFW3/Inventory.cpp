@@ -114,6 +114,10 @@ void Inventory::display(Graphics::Text* text){
     int j = 0;
     //loop through it and show it
     for(int i = 0; i < held.size(); i++){
+        if(selected == i){
+            glColor3d(0, 0, 0);
+            Graphics::drawRect((i%5)*SPRITE_SIZE+((i%5+1)*2), (j)*SPRITE_SIZE+((j+1)*2), SPRITE_SIZE+4, SPRITE_SIZE+4);
+        }
         glColor4d(1, 1, 1, 1);
         //show the item
         SpriteHandler::getInstance()->get(held[i].type->textureCode)->draw((i%5)*SPRITE_SIZE+((i%5+1)*4), (j)*SPRITE_SIZE+((j+1)*4), SPRITE_SIZE, SPRITE_SIZE);
