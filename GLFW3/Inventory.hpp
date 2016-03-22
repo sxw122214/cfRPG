@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include "Item.hpp"
+#include "Handlers.h"
 #include <vector>
 
 class Inventory{
@@ -50,6 +51,9 @@ public:
     
     //returns true if the item reduced is removed
     bool reduceSelected();
+    
+    //draws the inventory on screen
+    void display(Graphics::Text* text);
     
     //returns the currently selected item
     inventoryItem* getSelected();

@@ -54,6 +54,9 @@ void InputHandler::joyStick(){
 void InputHandler::keyDown(int key){
     isKeyPressed = true;
     switch(key){
+        case 73:
+            I = true;
+            break;
         case 81:
             Q = true;
             break;
@@ -102,6 +105,9 @@ void InputHandler::keyDown(int key){
 void InputHandler::keyUp(int key){
     isKeyPressed = false;
     switch(key){
+        case 73:
+            I = false;
+            break;
         case 81:
             Q = false;
             break;
@@ -205,6 +211,10 @@ bool InputHandler::getQ(){
 
 bool InputHandler::getE(){
     return E;
+}
+
+bool InputHandler::getI(){
+    return I;
 }
 
 bool InputHandler::getisKeyPressed(){

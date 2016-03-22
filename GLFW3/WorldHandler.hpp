@@ -44,7 +44,7 @@ public:
     //does world collision and corrects on the xandY axis
     bool worldCollideY(Math::Vector2D &position, Math::Vector2D &scene, float &v);
     bool worldCollideX(Math::Vector2D &position, Math::Vector2D &scene, float &v);
-
+    
     bool belowWorldCollide(Math::Vector2D &position, Math::Vector2D &scene);
     
     //all objects that move must go through this method, it contains collisions and scene changing

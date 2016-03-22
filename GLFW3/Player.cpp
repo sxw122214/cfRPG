@@ -55,7 +55,7 @@ void Player::loadPlayerData(int num){
             }
             
         }
-        std::cout << "player data loaded" << std::endl;
+        std::cout << "Player data loaded" << std::endl;
     }else{
         std::cout << "No player data found, using blank" << std::endl;
     }
@@ -96,7 +96,6 @@ void Player::update(){
         editVelocity().y += jumpHeight;
         movement = true;
     }
-    
     if(inputHandler->getRIGHT()){
         editVelocity().x += speed;
         movement = true;
@@ -128,7 +127,6 @@ void Player::update(){
         inv.forwards();
         inventoryItemDisplayAlpha = 1;
     }
-    
     
     //Item placement check
     if(inputHandler->getMOUSE1()){
@@ -214,9 +212,9 @@ void Player::stopMining(){
 }
 
 void Player::render(){
-    miningAnimation();
     renderInventory();
     SpriteHandler::getInstance()->get(SPRITE_CODE::S_player)->draw(this->getPosition(), SPRITE_SIZE, SPRITE_SIZE);
+    miningAnimation();
 }
 
 void Player::miningAnimation(){
@@ -237,14 +235,22 @@ void Player::miningAnimation(){
 }
 
 void Player::renderInventory(){
+    if(inventoryShown){
+        inv.display(&text);
+    }
+
     if(inventoryItemDisplayAlpha != 0 && !inv.isEmpty()){
         glColor4d(1,1,1,inventoryItemDisplayAlpha);
         //renders the current block
         SpriteHandler::getInstance()->get(inv.getSelected()->type->textureCode)->draw(this->getPosition().x, this->getPosition().y-SPRITE_SIZE, SPRITE_SIZE, SPRITE_SIZE);
-        glColor4d(0, 0, 0,inventoryItemDisplayAlpha);
+        glColor4d(1,1,1, inventoryItemDisplayAlpha);
         //renders the text showing how much there is
         text.draw(std::to_string(inv.getSelected()->num), getPosition().x, (getPosition().y)-4);
-        glColor4d(1,1,1,1);
         inventoryItemDisplayAlpha -= 0.005;
+        glColor4d(1, 1, 1, 1);
    }
+}
+
+void Player::showInventory(){
+    inventoryShown = !inventoryShown;
 }

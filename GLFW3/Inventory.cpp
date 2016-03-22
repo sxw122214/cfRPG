@@ -11,8 +11,24 @@
 
 
 void Inventory::pickup(Item* item, int amount){
+    
+    //
+//    if(getSelected()->type == item){
+//        if(getSelected()->num+amount > maxStackSize){
+//            getSelected()->num = maxStackSize;
+//            amount = (getSelected()->num+amount) - maxStackSize;
+//        }else{
+//            getSelected()->num+=amount;
+//            return;
+//        }
+//    }
     for(auto &i : held){
-        if(i.type==item && i.num+1 <= maxStackSize){
+        if(i.type==item){
+            if(i.num+amount > maxStackSize){
+                i.num = maxStackSize;
+                amount = (i.num+amount)-maxStackSize;
+                continue;
+            }
             i.num+=amount;
             return;
         }
@@ -84,6 +100,32 @@ Inventory::inventoryItem* Inventory::getSelected(){
         return &held[selected];
     }
     return nullptr;
+}
+
+void Inventory::display(Graphics::Text* text){
+    glPushMatrix();
+    //move it over a little, pushpop because easy
+    glTranslatef(30, 30, 0);
+    //colour it nicely
+    glColor4d(0.8, 0.8, 0.8, 0.1);
+    //draw a rectangle as a backround
+    Graphics::drawRect(0, 0, 5*SPRITE_SIZE+24, 5*SPRITE_SIZE+24);
+    
+    int j = 0;
+    //loop through it and show it
+    for(int i = 0; i < held.size(); i++){
+        glColor4d(1, 1, 1, 1);
+        //show the item
+        SpriteHandler::getInstance()->get(held[i].type->textureCode)->draw((i%5)*SPRITE_SIZE+((i%5+1)*4), (j)*SPRITE_SIZE+((j+1)*4), SPRITE_SIZE, SPRITE_SIZE);
+        glColor4d(1, 1, 1, 1);
+        //show the amount
+        text->draw(std::to_string(held[i].num), (i%5)*SPRITE_SIZE+((i%5+1)*4), (j+1)*(SPRITE_SIZE)+((j+1)*2));//+((j+1)*4));
+        if(i%4==0 && i!=0){
+            j++;
+        }
+    }
+    glPopMatrix();
+    glColor4d(1, 1, 1, 1);
 }
 
 int Inventory::size(){

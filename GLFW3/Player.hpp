@@ -47,6 +47,10 @@ public:
     //collection and mining stuff
     //
     
+    //swap the inventory shit
+    bool inventoryShown = false;
+    void showInventory();
+    
     //text to show how many
     Graphics::Text text;
     //Stops mining, resets the clocks etc

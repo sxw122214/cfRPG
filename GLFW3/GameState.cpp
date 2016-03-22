@@ -76,6 +76,9 @@ void GameState::keyPressed(int key){
     if(key == 84){
         saveWorld();
     }
+    if(key == 73){
+        player.showInventory();
+    }
 }
 
 void GameState::pushBothRU(GameObject *go){
