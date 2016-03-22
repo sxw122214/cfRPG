@@ -43,22 +43,6 @@
             timestampString = "478440643.610913"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "Runner::Runner(float windowWidth, float windowHeight, int frameRate,const char* title,BaseCore* c)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GLFW3/Runner.cpp"
-            timestampString = "478440643.610913"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
             startingLineNumber = "66"
             endingLineNumber = "66"
             landmarkName = "Runner::Runner(float windowWidth, float windowHeight, int frameRate,const char* title,BaseCore* c)"
@@ -107,22 +91,6 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "277"
             endingLineNumber = "277"
-            landmarkName = "WorldHandler::loadWorld(int worldNum)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GLFW3/WorldHandler.cpp"
-            timestampString = "480353323.629139"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "284"
-            endingLineNumber = "284"
             landmarkName = "WorldHandler::loadWorld(int worldNum)"
             landmarkType = "5">
          </BreakpointContent>
@@ -358,11 +326,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GLFW3/WorldHandler.cpp"
-            timestampString = "480353323.629139"
+            timestampString = "480354396.389713"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "319"
-            endingLineNumber = "319"
+            startingLineNumber = "281"
+            endingLineNumber = "281"
             landmarkName = "WorldHandler::loadWorld(int worldNum)"
             landmarkType = "5">
          </BreakpointContent>

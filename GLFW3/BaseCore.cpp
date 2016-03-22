@@ -8,6 +8,6 @@
 
 #include "BaseCore.hpp"
 
-GLFWwindow* BaseCore::getWindow(){
+GLFWwindow*& BaseCore::getWindow(){
     return window;
 }

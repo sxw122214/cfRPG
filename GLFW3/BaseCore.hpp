@@ -39,7 +39,7 @@ public:
     virtual void mousePressed(int button){};
     virtual void mouseReleased(int button){};
     virtual void exitCalled(){};
-    GLFWwindow* getWindow();
+    GLFWwindow*& getWindow();
 };
 
 #endif /* BaseCore_hpp */

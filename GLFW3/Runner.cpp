@@ -20,10 +20,7 @@ Runner::Runner(float windowWidth, float windowHeight, int frameRate,const char* 
     Runner::windowHeight = windowHeight;
     //assign the core to the pointer
     this->c = c;
-    
-    //get the window from the core
-    GLFWwindow* window = c->getWindow();
-    //sets the event call back method in basecore
+        //sets the event call back method in basecore
     //set the error method in basecore
     glfwSetErrorCallback(errorCallback);
     //if it fails then exit
@@ -33,7 +30,8 @@ Runner::Runner(float windowWidth, float windowHeight, int frameRate,const char* 
     //stop the window from being resizeable
     glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
     //create the window using the height and stuff
-    window = glfwCreateWindow(windowWidth, windowHeight, title, NULL, NULL);
+    c->getWindow() = glfwCreateWindow(windowWidth, windowHeight, title, NULL, NULL);
+    GLFWwindow* window = c->getWindow();
     //set a userpointer for the window to this version of Runner
     glfwSetWindowUserPointer(window, this);
     //set the key_callback method
