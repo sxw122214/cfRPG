@@ -132,7 +132,7 @@ void Inventory::display(Graphics::Text* text){
 }
 
 int Inventory::size(){
-    return held.size();
+    return (int)held.size();
 }
 
 int Inventory::getSelectedPos(){
