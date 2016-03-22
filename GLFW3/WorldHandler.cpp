@@ -276,6 +276,9 @@ void WorldHandler::loadWorld(int worldNum){
     if(!itemLoaded){
         this->loadItemTypes();
     }
+    xMapSize = 78;
+    yMapSize = 318;
+    map.reserve(xMapSize*yMapSize);
     const char seperator = ',';
     std::ifstream worldFile("data/saves/world"+std::to_string(worldNum)+".csv", std::ios::in); //declare a file stream
     if (!worldFile.is_open()) //checks if the file is open, if not load a template
@@ -292,7 +295,6 @@ void WorldHandler::loadWorld(int worldNum){
                 //this allows for >1 digit ints
                 // i >= str.length finds the end of the line
                 if(str[i] == seperator || i >= str.length()){
-                    xMapSize++;
                     int tempInt = atoi(read.c_str()); // turn into an int
                     read.clear(); // clear the read String for next time
                     //if the tempInt is incorrect or invalid
@@ -305,13 +307,9 @@ void WorldHandler::loadWorld(int worldNum){
                     read += str[i];
                 }
             }
-            //count how many lines there are
-            yMapSize++;
         }
-        //xMapSize will end up being xSize*number of lines
-        //so fix that
-        xMapSize = xMapSize/yMapSize;
         worldLoaded = true;
+    
     std::cout << "World loaded" << std::endl;
 }
 
