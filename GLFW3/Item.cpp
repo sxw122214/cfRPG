@@ -9,5 +9,4 @@
 #include "Item.hpp"
 
 Item::Item(int id, int textureCode, bool placeable, int tileID) : id(id), textureCode(textureCode), placeable(placeable), tileID(tileID){
-    
 }
