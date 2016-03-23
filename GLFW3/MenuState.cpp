@@ -9,10 +9,7 @@
 #include "MenuState.hpp"
 
 MenuState::~MenuState(){
-    delete gameState;
-    gameState = nullptr;
-    delete mapCreationState;
-    mapCreationState = nullptr;
+
 }
 
 void MenuState::setup(){

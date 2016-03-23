@@ -424,9 +424,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C2071E7C1C15CBBE00648169 /* Project2 */ = {
+		C2071E7C1C15CBBE00648169 /* PAPterm2 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C2071E841C15CBBE00648169 /* Build configuration list for PBXNativeTarget "Project2" */;
+			buildConfigurationList = C2071E841C15CBBE00648169 /* Build configuration list for PBXNativeTarget "PAPterm2" */;
 			buildPhases = (
 				C2071E791C15CBBE00648169 /* Sources */,
 				C2071E7A1C15CBBE00648169 /* Frameworks */,
@@ -436,7 +436,7 @@
 			);
 			dependencies = (
 			);
-			name = Project2;
+			name = PAPterm2;
 			productName = GLFW3;
 			productReference = C2071E7D1C15CBBE00648169 /* Project2 */;
 			productType = "com.apple.product-type.tool";
@@ -467,7 +467,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C2071E7C1C15CBBE00648169 /* Project2 */,
+				C2071E7C1C15CBBE00648169 /* PAPterm2 */,
 			);
 		};
 /* End PBXProject section */
@@ -639,7 +639,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C2071E841C15CBBE00648169 /* Build configuration list for PBXNativeTarget "Project2" */ = {
+		C2071E841C15CBBE00648169 /* Build configuration list for PBXNativeTarget "PAPterm2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C2071E851C15CBBE00648169 /* Debug */,
