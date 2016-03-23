@@ -25,9 +25,12 @@ public:
     void mousePressed(int button);
     void mouseReleased(int button);
     void exitCalled();
+    
+    //states of the program
     MenuState* menuState;
     GameState* gameState;
     MapCreationState* mapCreationState;
+    //holds a quick input handler
     std::shared_ptr<InputHandler> inputHandler;
     
 };

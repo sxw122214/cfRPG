@@ -27,9 +27,9 @@ public:
     virtual void draw();
     virtual void keyPressed(int key);
     virtual void exitCalled();
-    GameState* gameState;
-    MapCreationState* mapCreationState;
+    //text for explaining the game
     Graphics::Text text;
+    //user word selection
     std::string selection;
 };
 

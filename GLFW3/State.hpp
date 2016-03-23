@@ -35,6 +35,8 @@ public:
     static void addState(State*);
     //set a state to one
     static void setState(int statenum);
+    
+    //virtual methods of a state
     virtual void update() = 0;
     virtual void draw() = 0;
     virtual void setup() = 0;

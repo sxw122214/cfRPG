@@ -31,7 +31,7 @@ void Player::loadPlayerData(int num){
             if(str[0] == '/'){
                 continue;
             }
-            //loop through and push all the tiles into a vector
+            //loop through and do appropriate things with the data
             std::vector<int> readIntegers; // this will hold the data
             std::string read;
             for(int i = 0; i <= str.length(); i++){
@@ -59,6 +59,7 @@ void Player::loadPlayerData(int num){
     }else{
         std::cout << "No player data found, using blank" << std::endl;
     }
+    //offset the world
     worldHandler->offSetby(getScene().x, getScene().y, true);
 }
 

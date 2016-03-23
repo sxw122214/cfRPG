@@ -14,15 +14,15 @@ namespace Graphics{
     }
 
     void drawTriangle(const Math::Vector2D &v1, const Math::Vector2D &v2, const Math::Vector2D &v3){
-        glBegin(GL_TRIANGLES);
-        glVertex3f(v1.x, v1.y, 0.f);
-        glVertex3f(v2.x, v2.y, 0.f);
-        glVertex3f(v3.x, v3.y, 0.f);
-        glEnd();
+        drawTriangle(v1.x, v1.y, v2.x, v2.y, v3.x, v3.y);
     }
 
     void drawTriangle(float x1, float y1, float x2, float y2, float x3, float y3){
-        Graphics::drawTriangle(Math::Vector2D(x1, y1), Math::Vector2D(x2, y2), Math::Vector2D(x3, y3));
+        glBegin(GL_TRIANGLES);
+        glVertex3f(x1, y1, 0.f);
+        glVertex3f(x2, y2, 0.f);
+        glVertex3f(x3, y3, 0.f);
+        glEnd();
     }
 
     void drawRect(float x, float y, float w, float h){

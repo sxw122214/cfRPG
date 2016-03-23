@@ -20,7 +20,7 @@ namespace Math {
             this->y = y;
         }
         
-        //ADD, dot, scale, subtract, 
+        //TO ADD: dot, scale, etc
         Vector2D(){}
         ~Vector2D(){}
         inline friend bool operator== (const Vector2D& v1, const Vector2D& v2){

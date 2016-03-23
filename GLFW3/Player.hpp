@@ -47,7 +47,7 @@ public:
     //collection and mining stuff
     //
     
-    //swap the inventory shit
+    //Show the inventory on screen
     bool inventoryShown = false;
     void showInventory();
     
